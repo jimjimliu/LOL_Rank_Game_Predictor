@@ -45,7 +45,7 @@ class Riot:
         arr = ('leagueId', 'queueType', 'tier', 'rank', 'summonerId', 'summonerName',
                 'leaguePoints', 'wins', 'losses', 'veteran', 'inactive', 'freshBlood','hotStreak')
         result, summoner_batch = [], []
-        for i in tqdm(range(len(entries[:5])), desc="Extracting account info: "):
+        for i in tqdm(range(len(entries)), desc="Extracting account info: "):
             # RIOT limits max request is 20 times per second, sleep for every 20 requests
             if i%20 != 0:
                 # re-organize data items and put into result
