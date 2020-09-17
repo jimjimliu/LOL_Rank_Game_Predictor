@@ -6,7 +6,7 @@
 
 from riotwatcher import LolWatcher, ApiError
 import riotwatcher
-from Config import config
+from Config.config import RANK_TIERS, DIVISIONS
 from Config.riot_config import ACCESS_KEY
 import pandas as pd
 from DBUtils.PooledDB import PooledDB
@@ -20,16 +20,20 @@ class Riot:
 
     def __init__(self, access_key):
         self.access_key = access_key
-        self.rank_tiers = config.RANK_TIERS
-        self.division = config.DIVISIONS
+        self.rank_tiers = RANK_TIERS
+        self.division = DIVISIONS
         self.lol_watcher = LolWatcher(access_key)
 
 
-    def __LEAGUE_EXP_V4(self, pages:tuple):
+    def __LEAGUE_EXP_V4(self, pages:tuple, tier, division):
         """
-        get all league entries
+
+        :param pages:
+        :param tier:
+        :param division:
         :return:
         """
+
         leagueApiv4 = self.lol_watcher.league
         matchApiv4 = self.lol_watcher.match
         summonerApiv4 = self.lol_watcher.summoner
@@ -37,7 +41,7 @@ class Riot:
         entries = []
         for i in tqdm(range(pages[0], pages[1]), desc="Extracting Entries: "):
             # get league entries, each request returns about 200 rows
-            result = leagueApiv4.entries(region="NA1", queue="RANKED_SOLO_5x5", tier="SILVER", division='I', page=i)
+            result = leagueApiv4.entries(region="NA1", queue="RANKED_SOLO_5x5", tier=tier, division=division, page=i)
             # if no result, means API has retrieved everything, no more to request, return
             if len(result) == 0:
                 break
@@ -78,9 +82,10 @@ class Riot:
         return summoner_batch
 
     def get_league_entry(self):
-        start_page, end_page = 1, 200
+        start_page, end_page = 1, 100
         while start_page < end_page:
-            entries = self.__LEAGUE_EXP_V4((start_page, start_page+20))
+            # request summoner information from RIOT
+            entries = self.__LEAGUE_EXP_V4((start_page, start_page+20), self.rank_tiers[2], self.division[1])
             # if no entries returned, means API retrieved nothing, stop
             if not entries:
                 break
