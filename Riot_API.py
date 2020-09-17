@@ -1,6 +1,13 @@
+'''
+    Retrieve data using APIs provided by RIOT: https://developer.riotgames.com/apis#match-v4/GET_getMatchlist
+    Storing Data in DATA/summoner.csv, and MySQL DB.
+'''
+
+
 from riotwatcher import LolWatcher, ApiError
 import riotwatcher
 from Config import config
+from Config.riot_config import ACCCESS_KEY
 import pandas as pd
 from DBUtils.PooledDB import PooledDB
 from threading import Timer
@@ -31,6 +38,7 @@ class Riot:
         for i in tqdm(range(pages[0], pages[1]), desc="Extracting Entries: "):
             # get league entries, each request returns about 200 rows
             result = leagueApiv4.entries(region="NA1", queue="RANKED_SOLO_5x5", tier="SILVER", division='I', page=i)
+            # if no result, means API has retrieved everything, no more to request, return
             if len(result) == 0:
                 break
             else:
@@ -73,6 +81,7 @@ class Riot:
         start_page, end_page = 1, 200
         while start_page < end_page:
             entries = self.__LEAGUE_EXP_V4((start_page, start_page+20))
+            # if no entries returned, means API retrieved nothing, stop
             if not entries:
                 break
             else:
@@ -108,5 +117,5 @@ class Riot:
                 start_index += step
 
 if __name__ == "__main__":
-    riot = Riot(access_key="RGAPI-fe6b56d3-546c-4610-ab68-9baf3b34ac16")
+    riot = Riot(access_key=ACCCESS_KEY)
     print(riot.get_league_entry())
