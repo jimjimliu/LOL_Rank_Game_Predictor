@@ -1,1 +1,0 @@
-ACCCESS_KEY = "RGAPI-fe6b56d3-546c-4610-ab68-9baf3b34ac16"
