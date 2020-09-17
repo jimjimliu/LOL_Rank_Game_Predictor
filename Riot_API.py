@@ -7,7 +7,7 @@
 from riotwatcher import LolWatcher, ApiError
 import riotwatcher
 from Config import config
-from Config.riot_config import ACCCESS_KEY
+from Config.riot_config import ACCESS_KEY
 import pandas as pd
 from DBUtils.PooledDB import PooledDB
 from threading import Timer
@@ -117,5 +117,5 @@ class Riot:
                 start_index += step
 
 if __name__ == "__main__":
-    riot = Riot(access_key=ACCCESS_KEY)
+    riot = Riot(access_key=ACCESS_KEY)
     print(riot.get_league_entry())
