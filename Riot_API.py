@@ -50,7 +50,7 @@ class Riot:
         # if no results in entries, means nothing returned by the API, return
         if len(entries) == 0:
             return None
-        print(len(entries), "pages from ", pages[0], " to ", pages[1])
+        print(len(entries), "summoners from page ", pages[0], " to ", pages[1])
 
         # for each summoner in entries, get their account information from API
         arr = ('leagueId', 'queueType', 'tier', 'rank', 'summonerId', 'summonerName',
