@@ -2,7 +2,6 @@ from riotwatcher import LolWatcher, ApiError
 import riotwatcher
 from Config import config
 import pandas as pd
-import mysql.connector
 from DBUtils.PooledDB import PooledDB
 from threading import Timer
 from tqdm import tqdm
