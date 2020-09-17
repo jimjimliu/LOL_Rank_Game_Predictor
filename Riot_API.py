@@ -83,9 +83,11 @@ class Riot:
 
     def get_league_entry(self):
         start_page, end_page = 1, 100
+        tier, division = self.rank_tiers[2], self.division[1]
+        print(">>> Now extracting summoner information of [ {} {} ]".format(tier, division))
         while start_page < end_page:
             # request summoner information from RIOT
-            entries = self.__LEAGUE_EXP_V4((start_page, start_page+20), self.rank_tiers[2], self.division[1])
+            entries = self.__LEAGUE_EXP_V4((start_page, start_page+20), tier, division)
             # if no entries returned, means API retrieved nothing, stop
             if not entries:
                 break
@@ -108,10 +110,10 @@ class Riot:
         # insert result into mysql, if no database, comment the following section
         db = MySqLHelper()
         sql = '''
-                    insert into all_league_entry(`leagueId`, `queueType`, `tier`, `rank`,`summonerId`,`summonerName`,
-                    `leaguePoints`,`wins`,`losses`,`veteran`,`inactive`,`freshBlood`,`hotStreak`,`accountId`,`puuid`,`summonerLevel`) 
-                    VALUES (%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s)
-                '''
+            insert ignore into all_league_entry(`leagueId`, `queueType`, `tier`, `rank`,`summonerId`,`summonerName`,
+            `leaguePoints`,`wins`,`losses`,`veteran`,`inactive`,`freshBlood`,`hotStreak`,`accountId`,`puuid`,`summonerLevel`) 
+            VALUES (%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s)
+        '''
 
         start_index = 0
         step = 100
