@@ -6,3 +6,4 @@ REGION = "NA1"
 DIVISIONS = [
     "I", "II", "III", "IV"
 ]
+SUMMONERS_DATA = "DATA/summoners.csv"

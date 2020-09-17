@@ -13,7 +13,6 @@ from DBUtils.PooledDB import PooledDB
 from threading import Timer
 from tqdm import tqdm
 from time import sleep
-from DATABASE.mysqlhelper import MySqLHelper
 import csv
 
 class Riot:
@@ -83,6 +82,7 @@ class Riot:
 
     def get_league_entry(self):
         start_page, end_page = 1, 100
+        # configure tier and divisions of summoners
         tier, division = self.rank_tiers[2], self.division[1]
         print(">>> Now extracting summoner information of [ {} {} ]".format(tier, division))
         while start_page < end_page:
@@ -105,23 +105,9 @@ class Riot:
                 sleep(1.0)
                 start_page += 20
 
+        print("Work finished, stop requesting from RIOT.")
 
-    def pop_db(self, sql, data):
-        # insert result into mysql, if no database, comment the following section
-        db = MySqLHelper()
-        sql = '''
-            insert ignore into all_league_entry(`leagueId`, `queueType`, `tier`, `rank`,`summonerId`,`summonerName`,
-            `leaguePoints`,`wins`,`losses`,`veteran`,`inactive`,`freshBlood`,`hotStreak`,`accountId`,`puuid`,`summonerLevel`) 
-            VALUES (%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s)
-        '''
 
-        start_index = 0
-        step = 100
-        if len(data) > 0:
-            while start_index < len(data):
-                result = db.insertmany(sql, data[start_index:start_index + step])
-                print(result, " rows inserted.")
-                start_index += step
 
 if __name__ == "__main__":
     riot = Riot(access_key=ACCESS_KEY)
