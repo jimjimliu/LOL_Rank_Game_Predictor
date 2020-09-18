@@ -38,6 +38,7 @@ class Riot:
         summonerApiv4 = self.lol_watcher.summoner
 
         entries = []
+        print("\n Now requesting from page {} to {}".format(pages[0], pages[1]))
         for i in tqdm(range(pages[0], pages[1]), desc="Extracting Entries: "):
             # get league entries, each request returns about 200 rows
             result = leagueApiv4.entries(region="NA1", queue="RANKED_SOLO_5x5", tier=tier, division=division, page=i)
@@ -84,7 +85,7 @@ class Riot:
         start_page, end_page = 61, 100
         # configure tier and divisions of summoners
         tier, division = self.rank_tiers[2], self.division[3]
-        print(">>> Now extracting summoner information of [ {} {} ] from page {} to {}".format(tier, division,start_page,end_page))
+        print(">>> Now extracting summoner information of [ {} {} ].".format(tier, division))
         while start_page < end_page:
             # request summoner information from RIOT
             entries = self.__LEAGUE_EXP_V4((start_page, start_page+20), tier, division)
