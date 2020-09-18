@@ -83,7 +83,7 @@ class Riot:
     def get_league_entry(self):
         start_page, end_page = 1, 100
         # configure tier and divisions of summoners
-        tier, division = self.rank_tiers[2], self.division[2]
+        tier, division = self.rank_tiers[2], self.division[3]
         print(">>> Now extracting summoner information of [ {} {} ]".format(tier, division))
         while start_page < end_page:
             # request summoner information from RIOT
