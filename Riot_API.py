@@ -81,7 +81,7 @@ class Riot:
         return summoner_batch
 
     def get_league_entry(self):
-        start_page, end_page = 1, 100
+        start_page, end_page = 61, 100
         # configure tier and divisions of summoners
         tier, division = self.rank_tiers[2], self.division[3]
         print(">>> Now extracting summoner information of [ {} {} ]".format(tier, division))
