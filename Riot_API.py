@@ -84,7 +84,7 @@ class Riot:
         start_page, end_page = 61, 100
         # configure tier and divisions of summoners
         tier, division = self.rank_tiers[2], self.division[3]
-        print(">>> Now extracting summoner information of [ {} {} ]".format(tier, division))
+        print(">>> Now extracting summoner information of [ {} {} ] from page {} to {}".format(tier, division,start_page,end_page))
         while start_page < end_page:
             # request summoner information from RIOT
             entries = self.__LEAGUE_EXP_V4((start_page, start_page+20), tier, division)
