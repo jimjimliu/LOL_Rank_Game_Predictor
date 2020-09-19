@@ -7,7 +7,7 @@
 from riotwatcher import LolWatcher, ApiError
 import riotwatcher
 from Config.config import RANK_TIERS, DIVISIONS
-from Config.riot_config import ACCESS_KEY
+from Config.riot_config import ACCESS_KEY, ACCESS_KEY2
 import pandas as pd
 from DBUtils.PooledDB import PooledDB
 from threading import Timer
@@ -18,6 +18,7 @@ from MySQL_POOL.mysqlhelper import MySqLHelper
 from UTIL.utils import utils
 ENCODING = 'utf-8'
 from Config.config import RANK_TIERS, DIVISIONS
+import sys
 
 class Riot:
 
@@ -196,11 +197,21 @@ class Riot:
         print("Finish retrieving matchlist from {} accounts.".format(row_count))
 
 if __name__ == "__main__":
-    riot = Riot(access_key=ACCESS_KEY)
-    print(riot.get_league_entry(RANK_TIERS[3], DIVISIONS[2]))
-    print(riot.get_league_entry(RANK_TIERS[3], DIVISIONS[3]))
-    print(riot.get_league_entry(RANK_TIERS[4], DIVISIONS[0]))
-    print(riot.get_league_entry(RANK_TIERS[4], DIVISIONS[1]))
-    print(riot.get_league_entry(RANK_TIERS[4], DIVISIONS[2]))
-    print(riot.get_league_entry(RANK_TIERS[4], DIVISIONS[3]))
+
+
+    if len(sys.argv) == 1:
+        riot = Riot(access_key=ACCESS_KEY)
+    else:
+        key = ACCESS_KEY if int(sys.argv[1]) == 1 else ACCESS_KEY2
+        riot = Riot(access_key=key)
+
+        if int(sys.argv[1]) == 1:
+            # bronze
+            for div in DIVISIONS:
+                print(riot.get_league_entry(RANK_TIERS[1], div))
+        else:
+            # iron
+            for div in DIVISIONS:
+                print(riot.get_league_entry(RANK_TIERS[0], div))
+
     # riot.MATCH_V4()
