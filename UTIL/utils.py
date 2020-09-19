@@ -4,6 +4,8 @@ from csv import DictReader
 import pandas as pd
 from MySQL_POOL.mysqlhelper import MySqLHelper
 from Config.config import SUMMONERS_DATA
+from tqdm import tqdm
+import csv
 
 
 # directory where all generated and saved models at
@@ -52,28 +54,27 @@ class utils():
                 rows.append(line)
         return rows
 
-    def write_out(lst,  predictions, file_name):
-        '''
-        write answer.csv(submisson file) out
-
-        :param lst: (List) 2-d list
-        :param predictions: (List) 1-d list contains prediction labels
-        :return: None
+    def write_csv(header, data, path):
         '''
 
-        result = pd.DataFrame(columns=('Headline', 'Body ID', 'Stance'))
-        for item in lst:
-            result = result.append(
-                pd.DataFrame({'Headline': [item['Headline']], 'Body ID': [item['Body ID']], 'Stance': [None]}),
-                ignore_index=True)
+        :param data: list of tuples. [(), ()]
+        :param header: (list) []
+        :param path: (string)
+        :return:
+        '''
+        if len(data) == 0:
+            print("0 rows has been written to .csv")
 
-        for i in range(len(predictions)):
-            result.loc[i, 'Stance'] = LABELS[predictions[i]]
+        with open(path, 'a', newline='') as csvfile:
+            writer = csv.writer(csvfile, delimiter=',', quotechar='|', quoting=csv.QUOTE_MINIMAL)
+            # if no header, write header
+            if csvfile.tell() == 0:
+                writer.writerow(header)
+            for item in tqdm(data, desc="Writing to .csv"):
+                writer.writerow(item)
 
-        if not os.path.exists(SUBMISSION_PATH):
-            os.mkdir(SUBMISSION_PATH)
-        result.to_csv(os.path.join(SUBMISSION_PATH, file_name+'.csv'), index=False, encoding='utf-8')  # From pandas library
-        print("Submission.csv is saved at: ", os.path.join(SUBMISSION_PATH, file_name+'.csv'))
+        print("{} rows has been written to .csv".format(len(data)))
+
 
     def check_balanced(df, column):
         '''

@@ -20,10 +20,13 @@
 --    `summonerLevel` MEDIUMINT,
 --    primary key(`summonerId`)
 --)ENGINE=InnoDB DEFAULT CHARSET=utf8;
+--alter table all_league_entry add constraint unique_account unique(`accountId`);
+--alter table all_league_entry add id int not null auto_increment unique key;
 
 -- table to store matches
 
 create table `match_list`(
+	`id` int not null auto_increment,
     `accountId` varchar(255) not null,
     `gameId` varchar(255) not null,
     `role` varchar(100),
@@ -34,8 +37,9 @@ create table `match_list`(
     `lane` varchar(100),
     `timestamp` varchar(255),
     primary key(`gameId`),
+    unique key (`id`),
     foreign key (`accountId`) references all_league_entry(`accountId`)
-    ON DELETE CASCADE ON UPDATE CASCADE;
+    ON DELETE CASCADE ON UPDATE CASCADE
 )ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 

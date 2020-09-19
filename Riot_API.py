@@ -14,6 +14,9 @@ from threading import Timer
 from tqdm import tqdm
 from time import sleep
 import csv
+from MySQL_POOL.mysqlhelper import MySqLHelper
+from UTIL.utils import utils
+ENCODING = 'utf-8'
 
 class Riot:
 
@@ -31,14 +34,15 @@ class Riot:
         :param tier:
         :param division:
         :return:
+            list of tuples. [(), ()]
         """
 
         leagueApiv4 = self.lol_watcher.league
-        matchApiv4 = self.lol_watcher.match
         summonerApiv4 = self.lol_watcher.summoner
 
+        # storing summoner information, each item in the list represents a summoner
         entries = []
-        print("\n Now requesting from page {} to {}".format(pages[0], pages[1]))
+        print("\nNow requesting from page {} to {}".format(pages[0], pages[1]))
         for i in tqdm(range(pages[0], pages[1]), desc="Extracting Entries: "):
             # get league entries, each request returns about 200 rows
             result = leagueApiv4.entries(region="NA1", queue="RANKED_SOLO_5x5", tier=tier, division=division, page=i)
@@ -59,7 +63,7 @@ class Riot:
         result, summoner_batch = [], []
         for i in tqdm(range(len(entries)), desc="Extracting account info: "):
             # RIOT limits max request is 20 times per second, sleep for every 20 requests
-            if i%20 != 0:
+            if i%20 != 0 or i==0:
                 # re-organize data items and put into result
                 for label in arr:
                     if label in ('veteran', 'inactive', 'freshBlood','hotStreak'):
@@ -82,12 +86,12 @@ class Riot:
         return summoner_batch
 
     def get_league_entry(self):
-        start_page, end_page = 61, 100
+        start_page, end_page = 1, 100
         # configure tier and divisions of summoners
-        tier, division = self.rank_tiers[2], self.division[3]
+        tier, division = self.rank_tiers[3], self.division[0]
         print(">>> Now extracting summoner information of [ {} {} ].".format(tier, division))
         while start_page < end_page:
-            # request summoner information from RIOT
+            # request summoner information from RIOT, 20 pages a time
             entries = self.__LEAGUE_EXP_V4((start_page, start_page+20), tier, division)
             # if no entries returned, means API retrieved nothing, stop
             if not entries:
@@ -96,12 +100,8 @@ class Riot:
                 # write data into csv
                 header = ['leagueId', 'queueType', 'tier', 'rank', 'summonerId', 'summonerName',
                 'leaguePoints', 'wins', 'losses', 'veteran', 'inactive', 'freshBlood','hotStreak','accountId', 'puuid', 'summonerLevel']
-                with open('DATA/summoners.csv', 'a', newline='') as csvfile:
-                    writer = csv.writer(csvfile, delimiter=',', quotechar='|', quoting=csv.QUOTE_MINIMAL)
-                    if csvfile.tell() == 0:
-                        writer.writerow(header)
-                    for item in tqdm(entries, desc="Writing to .csv"):
-                        writer.writerow(item)
+                utils.write_csv(header, entries, 'DATA/summoners.csv')
+
                 # sleep every 20 requests
                 sleep(1.0)
                 start_page += 20
@@ -109,8 +109,57 @@ class Riot:
         print("Work finished, stop requesting from RIOT.")
 
     def MATCH_V4(self):
-        return
+
+        matchApiv4 = self.lol_watcher.match
+        db = MySqLHelper()
+        sql_count = '''
+            select count(*) from RIOT.all_league_entry;
+        '''
+        # total rows in the table
+        row_count = db.selectall(sql_count)[0][0]
+        batch_size = 1000
+        start_row, flag = 0, 0
+
+        while start_row < row_count:
+            # select 1000 rows at a time
+            sql_data = '''
+                select accountId from all_league_entry where id > {} limit {};
+            '''.format(start_row, batch_size)
+            summoner_acnt = db.selectall(sql_data)
+
+            print("Selected {} rows from all_league_entry. ID: {} to {}.".format(len(summoner_acnt),start_row,start_row+batch_size))
+
+            match_data, header = [], []
+            for i in tqdm(range(len(summoner_acnt)), desc="Requesting matchlist of each account."):
+                # sleep 1 second every 20 request, RIOT has a request limit of 20 request /second
+                if i%20 != 0 or i == 0:
+                    # convery binary string to string
+                    accountId = str(summoner_acnt[i][0], ENCODING)
+                    # API: https://developer.riotgames.com/apis#match-v4/GET_getMatchlist
+                    # get the most recent 100 matches from each account id
+                    matchlist = matchApiv4.matchlist_by_account(region="NA1", encrypted_account_id=accountId)
+                    matches = matchlist['matches']
+
+                    # convert dict keys as header, convert just once. After header is assigned, turn flag to 1
+                    if not flag and len(matches) > 0:
+                        header = ['accountId']+list(matches[0].keys())
+                        flag = 1
+
+                    for item in matches:
+                        values = [accountId]+list(item.values())
+                        match_data.append(values)
+
+                else:
+                    sleep(1.0)
+
+            # write to csv every 1000 summoners, there's 100 matches returned for each summoner.
+            utils.write_csv(header, match_data, 'DATA/match_list.csv')
+            start_row += batch_size
+
+
+        print("Finish retrieving matchlist from {} accounts.".format(row_count))
 
 if __name__ == "__main__":
     riot = Riot(access_key=ACCESS_KEY)
     print(riot.get_league_entry())
+    # riot.MATCH_V4()
