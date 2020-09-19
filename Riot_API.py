@@ -17,17 +17,16 @@ import csv
 from MySQL_POOL.mysqlhelper import MySqLHelper
 from UTIL.utils import utils
 ENCODING = 'utf-8'
+from Config.config import RANK_TIERS, DIVISIONS
 
 class Riot:
 
     def __init__(self, access_key):
         self.access_key = access_key
-        self.rank_tiers = RANK_TIERS
-        self.division = DIVISIONS
         self.lol_watcher = LolWatcher(access_key)
 
 
-    def __LEAGUE_EXP_V4(self, pages:tuple, tier, division):
+    def LEAGUE_EXP_V4(self, pages:tuple, tier, division):
         """
 
         :param pages:
@@ -85,14 +84,13 @@ class Riot:
 
         return summoner_batch
 
-    def get_league_entry(self):
+    def get_league_entry(self, rank_tier, division):
         start_page, end_page = 1, 100
-        # configure tier and divisions of summoners
-        tier, division = self.rank_tiers[3], self.division[0]
-        print(">>> Now extracting summoner information of [ {} {} ].".format(tier, division))
+
+        print(">>> Now extracting summoner information of [ {} {} ].".format(rank_tier, division))
         while start_page < end_page:
             # request summoner information from RIOT, 20 pages a time
-            entries = self.__LEAGUE_EXP_V4((start_page, start_page+20), tier, division)
+            entries = self.LEAGUE_EXP_V4((start_page, start_page+20), rank_tier, division)
             # if no entries returned, means API retrieved nothing, stop
             if not entries:
                 break
@@ -161,5 +159,5 @@ class Riot:
 
 if __name__ == "__main__":
     riot = Riot(access_key=ACCESS_KEY)
-    print(riot.get_league_entry())
+    print(riot.get_league_entry(RANK_TIERS[3], DIVISIONS[1]))
     # riot.MATCH_V4()
