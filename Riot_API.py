@@ -22,28 +22,44 @@ from Config.config import RANK_TIERS, DIVISIONS
 class Riot:
 
     def __init__(self, access_key):
+        # access key after you register on https://developer.riotgames.com
         self.access_key = access_key
+        # riot watch API: https://riot-watcher.readthedocs.io/en/latest/riotwatcher/LeagueOfLegends/index.html
         self.lol_watcher = LolWatcher(access_key)
 
 
     def LEAGUE_EXP_V4(self, pages:tuple, tier, division):
         """
+        Request data from [LEAGUE-EXP-V4] and [SUMMONER-V4] on https://developer.riotgames.com/apis#summoner-v4/GET_getBySummonerId.
+        Request users' data using API provided by RIOT company.
+        Data provided are the official datas stored by RIOT company.
+        Request data of users' of rank [tier] and level [division].
+        For example, tier=diamond, division=IV.
 
         :param pages:
+            (int) the page for the query to paginate to. Starts at 1. Each page contains about 200 rows.
         :param tier:
+            (string) rank tier. for example: diamond
         :param division:
+            (string) rank tier level in roman numerals. for example: IV
         :return:
             list of tuples. [(), ()]
+            each item in list contains information of a summoner's account.
         """
 
+        # get API object
         leagueApiv4 = self.lol_watcher.league
         summonerApiv4 = self.lol_watcher.summoner
 
-        # storing summoner information, each item in the list represents a summoner
+        # storing summoner information, [{}, {}]
         entries = []
+
         print("\nNow requesting from page {} to {}".format(pages[0], pages[1]))
+
         for i in tqdm(range(pages[0], pages[1]), desc="Extracting Entries: "):
             # get league entries, each request returns about 200 rows
+            # API doc: https://riot-watcher.readthedocs.io/en/latest/riotwatcher/LeagueOfLegends
+            #       /LeagueApiV4.html#riotwatcher._apis.league_of_legends.LeagueApiV4
             result = leagueApiv4.entries(region="NA1", queue="RANKED_SOLO_5x5", tier=tier, division=division, page=i)
             # if no result, means API has retrieved everything, no more to request, return
             if len(result) == 0:
@@ -54,6 +70,7 @@ class Riot:
         # if no results in entries, means nothing returned by the API, return
         if len(entries) == 0:
             return None
+
         print(len(entries), "summoners from page ", pages[0], " to ", pages[1])
 
         # for each summoner in entries, get their account information from API
@@ -85,7 +102,20 @@ class Riot:
         return summoner_batch
 
     def get_league_entry(self, rank_tier, division):
-        start_page, end_page = 1, 100
+        '''
+        Call self.LEAGUE_EXP_V4() to request data from RIOT API.
+        Request 100 pages from each tier-division. For example, request 100 pages for [diamond IV].
+        Write returned data into summoner.csv
+
+        :param rank_tier:
+            (string) rank tier. For example: diamond
+        :param division:
+            (string) tier level in roman numerals. For example: IV
+        :return:
+            None
+        '''
+
+        start_page, end_page = 21, 100
 
         print(">>> Now extracting summoner information of [ {} {} ].".format(rank_tier, division))
         while start_page < end_page:
@@ -107,6 +137,14 @@ class Riot:
         print("Work finished, stop requesting from RIOT.")
 
     def MATCH_V4(self):
+        '''
+        select accounts from DB.
+        Request 100 matchlist from each account.
+        Store all the matchlist into match_list.csv.
+
+        :return:
+            None
+        '''
 
         matchApiv4 = self.lol_watcher.match
         db = MySqLHelper()
@@ -159,5 +197,6 @@ class Riot:
 
 if __name__ == "__main__":
     riot = Riot(access_key=ACCESS_KEY)
-    print(riot.get_league_entry(RANK_TIERS[3], DIVISIONS[1]))
+    for div in DIVISIONS:
+        print(riot.get_league_entry(RANK_TIERS[3], div))
     # riot.MATCH_V4()
