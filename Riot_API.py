@@ -115,7 +115,7 @@ class Riot:
             None
         '''
 
-        start_page, end_page = 21, 100
+        start_page, end_page = 1, 100
 
         print(">>> Now extracting summoner information of [ {} {} ].".format(rank_tier, division))
         while start_page < end_page:
@@ -197,6 +197,10 @@ class Riot:
 
 if __name__ == "__main__":
     riot = Riot(access_key=ACCESS_KEY)
-    for div in DIVISIONS:
-        print(riot.get_league_entry(RANK_TIERS[3], div))
+    print(riot.get_league_entry(RANK_TIERS[3], DIVISIONS[2]))
+    print(riot.get_league_entry(RANK_TIERS[3], DIVISIONS[3]))
+    print(riot.get_league_entry(RANK_TIERS[4], DIVISIONS[0]))
+    print(riot.get_league_entry(RANK_TIERS[4], DIVISIONS[1]))
+    print(riot.get_league_entry(RANK_TIERS[4], DIVISIONS[2]))
+    print(riot.get_league_entry(RANK_TIERS[4], DIVISIONS[3]))
     # riot.MATCH_V4()
