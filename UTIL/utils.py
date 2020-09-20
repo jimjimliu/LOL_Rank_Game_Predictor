@@ -54,8 +54,24 @@ def read(filename):
             rows.append(line)
     return rows
 
+def missing_values(data_path):
+    '''
+    return the total count of missing values of each column
+
+    :param data_path:
+        (string)
+    :return:
+        (pandas.series)
+    '''
+    data = pd.read_csv(data_path)
+    count = data.isnull().sum()
+    print(count)
+    return count
+
 def write_csv(header, data, path):
     '''
+    write into csv.
+    General function.
 
     :param data: list of tuples. [(), ()]
     :param header: (list) []
@@ -73,7 +89,7 @@ def write_csv(header, data, path):
         for item in tqdm(data, desc="Writing to .csv"):
             writer.writerow(item)
 
-    print("{} rows has been written to .csv".format(len(data)))
+    print("{} rows has been written to {}".format(len(data), path))
 
 def check_balanced(df, column):
     '''
@@ -147,8 +163,7 @@ def summoner_stats():
             print("[{} {}] {}".format(tier, div, unique_account))
 
 
-    return
 
 if __name__ =="__main__":
     summoner_stats()
-
+    # missing_values("../DATA/summoners.csv")

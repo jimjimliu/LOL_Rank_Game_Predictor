@@ -1,0 +1,152 @@
+id,version,key,name,title,tag1,tag2,hp,hpperlevel,mp,mpperlevel,movespeed,armor,armorperlevel,spellblock,spellblockperlevel,attackrange,hpregen,hpregenperlevel,mpregen,mpregenperlevel,crit,critperlevel,attackdamage,attackdamageperlevel,attackspeedperlevel,attackspeed
+Aatrox,10.19.1,266,Aatrox,the Darkin Blade,Fighter,Tank,580,90,0,0,345,38,3.25,32.1,1.25,175,3,1,0,0,0,0,60,5,2.5,0.651
+Ahri,10.19.1,103,Ahri,the Nine-Tailed Fox,Mage,Assassin,526,92,418,25,330,20.88,3.5,30,0.5,550,5.5,0.6,8,0.8,0,0,53.04,3,2,0.668
+Akali,10.19.1,84,Akali,the Rogue Assassin,Assassin,,575,95,200,0,345,23,3.5,37,1.25,125,8,0.5,50,0,0,0,62.4,3.3,3.2,0.625
+Alistar,10.19.1,12,Alistar,the Minotaur,Tank,Support,600,106,350,40,330,44,3.5,32.1,1.25,125,8.5,0.85,8.5,0.8,0,0,62,3.75,2.125,0.625
+Amumu,10.19.1,32,Amumu,the Sad Mummy,Tank,Mage,613.12,84,287.2,40,335,33,3.8,32.1,1.25,125,9,0.85,7.382,0.525,0,0,53.38,3.8,2.18,0.736
+Anivia,10.19.1,34,Anivia,the Cryophoenix,Mage,Support,480,82,495,25,325,21.22,4,30,0.5,600,5.5,0.55,8,0.8,0,0,51.376,3.2,1.68,0.625
+Annie,10.19.1,1,Annie,the Dark Child,Mage,,524,88,418,25,335,19.22,4,30,0.5,625,5.5,0.55,8,0.8,0,0,50.41,2.625,1.36,0.579
+Aphelios,10.19.1,523,Aphelios,the Weapon of the Faithful,Marksman,,530,88,348,42,325,28,3,26,0.5,550,3.25,0.55,6.5,0.4,0,0,57,2.4,2.1,0.64
+Ashe,10.19.1,22,Ashe,the Frost Archer,Marksman,Support,570,87,280,32,325,26,3.4,30,0.5,600,3.5,0.55,6.972,0.4,0,0,59,2.96,3.33,0.658
+AurelionSol,10.19.1,136,Aurelion Sol,The Star Forger,Mage,,575,92,350,50,325,19,3.6,30,0.5,550,7,0.6,6,0.8,0,0,57,3.2,1.36,0.625
+Azir,10.19.1,268,Azir,the Emperor of the Sands,Mage,Marksman,552,92,480,21,335,19.04,3,30,0.5,525,7,0.75,8,0.8,0,0,52,2.8,3,0.625
+Bard,10.19.1,432,Bard,the Wandering Caretaker,Support,Mage,560,89,350,50,330,34,4,30,0.5,500,5.5,0.55,6,0.45,0,0,52,3,2,0.625
+Blitzcrank,10.19.1,53,Blitzcrank,the Great Steam Golem,Tank,Fighter,582.6,95,267.2,40,325,37,3.5,32.1,1.25,125,8.5,0.75,8.5,0.8,0,0,61.54,3.5,1.13,0.625
+Brand,10.19.1,63,Brand,the Burning Vengeance,Mage,,519.68,88,469,21,340,21.88,3.5,30,0.5,550,5.5,0.55,10.665,0.6,0,0,57.04,3,1.36,0.625
+Braum,10.19.1,201,Braum,the Heart of the Freljord,Support,Tank,540,98,310.6,45,335,47,4,32.1,1.25,125,8.5,1,6,0.8,0,0,55.376,3.2,3.5,0.644
+Caitlyn,10.19.1,51,Caitlyn,the Sheriff of Piltover,Marksman,,510,93,313.7,35,325,28,3.5,30,0.5,650,3.5,0.55,7.4,0.55,0,0,62,2.88,3.5,0.681
+Camille,10.19.1,164,Camille,the Steel Shadow,Fighter,Tank,575.6,85,338.8,32,340,35,3.8,32.1,1.25,125,8.5,0.8,8.15,0.75,0,0,68,3.5,2.5,0.644
+Cassiopeia,10.19.1,69,Cassiopeia,the Serpent's Embrace,Mage,,560,90,350,40,328,18,3.5,32,0.5,550,5.5,0.5,8,0.8,0,0,53,3,1.5,0.647
+Chogath,10.19.1,31,Cho'Gath,the Terror of the Void,Tank,Mage,574.4,80,272.2,40,345,38,3.5,32.1,1.25,125,9,0.85,7.206,0.45,0,0,69,4.2,1.44,0.625
+Corki,10.19.1,42,Corki,the Daring Bombardier,Marksman,,518,87,350.16,34,325,28,3.5,30,0.5,550,5.5,0.55,7.424,0.55,0,0,55,2.5,2.3,0.638
+Darius,10.19.1,122,Darius,the Hand of Noxus,Fighter,Tank,582.24,100,263,37.5,340,39,4,32.1,1.25,175,10,0.95,6.6,0.35,0,0,64,5,1,0.625
+Diana,10.19.1,131,Diana,Scorn of the Moon,Fighter,Mage,570,95,375,25,345,31,3.6,32.1,1.25,150,7.5,0.85,8,0.8,0,0,57,3,2.25,0.625
+Draven,10.19.1,119,Draven,the Glorious Executioner,Marksman,,605,90,360.56,39,330,29,3.3,30,0.5,550,3.75,0.7,8.042,0.65,0,0,60,3.61,2.7,0.679
+DrMundo,10.19.1,36,Dr. Mundo,the Madman of Zaun,Fighter,Tank,582.52,89,0,0,345,36,3.5,32.1,1.25,125,8,0.75,0,0,0,0,61.27,3.5,2.8,0.721
+Ekko,10.19.1,245,Ekko,the Boy Who Shattered Time,Assassin,Fighter,585,85,280,50,340,32,3,32,1.25,125,9,0.9,7,0.8,0,0,58,3,3.3,0.688
+Elise,10.19.1,60,Elise,the Spider Queen,Mage,Fighter,534,93,324,50,330,27,3.35,30,0.5,550,5.5,0.6,6,0.8,0,0,55,3,1.75,0.625
+Evelynn,10.19.1,28,Evelynn,Agony's Embrace,Assassin,Mage,572,84,315.6,42,335,37,3.5,32.1,1.25,125,8.5,0.75,8.108,0.6,0,0,61,3,2.1,0.667
+Ezreal,10.19.1,81,Ezreal,the Prodigal Explorer,Marksman,Mage,530,88,375,50,325,22,3.5,30,0.5,550,4,0.55,8.5,0.65,0,0,60,2.5,2.5,0.625
+Fiddlesticks,10.19.1,9,Fiddlesticks,the Ancient Fear,Mage,Support,580.4,92,500,28,335,34,3.5,30,0.5,480,5.5,0.6,8,0.8,0,0,55.36,2.625,2.11,0.625
+Fiora,10.19.1,114,Fiora,the Grand Duelist,Fighter,Assassin,550,85,300,40,345,33,3.5,32.1,1.25,150,8.5,0.55,8,0.7,0,0,68,3.3,3.2,0.69
+Fizz,10.19.1,105,Fizz,the Tidal Trickster,Assassin,Fighter,570,98,317.2,37,335,22.412,3.4,32.1,1.25,175,8,0.7,6,0.8,0,0,58.04,3,3.1,0.658
+Galio,10.19.1,3,Galio,the Colossus,Tank,Mage,562,112,500,40,335,24,3.5,32,1.25,150,8,0.8,9.5,0.7,0,0,59,3.5,1.5,0.625
+Gangplank,10.19.1,41,Gangplank,the Saltwater Scourge,Fighter,,540,82,282,40,345,35,3,32.1,1.25,125,6,0.6,7.5,0.7,0,0,64,3,3.2,0.658
+Garen,10.19.1,86,Garen,The Might of Demacia,Fighter,Tank,620,84,0,0,340,36,3,32.1,0.75,175,8,0.5,0,0,0,0,66,4.5,3.65,0.625
+Gnar,10.19.1,150,Gnar,the Missing Link,Fighter,Tank,510,65,100,0,335,32,2.5,30,0.5,175,4.5,1.75,0,0,0,0,59,3,6,0.625
+Gragas,10.19.1,79,Gragas,the Rabble Rouser,Fighter,Mage,600,95,400,47,330,38,3.6,32.1,1.25,125,5.5,0.5,6,0.8,0,0,64,3.5,2.05,0.675
+Graves,10.19.1,104,Graves,the Outlaw,Marksman,,555,92,325,40,340,33,3.4,32,1.25,425,8,0.7,8,0.7,0,0,68,3,2.6,0.475
+Hecarim,10.19.1,120,Hecarim,the Shadow of War,Fighter,Tank,580,90,277.2,40,345,36,4,32.1,1.25,175,7,0.75,6.5,0.6,0,0,66,3.2,2.5,0.67
+Heimerdinger,10.19.1,74,Heimerdinger,the Revered Inventor,Mage,Support,488,87,385,20,340,19.04,3,30,0.5,550,7,0.55,8,0.8,0,0,55.536,2.7,1.36,0.625
+Illaoi,10.19.1,420,Illaoi,the Kraken Priestess,Fighter,Tank,585.6,95,300,40,340,35,3.8,32.1,1.25,125,9.5,0.8,7.5,0.75,0,0,68,5,2.5,0.571
+Irelia,10.19.1,39,Irelia,the Blade Dancer,Fighter,Assassin,580,95,350,30,335,36,3,32,1.25,200,8.5,0.85,8,0.8,0,0,63,4,2.5,0.656
+Ivern,10.19.1,427,Ivern,the Green Father,Support,Mage,585,95,450,60,330,27,3.5,32.1,1.25,475,7,0.85,6,0.75,0,0,50,3,3.4,0.644
+Janna,10.19.1,40,Janna,the Storm's Fury,Support,Mage,500,70,350,64,315,28,3.8,30,0.5,550,5.5,0.55,11.5,0.4,0,0,46,1.5,2.95,0.625
+JarvanIV,10.19.1,59,Jarvan IV,the Exemplar of Demacia,Tank,Fighter,570,90,300,40,340,34,3.6,32.1,1.25,175,8,0.7,6.5,0.45,0,0,64,3.4,2.5,0.658
+Jax,10.19.1,24,Jax,Grandmaster at Arms,Fighter,Assassin,592.8,85,338.8,32,350,36,3,32.1,1.25,125,8.5,0.55,7.576,0.7,0,0,68,3.375,3.4,0.638
+Jayce,10.19.1,126,Jayce,the Defender of Tomorrow,Fighter,Marksman,560,90,375,45,335,27,3.5,30,0.5,125,6,0.6,6,0.8,0,0,54,4.25,3,0.658
+Jhin,10.19.1,202,Jhin,the Virtuoso,Marksman,Mage,585,93,300,50,330,24,3.5,30,0.5,550,3.75,0.55,6,0.8,0,0,59,4.7,0,0.625
+Jinx,10.19.1,222,Jinx,the Loose Cannon,Marksman,,610,86,245,45,325,28,3.5,30,0.5,525,3.75,0.5,6.7,1,0,0,57,3.4,1,0.625
+Kaisa,10.19.1,145,Kai'Sa,Daughter of the Void,Marksman,,600,88,344.88,38,335,28,3,30,0.5,525,3.5,0.55,8.2,0.45,0,0,59,2,1.8,0.644
+Kalista,10.19.1,429,Kalista,the Spear of Vengeance,Marksman,,534,100,250,45,325,21,4,30,0.5,525,3.75,0.55,6.3,0.4,0,0,69,3.5,4,0.694
+Karma,10.19.1,43,Karma,the Enlightened One,Mage,Support,534,95,374,50,335,26,3.8,30,0.5,525,5.5,0.55,11.5,0.5,0,0,53.544,3.3,2.3,0.625
+Karthus,10.19.1,30,Karthus,the Deathsinger,Mage,,550,87,467,30.5,335,20.88,3.5,30,0.5,450,6.5,0.55,8,0.8,0,0,45.66,3.25,2.11,0.625
+Kassadin,10.19.1,38,Kassadin,the Void Walker,Assassin,Mage,576,90,397.6,67,335,19,2.8,30,0.5,150,6,0.5,6,0.8,0,0,58.852,3.9,3.7,0.64
+Katarina,10.19.1,55,Katarina,the Sinister Blade,Assassin,Mage,602,94,0,0,340,27.88,3.5,32.1,1.25,125,7.5,0.7,0,0,0,0,58,3.2,2.74,0.658
+Kayle,10.19.1,10,Kayle,the Righteous,Fighter,Support,600,85,330,50,335,26,3,34,0.5,175,5,0.5,8,0.8,0,0,50,2.5,1.5,0.625
+Kayn,10.19.1,141,Kayn,the Shadow Reaper,Fighter,Assassin,585,85,410,50,340,38,3.3,32.1,1.25,175,8,0.75,11.5,0.95,0,0,68,3.3,2.7,0.669
+Kennen,10.19.1,85,Kennen,the Heart of the Tempest,Mage,Marksman,541,84,200,0,335,29,3.75,30,0.5,550,5.5,0.65,50,0,0,0,48,3.75,3.4,0.625
+Khazix,10.19.1,121,Kha'Zix,the Voidreaver,Assassin,,572.8,85,327.2,40,350,36,3,32.1,1.25,125,7.5,0.75,7.59,0.5,0,0,63,3.1,2.7,0.668
+Kindred,10.19.1,203,Kindred,The Eternal Hunters,Marksman,,540,85,300,35,325,29,3.5,30,0.5,500,7,0.55,7,0.4,0,0,65,2.5,3.5,0.625
+Kled,10.19.1,240,Kled,the Cantankerous Cavalier,Fighter,Tank,340,70,100,0,345,35,4,32.1,1.25,125,6,0.75,0,0,0,0,65,3.5,3.5,0.625
+KogMaw,10.19.1,96,Kog'Maw,the Mouth of the Abyss,Marksman,Mage,565,85,325,40,330,24,3.25,30,0.5,500,3.75,0.55,8.75,0.7,0,0,61,3.11,2.65,0.665
+Leblanc,10.19.1,7,LeBlanc,the Deceiver,Assassin,Mage,528,92,334,50,340,21.88,3.5,30,0.5,525,7.5,0.55,6,0.8,0,0,54.88,3.5,1.4,0.625
+LeeSin,10.19.1,64,Lee Sin,the Blind Monk,Fighter,Assassin,575,85,200,0,345,33,3.7,32.1,1.25,125,7.5,0.7,50,0,0,0,70,3.2,3,0.651
+Leona,10.19.1,89,Leona,the Radiant Dawn,Tank,Support,576.16,87,302.2,40,335,47,3.6,32.1,1.25,125,8.5,0.85,6,0.8,0,0,60.04,3,2.9,0.625
+Lillia,10.19.1,876,Lillia,the Bashful Bloom,Fighter,Mage,580,90,410,50,330,20,4,32.1,0.75,325,9,0.75,11.5,0.95,0,0,61,3.1,2.7,0.625
+Lissandra,10.19.1,127,Lissandra,the Ice Witch,Mage,,550,90,475,30,325,22,3.7,30,0.5,550,7,0.55,8,0.4,0,0,53,2.7,1.36,0.656
+Lucian,10.19.1,236,Lucian,the Purifier,Marksman,,571,86,348.88,38,335,28,3,30,0.5,500,3.75,0.65,8.176,0.7,0,0,64,2.3,3.3,0.638
+Lulu,10.19.1,117,Lulu,the Fae Sorceress,Support,Mage,525,74,350,55,330,29,3.7,30,0.5,550,6,0.6,11,0.6,0,0,47,2.6,2.25,0.625
+Lux,10.19.1,99,Lux,the Lady of Luminosity,Mage,Support,490,85,480,23.5,330,18.72,4,30,0.5,550,5.5,0.55,8,0.8,0,0,53.54,3.3,1,0.669
+Malphite,10.19.1,54,Malphite,Shard of the Monolith,Tank,Fighter,574.2,90,282.2,40,335,37,3.75,32.1,1.25,125,7,0.55,7.324,0.55,0,0,61.97,4,3.4,0.736
+Malzahar,10.19.1,90,Malzahar,the Prophet of the Void,Mage,Assassin,537,87,375,27.5,335,18,3.5,30,0.5,500,6,0.6,8,0.8,0,0,55,3,1.5,0.625
+Maokai,10.19.1,57,Maokai,the Twisted Treant,Tank,Mage,565,95,375,43,335,39,4,32.1,1.25,125,5,0.75,7.2,0.6,0,0,63.54,3.3,2.125,0.8
+MasterYi,10.19.1,11,Master Yi,the Wuju Bladesman,Assassin,Fighter,598.56,92,250.56,42,355,33,3,32.1,1.25,125,7.5,0.65,7.256,0.45,0,0,66,3,2,0.679
+MissFortune,10.19.1,21,Miss Fortune,the Bounty Hunter,Marksman,,570,93,325.84,35,325,28,3,30,0.5,550,3.75,0.65,8.042,0.65,0,0,52,2.7,3,0.656
+MonkeyKing,10.19.1,62,Wukong,the Monkey King,Fighter,Tank,540,85,300,45,345,31,3.5,28,1.25,175,4,0.65,8,0.65,0,0,68,4,3,0.711
+Mordekaiser,10.19.1,82,Mordekaiser,the Iron Revenant,Fighter,,575,90,100,0,335,37,3,32,1.25,175,5,0.75,0,0,0,0,61,4,1,0.625
+Morgana,10.19.1,25,Morgana,the Fallen,Mage,Support,560,90,340,60,335,25,3.8,30,0.5,450,5.5,0.4,11,0.4,0,0,56,3.5,1.53,0.625
+Nami,10.19.1,267,Nami,the Tidecaller,Support,Mage,475,74,365,43,335,29,4,30,0.5,550,5.5,0.55,11.5,0.4,0,0,51.208,3.1,2.61,0.644
+Nasus,10.19.1,75,Nasus,the Curator of the Sands,Fighter,Tank,561.2,90,325.6,42,350,34,3.5,32.1,1.25,125,9,0.9,7.44,0.5,0,0,67,3.5,3.48,0.638
+Nautilus,10.19.1,111,Nautilus,the Titan of the Depths,Tank,Fighter,576.48,86,400,47,325,39,3.75,32.1,1.25,175,8.5,0.55,8.626,0.5,0,0,61,3.3,1,0.706
+Neeko,10.19.1,518,Neeko,the Curious Chameleon,Mage,Support,540,90,450,30,340,21,4,30,0.5,550,7.5,0.75,7,0.7,0,0,48,2.5,3.5,0.625
+Nidalee,10.19.1,76,Nidalee,the Bestial Huntress,Assassin,Mage,545,85,295.6,45,335,28,3.5,30,0.5,525,6,0.6,6,0.8,0,0,61,3.5,3.22,0.638
+Nocturne,10.19.1,56,Nocturne,the Eternal Nightmare,Assassin,Fighter,585,85,275,35,345,38,3.5,32.1,0.75,125,7,0.75,7,0.45,0,0,62,3.1,2.7,0.721
+Nunu,10.19.1,20,Nunu & Willump,the Boy and His Yeti,Tank,Fighter,570,82,280,42,345,32,3,32.1,1.25,125,5,0.8,7,0.5,0,0,61,3,2.25,0.625
+Olaf,10.19.1,2,Olaf,the Berserker,Fighter,Tank,597.24,93,315.6,42,350,35,3,32.1,1.25,125,8.5,0.9,7.466,0.575,0,0,68,3.5,2.7,0.694
+Orianna,10.19.1,61,Orianna,the Lady of Clockwork,Mage,Support,530,91,418,25,325,17.04,3,26,0.5,525,7,0.55,8,0.8,0,0,40.368,2.6,3.5,0.658
+Ornn,10.19.1,516,Ornn,The Fire below the Mountain,Tank,Fighter,590,95,340.6,45,335,33,4,32.1,1.25,175,9,0.9,8.01,0.6,0,0,69,3.5,2,0.625
+Pantheon,10.19.1,80,Pantheon,the Unbreakable Spear,Fighter,Assassin,580,95,317.12,31,355,40,3.75,28,1.25,175,10,0.65,7.356,0.45,0,0,64,3.3,2.95,0.644
+Poppy,10.19.1,78,Poppy,Keeper of the Hammer,Tank,Fighter,540,90,280,40,345,38,3.5,32,1.25,125,8,0.8,7,0.7,0,0,64,4,2.5,0.625
+Pyke,10.19.1,555,Pyke,the Bloodharbor Ripper,Support,Assassin,600,90,415,50,330,45,3.5,32,1.25,150,7,0.5,8,1,0,0,62,2,2.5,0.667
+Qiyana,10.19.1,246,Qiyana,Empress of the Elements,Assassin,Fighter,590,90,320,50,335,28,3.5,32.1,1.25,150,8.5,0.65,8,0.7,0,0,64,3.1,2.1,0.625
+Quinn,10.19.1,133,Quinn,Demacia's Wings,Marksman,Assassin,532.8,85,268.8,35,335,28,3.5,30,0.5,525,5.5,0.55,6.972,0.4,0,0,59,2.4,3.1,0.668
+Rakan,10.19.1,497,Rakan,The Charmer,Support,,540,85,315,50,335,32,3.9,32.1,1.25,300,5,0.5,8.75,0.5,0,0,62,3.5,3,0.635
+Rammus,10.19.1,33,Rammus,the Armordillo,Tank,Fighter,564.48,95,310.44,33,335,36,4.3,32.1,1.25,125,8,0.55,7.84,0.5,0,0,55.88,3.5,2.215,0.656
+RekSai,10.19.1,421,Rek'Sai,the Void Burrower,Fighter,,570,85,100,0,335,36,3.75,32.1,1.25,175,7.5,0.65,0,0,0,0,64,3,2,0.667
+Renekton,10.19.1,58,Renekton,the Butcher of the Sands,Fighter,Tank,575,87,100,0,345,35,4,32.1,1.25,125,8,0.75,0,0,0,0,69,3.75,2.75,0.665
+Rengar,10.19.1,107,Rengar,the Pridestalker,Assassin,Fighter,585,90,4,0,345,34,3,32.1,1.25,125,7,0.5,0,0,0,0,68,3,3,0.667
+Riven,10.19.1,92,Riven,the Exile,Fighter,Assassin,560,86,0,0,340,33,3.2,32.1,1.25,125,8.5,0.5,0,0,0,0,64,3,3.5,0.625
+Rumble,10.19.1,68,Rumble,the Mechanized Menace,Fighter,Mage,589,85,100,0,345,31,3.5,32.1,1.25,125,8,0.6,0,0,0,0,61,3.2,1.85,0.644
+Ryze,10.19.1,13,Ryze,the Rune Mage,Mage,Fighter,575,98,300,50,340,22,3,36,0.5,550,8,0.8,8,1,0,0,58,3,2.112,0.625
+Samira,10.19.1,360,Samira,the Desert Rose,Marksman,,600,88,348.88,38,335,28,3,30,0.5,500,3.25,0.55,8.176,0.7,0,0,59,2.3,3.3,0.658
+Sejuani,10.19.1,113,Sejuani,Fury of the North,Tank,Fighter,560,100,400,40,340,34,4.25,32.1,1.25,150,8.5,1,7,0.7,0,0,66,4,3.5,0.688
+Senna,10.19.1,235,Senna,the Redeemer,Marksman,Support,520,75,350,45,330,28,3.5,30,0.5,600,3.5,0.55,11.5,0.4,0,0,50,0,4,0.625
+Sett,10.19.1,875,Sett,the Boss,Fighter,Tank,600,93,0,0,340,33,4,32,1.25,125,7,0.5,0,0,0,0,60,4,1.75,0.625
+Shaco,10.19.1,35,Shaco,the Demon Jester,Assassin,,587,89,297.2,40,350,30,3.5,32.1,1.25,125,8.5,0.55,7.156,0.45,0,0,63,3,3,0.694
+Shen,10.19.1,98,Shen,the Eye of Twilight,Tank,,540,85,400,0,340,34,3,32.1,1.25,125,8.5,0.75,50,0,0,0,60,3,3,0.751
+Shyvana,10.19.1,102,Shyvana,the Half-Dragon,Fighter,Tank,595,95,100,0,350,38,3.35,32.1,1.25,125,8.5,0.8,0,0,0,0,66,3.4,2.5,0.658
+Singed,10.19.1,27,Singed,the Mad Chemist,Tank,Fighter,580,85,330,45,345,34,3.5,32.1,1.25,125,9.5,0.55,7.5,0.55,0,0,63,3.375,1.9,0.613
+Sion,10.19.1,14,Sion,The Undead Juggernaut,Tank,Fighter,545,73,330,42,345,32,3,32.1,1.25,175,7.5,0.8,8,0.6,0,0,68,4,1.3,0.679
+Sivir,10.19.1,15,Sivir,the Battle Mistress,Marksman,,562,90,284,50,335,26,3.25,30,0.5,500,3.25,0.55,8,0.9,0,0,63,3,1.6,0.625
+Skarner,10.19.1,72,Skarner,the Crystal Vanguard,Fighter,Tank,601.28,90,320,40,335,38,3.8,32.1,1.25,125,9,0.85,7.206,0.45,0,0,65,4.5,2.1,0.625
+Sona,10.19.1,37,Sona,Maven of the Strings,Support,Mage,480,77,340,45,325,28,3.3,30,0.5,550,5.5,0.55,11.5,0.4,0,0,49,3,2.3,0.644
+Soraka,10.19.1,16,Soraka,the Starchild,Support,Mage,535,74,425,40,325,32,3.8,30,0.5,550,2.5,0.5,11.5,0.4,0,0,50,3,2.14,0.625
+Swain,10.19.1,50,Swain,the Noxian Grand General,Mage,Fighter,525,85,468,28.5,325,22.72,4,30,0.5,525,7,0.65,8,0.8,0,0,58,2.7,2.11,0.625
+Sylas,10.19.1,517,Sylas,the Unshackled,Mage,Assassin,525,115,280,50,340,27,4,32,1.75,175,9,0.9,7,0.8,0,0,61,3,3.5,0.645
+Syndra,10.19.1,134,Syndra,the Dark Sovereign,Mage,Support,523,90,480,40,330,24.712,3.4,30,0.5,550,6.5,0.6,8,0.8,0,0,53.872,2.9,2,0.625
+TahmKench,10.19.1,223,Tahm Kench,the River King,Support,Tank,600,100,325,40,335,47,3.5,32.1,1.25,175,6.5,0.55,8,1,0,0,56,3.2,2.5,0.658
+Taliyah,10.19.1,163,Taliyah,the Stoneweaver,Mage,Support,532,90,425,30,335,20,3.5,30,0.5,525,7,0.7,9.335,0.85,0,0,58,3.3,1.36,0.625
+Talon,10.19.1,91,Talon,the Blade's Shadow,Assassin,,588,95,377.2,37,335,30,3.5,39,1.25,125,8.5,0.75,7.6,0.8,0,0,68,3.1,2.9,0.625
+Taric,10.19.1,44,Taric,the Shield of Valoran,Support,Fighter,575,85,300,60,340,40,3.4,32.1,1.25,150,6,0.5,8.5,0.8,0,0,55,3.5,2,0.625
+Teemo,10.19.1,17,Teemo,the Swift Scout,Marksman,Assassin,528,90,334,20,330,24.3,3.75,30,0.5,500,5.5,0.65,9.6,0.45,0,0,54,3,3.38,0.69
+Thresh,10.19.1,412,Thresh,the Chain Warden,Support,Fighter,560.52,93,273.92,44,335,28,0,30,0.5,450,7,0.55,6,0.8,0,0,56,2.2,3.5,0.625
+Tristana,10.19.1,18,Tristana,the Yordle Gunner,Marksman,Assassin,559,88,250,32,325,26,3,30,0.5,525,3.75,0.65,7.2,0.45,0,0,61,3.3,1.5,0.656
+Trundle,10.19.1,48,Trundle,the Troll King,Fighter,Tank,616,96,281,45,350,37,2.7,32.1,1.25,175,6,0.75,7.5,0.6,0,0,68,3,2.9,0.67
+Tryndamere,10.19.1,23,Tryndamere,the Barbarian King,Fighter,Assassin,625.64,98,100,0,345,33,3.1,32.1,1.25,125,8.5,0.9,0,0,0,0,69,3.7,2.9,0.67
+TwistedFate,10.19.1,4,Twisted Fate,the Card Master,Mage,,534,94,333,19,330,21,3.15,30,0.5,525,5.5,0.6,8,0.8,0,0,52,3.3,3.22,0.651
+Twitch,10.19.1,29,Twitch,the Plague Rat,Marksman,Assassin,612,86,287.2,40,330,27,3,30,0.5,550,3.75,0.6,7.256,0.45,0,0,59,3.11,3.38,0.679
+Udyr,10.19.1,77,Udyr,the Spirit Walker,Fighter,Tank,594,99,271,30,350,34,4,32.1,1.25,125,6,0.75,7.5,0.45,0,0,66,5,2.67,0.658
+Urgot,10.19.1,6,Urgot,the Dreadnought,Fighter,Tank,585,88,340,45,330,36,4.25,32.1,1.25,350,7.5,0.7,7.25,0.8,0,0,63,4,3.75,0.625
+Varus,10.19.1,110,Varus,the Arrow of Retribution,Marksman,Mage,530,91,360,33,330,27,3.4,30,0.5,575,3.5,0.55,8,0.8,0,0,61,3,4,0.658
+Vayne,10.19.1,67,Vayne,the Night Hunter,Marksman,Assassin,515,89,231.8,35,330,23,3.4,30,0.5,550,3.5,0.55,6.972,0.4,0,0,60,2.36,3.3,0.658
+Veigar,10.19.1,45,Veigar,the Tiny Master of Evil,Mage,,505,94,490,26,340,23,3.75,32,0.5,550,6.5,0.6,8,0.8,0,0,52,2.7,2.24,0.625
+Velkoz,10.19.1,161,Vel'Koz,the Eye of the Void,Mage,,520,88,469,21,340,21.88,3.5,30,0.5,525,5.5,0.55,8,0.8,0,0,54.9379,3.1416,1.36,0.625
+Vi,10.19.1,254,Vi,the Piltover Enforcer,Fighter,Assassin,585,85,295,45,340,30,4,32.1,1.25,125,10,1,8,0.65,0,0,63,3.5,2,0.644
+Viktor,10.19.1,112,Viktor,the Machine Herald,Mage,,530,90,405,25,335,23,4,30,0.5,525,8,0.65,8,0.8,0,0,53,3,2.11,0.658
+Vladimir,10.19.1,8,Vladimir,the Crimson Reaper,Mage,,537,96,2,0,330,23,3.3,30,0.5,450,7,0.6,0,0,0,0,55,3,2,0.658
+Volibear,10.19.1,106,Volibear,the Relentless Storm,Fighter,Tank,580,90,350,50,340,31,4,32,1.25,150,9,0.75,6.25,0.5,0,0,60,3,2,0.625
+Warwick,10.19.1,19,Warwick,the Uncaged Wrath of Zaun,Fighter,Tank,550,85,280,35,335,33,3.2,32.1,1.25,125,4,0.75,7.466,0.575,0,0,65,3,2.3,0.638
+Xayah,10.19.1,498,Xayah,the Rebel,Marksman,,590,88,340,40,325,25,3,30,0.5,525,3.25,0.75,8.25,0.75,0,0,60,3.5,3.3,0.625
+Xerath,10.19.1,101,Xerath,the Magus Ascendant,Mage,,526,92,459,22,340,21.88,3.5,30,0.5,525,5.5,0.55,8,0.8,0,0,54.7,3,1.36,0.625
+XinZhao,10.19.1,5,Xin Zhao,the Seneschal of Demacia,Fighter,Assassin,570,92,273.8,35,345,35,3.5,32.1,1.25,175,8,0.7,7.256,0.45,0,0,66,3,3.5,0.645
+Yasuo,10.19.1,157,Yasuo,the Unforgiven,Fighter,Assassin,490,87,100,0,345,30,3.4,32,1.25,175,6.5,0.9,0,0,0,0,60,3.2,2.5,0.697
+Yone,10.19.1,777,Yone,the Unforgotten,Assassin,Fighter,550,85,500,0,345,28,3.4,32,1.25,175,7.5,0.75,0,0,0,0,60,3,2.5,0.625
+Yorick,10.19.1,83,Yorick,Shepherd of Souls,Fighter,Tank,580,100,300,40,340,39,4,32,1.25,175,8,0.8,7.5,0.75,0,0,62,5,2,0.625
+Yuumi,10.19.1,350,Yuumi,the Magical Cat,Support,Mage,480,70,400,45,330,25,3,25,0.3,500,7,0.55,10,0.4,0,0,55,3.1,1,0.625
+Zac,10.19.1,154,Zac,the Secret Weapon,Tank,Fighter,615,95,0,0,340,33,3.5,32,1.25,175,8,0.5,0,0,0,0,60,3.4,1.6,0.736
+Zed,10.19.1,238,Zed,the Master of Shadows,Assassin,,584,85,200,0,345,32,3.5,32.1,1.25,125,7,0.65,50,0,0,0,63,3.4,3.3,0.651
+Ziggs,10.19.1,115,Ziggs,the Hexplosives Expert,Mage,,536,92,480,23.5,325,21.544,3.3,30,0.5,550,6.5,0.6,8,0.8,0,0,54.208,3.1,2,0.656
+Zilean,10.19.1,26,Zilean,the Chronokeeper,Support,Mage,504,82,452,30,335,24,3.8,30,0.5,550,5.5,0.5,11.335,0.8,0,0,51.64,3,2.13,0.625
+Zoe,10.19.1,142,Zoe,the Aspect of Twilight,Mage,Support,560,92,425,25,340,20.8,3.5,30,0.5,550,6.5,0.6,8,0.65,0,0,58,3.3,2.5,0.625
+Zyra,10.19.1,143,Zyra,Rise of the Thorns,Mage,Support,504,79,418,25,340,29,3,30,0.5,575,5.5,0.5,13,0.4,0,0,53.376,3.2,2.11,0.625
