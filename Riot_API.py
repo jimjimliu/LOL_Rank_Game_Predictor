@@ -201,4 +201,7 @@ if __name__ == "__main__":
     for div in ["III", "IV"]:
         print(riot.get_league_entry(RANK_TIERS[1], div))
 
+    for div in DIVISIONS:
+        print(riot.get_league_entry(RANK_TIERS[0], div))
+
     # riot.MATCH_V4()
