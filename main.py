@@ -1,7 +1,7 @@
 from Config.config import SUMMONERS_DATA
 import pandas as pd
 import os
-from UTIL.utils import utils
+from UTIL import utils
 
 class main:
 

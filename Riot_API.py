@@ -15,7 +15,7 @@ from tqdm import tqdm
 from time import sleep
 import csv
 from MySQL_POOL.mysqlhelper import MySqLHelper
-from UTIL.utils import utils
+from UTIL import utils
 ENCODING = 'utf-8'
 from Config.config import RANK_TIERS, DIVISIONS
 import sys
@@ -198,8 +198,8 @@ class Riot:
 
 if __name__ == "__main__":
     riot = Riot(access_key=ACCESS_KEY)
-    for div in ["I", "III"]:
-        print(riot.get_league_entry(RANK_TIERS[1], div))
+    for div in ["II"]:
+        print(riot.get_league_entry(RANK_TIERS[3], div))
 
 
     # riot.MATCH_V4()
