@@ -197,21 +197,8 @@ class Riot:
         print("Finish retrieving matchlist from {} accounts.".format(row_count))
 
 if __name__ == "__main__":
-
-
-    if len(sys.argv) == 1:
-        riot = Riot(access_key=ACCESS_KEY)
-    else:
-        key = ACCESS_KEY if int(sys.argv[1]) == 1 else ACCESS_KEY2
-        riot = Riot(access_key=key)
-
-        if int(sys.argv[1]) == 1:
-            # bronze
-            for div in DIVISIONS:
-                print(riot.get_league_entry(RANK_TIERS[1], div))
-        else:
-            # iron
-            for div in DIVISIONS:
-                print(riot.get_league_entry(RANK_TIERS[0], div))
+    riot = Riot(access_key=ACCESS_KEY)
+    for div in ["II", "III", "IV"]:
+        print(riot.get_league_entry(RANK_TIERS[1], div))
 
     # riot.MATCH_V4()
