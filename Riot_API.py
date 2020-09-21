@@ -221,7 +221,7 @@ class Riot:
             if len(item['tags']) > 1:
                 arr.append(item['tags'][1])
             else:
-                arr.append('')
+                arr.append(item['tags'][0])
 
             for i in header[7:]:
                 arr.append(stat[i])
@@ -232,10 +232,9 @@ class Riot:
 
 if __name__ == "__main__":
     riot = Riot(access_key=ACCESS_KEY)
-
-    print(riot.get_league_entry(RANK_TIERS[1], 'IV'))
-    print(riot.get_league_entry(RANK_TIERS[3], 'III'))
     print(riot.get_league_entry(RANK_TIERS[3], 'IV'))
+    for div in DIVISIONS:
+        print(riot.get_league_entry(RANK_TIERS[4], div))
 
     # riot.get_champions()
     # riot.MATCH_V4()

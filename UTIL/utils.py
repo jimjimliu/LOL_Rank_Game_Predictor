@@ -7,6 +7,7 @@ from Config.config import SUMMONERS_DATA
 from tqdm import tqdm
 import csv
 import os
+from datetime import datetime
 
 # directory where all generated and saved models at
 MODEL_PATH = os.path.join(os.path.join(os.getcwd(), 'model'))
@@ -166,4 +167,5 @@ def summoner_stats():
 
 if __name__ =="__main__":
     summoner_stats()
-    # missing_values("../DATA/summoners.csv")
+    # missing_values("../DATA/all_champions.csv")
+    # print(datetime.fromtimestamp(1600397242551/1000))

@@ -26,7 +26,7 @@ create table `all_league_entry`(
 --alter table all_league_entry add id int not null auto_increment unique key;
 
 -- table stores all the champions
-create table `champion`(
+create table `all_champion`(
     `id` int not null auto_increment unique key comment '',
     `version` varchar(10) comment 'current client version',
     `champion_id` varchar(255) not null comment 'champion name',
@@ -59,6 +59,27 @@ create table `champion`(
 )ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 
+create table `match`(
+    `id` int not null auto_increment unique key,
+    `gameId` MEDIUMINT not null,
+    `gameCreation` TIMESTAMP,
+    `gameDuration` SMALLINT not null,
+    `team1_win` SMALLINT(1) not null,
+    `team1_firstBlood` SMALLINT(1) not null,
+    `team1_firstTower` SMALLINT(1) not null,
+    `team1_team1_firstInhibitor` SMALLINT(1) not null,
+    `firstBaron`SMALLINT(1) not null,
+    `team1_firstDragon` SMALLINT(1) not null,
+    `team1_firstRiftHerald` SMALLINT(1) not null,
+    `team1_towerKills` SMALLINT not null,
+    `team1_inhibitorKills` SMALLINT not null,
+    `team1_baronKills` SMALLINT not null,
+    `team1_dragonKills` SMALLINT not null,
+    `team1_vilemawKills` SMALLINT not null,
+    `team1_riftHeraldKills` SMALLINT not null,
+    `team1_dominionVictoryScore` SMALLINT not null,
+)ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
 -- table to store matches
 create table `match_list`(
 	`id` int not null auto_increment comment '',
@@ -70,12 +91,12 @@ create table `match_list`(
     `champion` SMALLINT comment 'champion id',
     `queue` SMALLINT comment '',
     `lane` varchar(100) comment '',
-    `timestamp` varchar(255) comment '',
+    `timestamp` TIMESTAMP comment '',
     primary key(`gameId`),
     unique key (`id`),
-    foreign key(`champion`) references champion(`key`),
-    foreign key (`accountId`) references all_league_entry(`accountId`)
-
+    foreign key(`champion`) references all_champion(`key`),
+    foreign key (` `) references all_league_entry(`accountId`),
+    foreign key (`gameId`) references match(`gameId`)
 )ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 
