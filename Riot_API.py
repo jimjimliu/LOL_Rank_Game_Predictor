@@ -232,9 +232,10 @@ class Riot:
 
 if __name__ == "__main__":
     riot = Riot(access_key=ACCESS_KEY)
-    print(riot.get_league_entry(RANK_TIERS[3], 'IV'))
     for div in DIVISIONS:
-        print(riot.get_league_entry(RANK_TIERS[4], div))
+        print(riot.get_league_entry(RANK_TIERS[5], div))
+    for div in DIVISIONS:
+        print(riot.get_league_entry(RANK_TIERS[6], div))
 
     # riot.get_champions()
     # riot.MATCH_V4()
