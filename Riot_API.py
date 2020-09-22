@@ -19,6 +19,7 @@ from UTIL import utils
 ENCODING = 'utf-8'
 from Config.config import RANK_TIERS, DIVISIONS
 import sys
+from datetime import datetime
 
 class Riot:
 
@@ -158,8 +159,8 @@ class Riot:
         while start_row < row_count:
             # select 1000 rows at a time
             sql_data = '''
-                select accountId from all_league_entry where id > {} limit {};
-            '''.format(start_row, batch_size)
+                select accountId from all_league_entry where id > {} and id <= {};
+            '''.format(start_row, start_row+batch_size)
             summoner_acnt = db.selectall(sql_data)
 
             print("Selected {} rows from all_league_entry. ID: {} to {}.".format(len(summoner_acnt),start_row,start_row+batch_size))
@@ -174,8 +175,10 @@ class Riot:
                 accountId = str(summoner_acnt[i][0], ENCODING)
                 # API: https://developer.riotgames.com/apis#match-v4/GET_getMatchlist
                 # get the most recent 100 matches from each account id
-                matchlist = matchApiv4.matchlist_by_account(region="NA1", encrypted_account_id=accountId)
+                matchlist = matchApiv4.matchlist_by_account(region="NA1", encrypted_account_id=accountId,queue=420)
                 matches = matchlist['matches']
+
+                if len(matches) == 0: continue
 
                 # convert dict keys as header, convert just once. After header is assigned, turn flag to 1
                 if not flag and len(matches) > 0:
@@ -183,6 +186,9 @@ class Riot:
                     flag = 1
 
                 for item in matches:
+                    # change timestamp string to datetime
+                    # code here
+                    item['timestamp'] = datetime.fromtimestamp(item['timestamp'] / 1000)
                     values = [accountId] + list(item.values())
                     match_data.append(values)
 
@@ -229,13 +235,125 @@ class Riot:
 
         utils.write_csv(header, result, csv)
 
+    def get_match_by_id(self):
+        '''
+        From MySQL, retrieve match list.
+        use match id to request match details from RIOT;
+        store match data in matches.csv
+
+        :return:
+        '''
+
+        matchApiv4 = self.lol_watcher.match
+        db = MySqLHelper()
+        sql_count = '''
+            select count(*) from RIOT.match_list;
+        '''
+        total_row = db.selectall(sql_count)[0][0]
+        batch = 1000
+        start = 0
+        header = [
+            "gameId","gameCreation","gameDuration",
+            "team1_win","team1_firstBlood","team1_firstTower",
+            "team1_firstInhibitor","team1_firstBaron","team1_firstDragon","team1_firstRiftHerald",
+            "team1_towerKills","team1_inhibitorKills","team1_baronKills","team1_dragonKills","team1_vilemawKills",
+            "team1_riftHeraldKills","team1_dominionVictoryScore",
+            "team1_ban1","team1_ban2","team1_ban3","team1_ban4","team1_ban5",
+            "team1_champ1_championId","team1_champ2_championId","team1_champ3_championId",
+            "team1_champ4_championId","team1_champ5_championId","team1_champ1_statId","team1_champ2_statId",
+            "team1_champ3_statId","team1_champ4_statId","team1_champ5_statId","team2_win","team2_firstBlood",
+            "team2_firstTower","team2_firstInhibitor","team2_firstBaron","team2_firstDragon",
+            "team2_firstRiftHerald","team2_towerKills","team2_inhibitorKills","team2_baronKills","team2_dragonKills",
+            "team2_vilemawKills","team2_riftHeraldKills","team2_dominionVictoryScore","team2_ban1","team2_ban2","team2_ban3",
+            "team2_ban4","team2_ban5","team2_champ1_championId","team2_champ2_championId","team2_champ3_championId",
+            "team2_champ4_championId","team2_champ5_championId","team2_champ1_statId","team2_champ2_statId","team2_champ3_statId",
+            "team2_champ4_statId","team2_champ5_statId"
+        ]
+        match_dict = {}
+        for item in header:
+            match_dict[item] = ''
+
+        header_stat = [
+            "gameId", "championId", "spellId1", "spellId2", "item0", "item1", "item2", "item3", "item4", "item5",
+            "item6", "kills", "deaths", "assists", "largestKillingSpree", "largestMultiKill", "killingSprees",
+            "longestTimeSpentLiving", "doubleKills", "tripleKills", "quadraKills", "pentaKills", "unrealKills",
+            "totalDamageDealt", "magicDamageDealt", "physicalDamageDealt", "trueDamageDealt", "largestCriticalStrike",
+            "totalDamageDealtToChampions", "magicDamageDealtToChampions", "physicalDamageDealtToChampions",
+            "trueDamageDealtToChampions", "totalHeal", "totalUnitsHealed", "damageSelfMitigated",
+            "damageDealtToObjectives", "damageDealtToTurrets", "visionScore", "timeCCingOthers", "totalDamageTaken",
+            "magicalDamageTaken", "physicalDamageTaken", "trueDamageTaken", "goldEarned", "goldSpent", "turretKills",
+            "inhibitorKills", "totalMinionsKilled", "neutralMinionsKilled", "neutralMinionsKilledTeamJungle",
+            "neutralMinionsKilledEnemyJungle", "totalTimeCrowdControlDealt", "champLevel", "visionWardsBoughtInGame",
+            "sightWardsBoughtInGame", "wardsPlaced", "wardsKilled", "firstBloodKill", "firstBloodAssist",
+            "firstTowerKill", "firstTowerAssist", "firstInhibitorKill", "firstInhibitorAssist",
+        ]
+        match_stat_dict = {}
+        for item in header_stat:
+            match_stat_dict[item] = ''
+
+        # select 1000 matches from DB a time
+        while start < total_row:
+            # select 1000 rows at a time
+            sql_data = '''
+                select gameId from RIOT.match_list where id > {} and id <= {};
+            '''.format(start, start+batch)
+            match_list = db.selectall(sql_data)
+            # request match data of a match from RIOT
+            for i in range(len(match_list)):
+                # sleep for every 20 requests posted to the server of RIOT
+                if i%20 == 0 and i!=0:
+                    sleep(1.0)
+
+                # request data from API
+                game_data = matchApiv4.by_id(region='NA1', match_id=match_list[i][0])
+                print(game_data)
+
+                team1 = game_data['teams'][0]
+                print(team1)
+                team1_id = team1['teamId']
+                team1_ban = [item['championId'] for item in team1['bans']]
+                for item in team1:
+                    if item not in ['teamId','bans']:
+                        if team1[item] == 'Win' or team1[item] == True:
+                            match_dict[str("team1_"+item)] = 1
+                        elif team1[item] == 'Fail' or team1[item] == False:
+                            match_dict[str("team1_"+item)] = 0
+                        else:
+                            match_dict[str("team1_" + item)] = team1[item]
+                for i in range(1, len(team1_ban)+1):
+                    match_dict["team1_ban"+str(i)] = team1_ban[i-1]
+
+                for item in match_dict.items():
+                    print(item)
+                exit()
+
+                team2 = game_data['teams'][1]
+                team1_id = team2['teamId']
+                team2_ban = [item['championId'] for item in team2['bans']]
+                # print(team1_ban, team2_ban)
+                participants_data = game_data['participants']
+
+                match_dict['gameId'] = game_data['gameId']
+                match_dict['gameCreation'] = str(datetime.fromtimestamp(game_data['gameCreation']/ 1000))
+                match_dict['gameDuration'] = game_data['gameDuration']
+                print(game_data)
+                print(match_dict)
+                print(len(header))
+                exit()
+
+
+
+        return
 
 if __name__ == "__main__":
     riot = Riot(access_key=ACCESS_KEY)
-    for div in DIVISIONS:
+    for div in ['III','IV']:
         print(riot.get_league_entry(RANK_TIERS[5], div))
-    for div in DIVISIONS:
-        print(riot.get_league_entry(RANK_TIERS[6], div))
+
+    print(riot.get_league_entry(RANK_TIERS[6], 'I'))
+    print(riot.get_league_entry(RANK_TIERS[7], 'I'))
+    print(riot.get_league_entry(RANK_TIERS[8], 'I'))
 
     # riot.get_champions()
     # riot.MATCH_V4()
+    # riot.get_match_by_id()
