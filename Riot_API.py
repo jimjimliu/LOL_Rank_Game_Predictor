@@ -347,8 +347,6 @@ class Riot:
 
 if __name__ == "__main__":
     riot = Riot(access_key=ACCESS_KEY)
-    for div in ['III','IV']:
-        print(riot.get_league_entry(RANK_TIERS[5], div))
 
     print(riot.get_league_entry(RANK_TIERS[6], 'I'))
     print(riot.get_league_entry(RANK_TIERS[7], 'I'))
