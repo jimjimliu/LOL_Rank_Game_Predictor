@@ -55,19 +55,36 @@ class Riot:
 
         # storing summoner information, [{}, {}]
         entries = []
+        apex_tier, queue, leagueId = '','',''
 
-        print("\nNow requesting from page {} to {}".format(pages[0], pages[1]))
+        # processing apex tiers
+        if tier == 'MASTER':
+            result = leagueApiv4.masters_by_queue('NA1', "RANKED_SOLO_5x5")
+            entries = result['entries']
+            apex_tier,queue,leagueId = result['tier'], result['queue'],result['leagueId']
+        elif tier == 'GRANDMASTER':
+            result = leagueApiv4.grandmaster_by_queue('NA1', "RANKED_SOLO_5x5")
+            entries = result['entries']
+            apex_tier, queue, leagueId = result['tier'], result['queue'], result['leagueId']
+        elif tier == 'CHALLENGER':
+            result = leagueApiv4.challenger_by_queue('NA1', "RANKED_SOLO_5x5")
+            entries = result['entries']
+            apex_tier, queue, leagueId = result['tier'], result['queue'], result['leagueId']
+        else:
+            # processing normal tiers
+            print("\nNow requesting from page {} to {}".format(pages[0], pages[1]))
 
-        for i in tqdm(range(pages[0], pages[1]), desc="Extracting Entries: "):
-            # get league entries, each request returns about 200 rows
-            # API doc: https://riot-watcher.readthedocs.io/en/latest/riotwatcher/LeagueOfLegends
-            #       /LeagueApiV4.html#riotwatcher._apis.league_of_legends.LeagueApiV4
-            result = leagueApiv4.entries(region="NA1", queue="RANKED_SOLO_5x5", tier=tier, division=division, page=i)
-            # if no result, means API has retrieved everything, no more to request, return
-            if len(result) == 0:
-                break
-            else:
-                entries += result
+            for i in tqdm(range(pages[0], pages[1]), desc="Extracting Entries: "):
+                # get league entries, each request returns about 200 rows
+                # API doc: https://riot-watcher.readthedocs.io/en/latest/riotwatcher/LeagueOfLegends
+                #       /LeagueApiV4.html#riotwatcher._apis.league_of_legends.LeagueApiV4
+
+                result = leagueApiv4.entries(region="NA1", queue="RANKED_SOLO_5x5", tier=tier, division=division, page=i)
+                # if no result, means API has retrieved everything, no more to request, return
+                if len(result) == 0:
+                    break
+                else:
+                    entries += result
 
         # if no results in entries, means nothing returned by the API, return
         if len(entries) == 0:
@@ -83,6 +100,11 @@ class Riot:
             # RIOT limits max request is 20 times per second, sleep for every 20 requests
             if i%20 == 0 and i != 0:
                 sleep(1.0)
+
+            if tier in ("MASTER", "GRANDMASTER", "CHALLENGER"):
+                entries[i]['leagueId'] = leagueId
+                entries[i]['queueType'] = queue
+                entries[i]['tier'] = apex_tier
 
             # re-organize data items and put into result
             for label in arr:
@@ -115,7 +137,7 @@ class Riot:
             None
         '''
 
-        start_page, end_page = 1, 40
+        start_page, end_page = 1, 10
 
         print(">>> Now extracting summoner information of [ {} {} ].".format(rank_tier, division))
         while start_page < end_page:

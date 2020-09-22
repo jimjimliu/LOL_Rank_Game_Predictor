@@ -3,7 +3,7 @@
 -- table to store all summoner information
 create table `all_league_entry`(
     `id` int not null auto_increment unique key,
-    `leagueId` varchar(255) not null comment 'league game ID',
+    `leagueId` varchar(255) comment 'league game ID',
     `queueType` varchar(255) comment 'game queue type. i.e. rank solo5x5',
     `tier` TINYTEXT comment 'rank tier. i.e. diamond',
     `rank` char(3) comment 'rank level. i.e. diamond IV',
