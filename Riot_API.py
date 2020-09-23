@@ -138,7 +138,7 @@ class Riot:
             None
         '''
 
-        start_page, end_page = 1, 10
+        start_page, end_page = 1, 40
 
         print(">>> Now extracting summoner information of [ {} {} ].".format(rank_tier, division))
         while start_page < end_page:
