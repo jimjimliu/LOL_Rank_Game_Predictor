@@ -166,11 +166,11 @@ create table `match`(
 -- table stores the game data of a champion used in a game
 -- one row in table match maps to 10 rows in champ_game_stat
 create table `champ_game_stat`(
-    `statId` int not null auto_increment primary key,
+    `statId` int not null primary key,
     `gameId` int not null,
     `championId` SMALLINT,
-    `spellId1` SMALLINT not null,
-    `spellId2` SMALLINT not null,
+    `spell1Id` SMALLINT not null,
+    `spell2Id` SMALLINT not null,
     `item0` SMALLINT,
     `item1` SMALLINT,
     `item2` SMALLINT,
