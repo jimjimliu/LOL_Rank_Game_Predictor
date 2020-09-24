@@ -7,15 +7,15 @@ from MySQL_POOL.mysqlhelper import MySqLHelper
 class main:
 
     def __init__(self):
-        # sql = '''
-        #     insert ignore into all_league_entry(`leagueId`, `queueType`, `tier`, `rank`,`summonerId`,`summonerName`,
-        #     `leaguePoints`,`wins`,`losses`,`veteran`,`inactive`,`freshBlood`,`hotStreak`,`accountId`,`puuid`,`summonerLevel`)
-        #     VALUES (%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s);
-        # '''
-        # CSV_FILE_PATH = SUMMONERS_DATA
-        # df = pd.read_csv(CSV_FILE_PATH, skiprows=0)
-        # data = [tuple(x) for x in df.to_numpy()]
-        # utils.populate_db(sql, data)
+        sql = '''
+            insert ignore into all_league_entry(`leagueId`, `queueType`, `tier`, `rank`,`summonerId`,`summonerName`,
+            `leaguePoints`,`wins`,`losses`,`veteran`,`inactive`,`freshBlood`,`hotStreak`,`accountId`,`puuid`,`summonerLevel`)
+            VALUES (%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s);
+        '''
+        CSV_FILE_PATH = SUMMONERS_DATA
+        df = pd.read_csv(CSV_FILE_PATH, skiprows=0)
+        data = [tuple(x) for x in df.to_numpy()]
+        utils.populate_db(sql, data)
 
 
         # sql = '''
@@ -31,16 +31,16 @@ class main:
         # data = [tuple(x) for x in df.to_numpy()]
         # utils.populate_db(sql, data)
 
-        sql = '''
-            insert ignore into RIOT.match_list
-            (`accountId`,`platformId`,`gameId`,`champion`,`queue`,`season`,`timestamp`,`role`,`lane`)
-            values
-            (%s,%s,%s,%s,%s,%s,%s,%s,%s);
-        '''
-        csv = "DATA/match_list.csv"
-        df = pd.read_csv(csv)
-        data = [tuple(x) for x in df.to_numpy()]
-        utils.populate_db(sql, data)
+        # sql = '''
+        #     insert ignore into RIOT.match_list
+        #     (`accountId`,`platformId`,`gameId`,`champion`,`queue`,`season`,`timestamp`,`role`,`lane`)
+        #     values
+        #     (%s,%s,%s,%s,%s,%s,%s,%s,%s);
+        # '''
+        # csv = "DATA/match_list.csv"
+        # df = pd.read_csv(csv)
+        # data = [tuple(x) for x in df.to_numpy()]
+        # utils.populate_db(sql, data)
 
 
 

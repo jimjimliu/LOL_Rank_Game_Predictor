@@ -20,7 +20,7 @@ ENCODING = 'utf-8'
 from Config.config import RANK_TIERS, DIVISIONS
 import sys
 from datetime import datetime
-pd.set_option('display.max_rows', 10)
+# pd.set_option('display.max_columns', None)
 
 class Riot:
 
@@ -272,11 +272,20 @@ class Riot:
         sql_count = '''
             select count(*) from RIOT.match_list;
         '''
+        min_id_sql = '''
+            select min(id) from RIOT.match_list;
+        '''
         total_row = db.selectall(sql_count)[0][0]
+        min_id = db.selectall(min_id_sql)[0][0]
 
-        batch = 1000
-        start = 0
-        statId = 1
+        batch = 100
+        start = min_id
+        # set the current max statId of table match_stat
+        try:
+            statId = pd.read_csv('DATA/match_stat.csv')['statId'].max()+1
+        except:
+            statId = 1
+
 
         # header of tabel "match"
         header = [
@@ -333,7 +342,7 @@ class Riot:
             match_list = db.selectall(sql_data)
 
             # request 1000 match data of a match from RIOT
-            for i in range(len(match_list)):
+            for i in tqdm(range(len(match_list)), desc="Extracting match data."):
                 # sleep for every 20 requests posted to the server of RIOT
                 if i%20 == 0 and i!=0:
                     sleep(1.0)
@@ -386,11 +395,6 @@ class Riot:
                         match_dict['team2_champ'+str(item['participantId']-5)+'_championId'] = item['championId']
                         match_dict['team2_champ' + str(item['participantId']-5) + '_statId'] = statId
 
-                    # add to match collection
-                    match = match.append(match_dict, ignore_index=True)
-                    print(match)
-                    exit()
-
                     stats = item['stats']
                     stats['statId'] = statId
                     stats['championId'] = item['championId']
@@ -406,23 +410,24 @@ class Riot:
                                 match_stat_dict[item] = stats[item]
 
                     statId += 1
-                    for item in match_stat_dict.items():
-                        print(item)
+                    match_stat = match_stat.append(match_stat_dict, ignore_index=True)
 
-                print(game_data)
-                for item in match_dict.items():
-                    print(item)
-                exit()
+                # add to match collection
+                match = match.append(match_dict, ignore_index=True)
+                # clear match
+                match_dict, match_stat_dict = {}, {}
 
             # write to csv every 1000 matches
-        return
+            match_data = [tuple(x) for x in match.to_numpy()]
+            utils.write_csv(header, match_data, 'DATA/matches.csv')
+            match_stat_data = [tuple(x) for x in match_stat.to_numpy()]
+            utils.write_csv(header_stat, match_stat_data, 'DATA/match_stat.csv')
+
+
 
 if __name__ == "__main__":
     riot = Riot(access_key=ACCESS_KEY)
 
-    for div in DIVISIONS:
-        print(riot.get_league_entry(RANK_TIERS[0], div))
-
     # riot.get_champions()
-    # riot.MATCH_V4()
+    riot.MATCH_V4()
     # riot.get_match_by_id()
