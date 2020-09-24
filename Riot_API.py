@@ -206,7 +206,10 @@ class Riot:
                 API: https://developer.riotgames.com/apis#match-v4/GET_getMatchlist
                 get the most recent 20 matches from each account id
                 """
-                matchlist = matchApiv4.matchlist_by_account(region="NA1", encrypted_account_id=accountId,queue=420, end_index=20)
+                try:
+                    matchlist = matchApiv4.matchlist_by_account(region="NA1", encrypted_account_id=accountId,queue=420, end_index=20)
+                except:
+                    continue
                 matches = matchlist['matches']
 
                 if len(matches) == 0: continue
