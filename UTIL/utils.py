@@ -154,15 +154,16 @@ def summoner_stats():
     tier_label = tier_distribution.keys().to_numpy()
 
     print(tier_distribution)
-
+    total_distinct = 0
     for tier in tier_label:
         # divisions so far in the data set
         divisions = data[data['tier'] == tier].loc[:, 'rank'].unique()
         for div in divisions:
             # count unique account id of each rank
             unique_account = data.query("tier=='{}' & rank=='{}'".format(tier, div)).loc[:, 'accountId'].nunique()
+            total_distinct += unique_account
             print("[{} {}] {}".format(tier, div, unique_account))
-
+    print("Total distinct count: {}".format(total_distinct))
 
 
 if __name__ =="__main__":

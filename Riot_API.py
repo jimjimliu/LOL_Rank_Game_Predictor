@@ -174,15 +174,21 @@ class Riot:
         sql_count = '''
             select count(*) from RIOT.all_league_entry;
         '''
+        min_id_sql = '''
+            select min(id), max(id) from RIOT.all_league_entry;
+        '''
         # total rows in the table
         row_count = db.selectall(sql_count)[0][0]
-        batch_size = 1000
-        start_row, flag = 0, 0
+        print("Total account: {}".format(row_count))
+        result = db.selectall(min_id_sql)
+        min_id, max_id = result[0][0], result[0][1]
+        batch_size = 2000
+        start_row, flag = min_id, 0
 
-        while start_row < row_count:
+        while start_row <= max_id:
             # select 1000 rows at a time
             sql_data = '''
-                select accountId from all_league_entry where id > {} and id <= {};
+                select accountId from all_league_entry where id >= {} and id < {};
             '''.format(start_row, start_row+batch_size)
             summoner_acnt = db.selectall(sql_data)
 
@@ -196,9 +202,11 @@ class Riot:
 
                 # convery binary string to string
                 accountId = str(summoner_acnt[i][0], ENCODING)
-                # API: https://developer.riotgames.com/apis#match-v4/GET_getMatchlist
-                # get the most recent 100 matches from each account id
-                matchlist = matchApiv4.matchlist_by_account(region="NA1", encrypted_account_id=accountId,queue=420)
+                """ 
+                API: https://developer.riotgames.com/apis#match-v4/GET_getMatchlist
+                get the most recent 20 matches from each account id
+                """
+                matchlist = matchApiv4.matchlist_by_account(region="NA1", encrypted_account_id=accountId,queue=420, end_index=20)
                 matches = matchlist['matches']
 
                 if len(matches) == 0: continue
@@ -336,7 +344,7 @@ class Riot:
 
             # select 1000 rows at a time
             sql_data = '''
-                select gameId from RIOT.match_list where id > {} and id <= {};
+                select gameId from RIOT.match_list where id >= {} and id < {};
             '''.format(start, start+batch)
             start += batch
             match_list = db.selectall(sql_data)
