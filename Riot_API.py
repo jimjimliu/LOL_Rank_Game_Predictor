@@ -413,10 +413,10 @@ class Riot:
                         match_dict['team2_champ' + str(item['participantId']-5) + '_statId'] = statId
 
                     stats = item['stats']
-                    stats['statId'] = statId
-                    stats['championId'] = item['championId']
-                    stats['spell1Id'], stats['spell2Id'] = item['spell1Id'], item['spell2Id']
-                    stats['gameId'] = gameId
+                    stats['statId'] = int(statId)
+                    stats['championId'] = int(item['championId'])
+                    stats['spell1Id'], stats['spell2Id'] = int(item['spell1Id']), int(item['spell2Id'])
+                    stats['gameId'] = int(gameId)
                     for item in stats:
                         if item in header_stat:
                             if stats[item] == False:
@@ -424,7 +424,7 @@ class Riot:
                             elif stats[item] == True:
                                 match_stat_dict[item] = 1
                             else:
-                                match_stat_dict[item] = stats[item]
+                                match_stat_dict[item] = int(stats[item])
 
                     statId += 1
                     match_stat = match_stat.append(match_stat_dict, ignore_index=True)
