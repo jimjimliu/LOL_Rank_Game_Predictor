@@ -287,9 +287,10 @@ class Riot:
             select min(id) from RIOT.match_list;
         '''
         total_row = db.selectall(sql_count)[0][0]
+        print("Total match in match list: {}".format(total_row))
         min_id = db.selectall(min_id_sql)[0][0]
 
-        batch = 100
+        batch = 1000
         start = min_id
         # set the current max statId of table match_stat
         try:
@@ -349,8 +350,10 @@ class Riot:
             sql_data = '''
                 select gameId from RIOT.match_list where id >= {} and id < {};
             '''.format(start, start+batch)
-            start += batch
             match_list = db.selectall(sql_data)
+
+            print("Selected {} matches from match_list from id: {} to id: {}".format(len(match_list), start, start+batch))
+            start += batch
 
             # request 1000 match data of a match from RIOT
             for i in tqdm(range(len(match_list)), desc="Extracting match data."):
@@ -359,7 +362,10 @@ class Riot:
                     sleep(1.0)
 
                 # request data from API
-                game_data = matchApiv4.by_id(region='NA1', match_id=match_list[i][0])
+                try:
+                    game_data = matchApiv4.by_id(region='NA1', match_id=match_list[i][0])
+                except:
+                    continue
                 gameId = game_data['gameId']
 
                 match_dict['gameId'] = game_data['gameId']
