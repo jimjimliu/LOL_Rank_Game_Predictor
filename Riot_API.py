@@ -291,7 +291,8 @@ class Riot:
         min_id = db.selectall(min_id_sql)[0][0]
 
         batch = 1000
-        start = min_id
+        # start =
+        start = 53001
         # set the current max statId of table match_stat
         try:
             statId = pd.read_csv('DATA/match_stat.csv')['statId'].max()+1
