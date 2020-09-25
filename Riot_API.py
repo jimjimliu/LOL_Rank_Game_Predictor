@@ -440,5 +440,5 @@ if __name__ == "__main__":
     riot = Riot(access_key=ACCESS_KEY)
 
     # riot.get_champions()
-    riot.MATCH_V4()
-    # riot.get_match_by_id()
+    # riot.MATCH_V4()
+    riot.get_match_by_id()
