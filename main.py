@@ -75,3 +75,12 @@ class main:
 
 if __name__ == "__main__":
     main()
+    # data = pd.read_csv('DATA/matches.csv')
+    # row = data.iloc[102910].to_dict()
+    # for item in row.items():
+    #     print(item)
+    #
+    # data = pd.read_csv('DATA/match_stat.csv')
+    # row = data.iloc[1029106].to_dict()
+    # for item in row.items():
+    #     print(item)

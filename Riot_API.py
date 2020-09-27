@@ -365,11 +365,13 @@ class Riot:
                 # request data from API
                 try:
                     game_data = matchApiv4.by_id(region='NA1', match_id=match_list[i][0])
+                    # game_data = matchApiv4.by_id(region='NA1', match_id=3581370666)
                 except:
                     continue
                 gameId = game_data['gameId']
 
                 match_dict['gameId'] = game_data['gameId']
+                # match_dict['queueId'] = game_data['queueId']
                 match_dict['gameCreation'] = str(datetime.fromtimestamp(game_data['gameCreation'] / 1000))
                 match_dict['gameDuration'] = game_data['gameDuration']
 
@@ -431,6 +433,10 @@ class Riot:
                     match_stat = match_stat.append(match_stat_dict, ignore_index=True)
 
                 # add to match collection
+                print(len(match_dict))
+                for item in match_dict.items():
+                    print(item)
+                exit()
                 match = match.append(match_dict, ignore_index=True)
                 # clear match
                 match_dict, match_stat_dict = {}, {}
