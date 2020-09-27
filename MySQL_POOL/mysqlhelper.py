@@ -118,6 +118,10 @@ class MySqLHelper(object):
         cursor, conn = self.db.getconn()
         count = 0
 
+        # print(param[0])
+        # print(len(param[0]))
+        # exit()
+
         try:
             count = cursor.executemany(sql, param)
             conn.commit()

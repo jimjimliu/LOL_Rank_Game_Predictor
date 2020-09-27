@@ -149,7 +149,6 @@ create table `champ_game_stat`(
 create table `match`(
     `id` int not null auto_increment unique key,
     `gameId` BIGINT not null primary key,
-    `gameCreation` TIMESTAMP,
     `gameDuration` SMALLINT,
     `team1_win` TINYINT not null,
     `team1_firstBlood` TINYINT,

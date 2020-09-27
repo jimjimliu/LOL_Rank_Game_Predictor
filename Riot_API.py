@@ -302,7 +302,7 @@ class Riot:
 
         # header of tabel "match"
         header = [
-            "gameId","gameCreation","gameDuration",
+            "gameId","gameDuration",
             "team1_win","team1_firstBlood","team1_firstTower",
             "team1_firstInhibitor","team1_firstBaron","team1_firstDragon","team1_firstRiftHerald",
             "team1_towerKills","team1_inhibitorKills","team1_baronKills","team1_dragonKills","team1_vilemawKills",
@@ -372,7 +372,7 @@ class Riot:
 
                 match_dict['gameId'] = game_data['gameId']
                 # match_dict['queueId'] = game_data['queueId']
-                match_dict['gameCreation'] = str(datetime.fromtimestamp(game_data['gameCreation'] / 1000))
+                # match_dict['gameCreation'] = str(datetime.fromtimestamp(game_data['gameCreation'] / 1000))
                 match_dict['gameDuration'] = game_data['gameDuration']
 
                 # team 1 data
@@ -433,10 +433,6 @@ class Riot:
                     match_stat = match_stat.append(match_stat_dict, ignore_index=True)
 
                 # add to match collection
-                print(len(match_dict))
-                for item in match_dict.items():
-                    print(item)
-                exit()
                 match = match.append(match_dict, ignore_index=True)
                 # clear match
                 match_dict, match_stat_dict = {}, {}
