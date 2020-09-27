@@ -79,7 +79,7 @@ create table `match_list`(
 -- one row in table match maps to 10 rows in champ_game_stat
 create table `champ_game_stat`(
     `statId` int not null primary key,
-    `gameId` int not null,
+    `gameId` BIGINT not null,
     `championId` SMALLINT,
     `spell1Id` SMALLINT,
     `spell2Id` SMALLINT,

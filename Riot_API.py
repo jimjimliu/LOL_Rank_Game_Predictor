@@ -450,4 +450,4 @@ if __name__ == "__main__":
 
     # riot.get_champions()
     # riot.MATCH_V4()
-    riot.get_match_by_id()
+    # riot.get_match_by_id()
