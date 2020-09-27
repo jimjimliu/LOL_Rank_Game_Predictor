@@ -97,7 +97,7 @@ class main:
 
 
 if __name__ == "__main__":
-    # main()
+    main()
 
     # data = pd.read_csv('DATA/matches.csv')
     # row = data.iloc[102910].to_dict()
@@ -110,9 +110,9 @@ if __name__ == "__main__":
     #     print(item)
     # exit()
 
-    for x in data.to_numpy():
-        print(tuple(x))
-        print(tuple(np.asarray(x).astype(int)))
-        exit()
+    # for x in data.to_numpy():
+    #     print(tuple(x))
+    #     print(tuple(np.asarray(x).astype(int)))
+    #     exit()
 
 
