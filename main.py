@@ -91,7 +91,7 @@ class main:
             ,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s);
         """
         df = pd.read_csv('DATA/match_stat.csv')
-        data = [tuple(np.asarray(x).astype(int)) for x in tqdm(df.to_numpy(), desc="Converting data to int.")]
+        data = [tuple(np.asarray(x).astype(int).tolist()) for x in tqdm(df.to_numpy(), desc="Converting data to int.")]
         utils.populate_db(sql, data)
 
 
@@ -107,12 +107,14 @@ if __name__ == "__main__":
     # data = pd.read_csv('DATA/match_stat.csv')
     # row = data.iloc[102910].to_dict()
     # for item in row.items():
-    #     print(item)
+    #     print(type(item))
     # exit()
 
     # for x in data.to_numpy():
-    #     print(tuple(x))
-    #     print(tuple(np.asarray(x).astype(int)))
+    #     x = tuple(np.asarray(x).astype(int).tolist())
+    #     for item in x:
+    #         print(item, type(item))
+    #     # print(tuple(np.asarray(x).astype(int)))
     #     exit()
 
 
