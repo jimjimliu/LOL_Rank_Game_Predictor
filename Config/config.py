@@ -7,3 +7,5 @@ DIVISIONS = [
     "I", "II", "III", "IV"
 ]
 SUMMONERS_DATA = "DATA/summoners.csv"
+
+LOL_version = '10.19.1'

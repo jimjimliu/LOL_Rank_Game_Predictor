@@ -3,37 +3,29 @@
     Storing Data in DATA/summoner.csv, and MySQL DB.
 '''
 
-
 from riotwatcher import LolWatcher, ApiError
-import riotwatcher
-from Config.config import RANK_TIERS, DIVISIONS
-from Config.riot_config import ACCESS_KEY, ACCESS_KEY2
+from Config.config import RANK_TIERS, DIVISIONS, REGION, LOL_version
+from Config.riot_config import ACCESS_KEY
 import pandas as pd
-from DBUtils.PooledDB import PooledDB
-from threading import Timer
 from tqdm import tqdm
 from time import sleep
 import csv
 from MySQL_POOL.mysqlhelper import MySqLHelper
 from UTIL import utils
 ENCODING = 'utf-8'
-from Config.config import RANK_TIERS, DIVISIONS
-import sys
 from datetime import datetime
-# pd.set_option('display.max_columns', None)
 
 class Riot:
 
-    def __init__(self, access_key):
-        # access key after you register on https://developer.riotgames.com
-        self.access_key = access_key
+    def __init__(self):
         # riot watch API: https://riot-watcher.readthedocs.io/en/latest/riotwatcher/LeagueOfLegends/index.html
-        self.lol_watcher = LolWatcher(access_key)
+        self.lol_watcher = LolWatcher(ACCESS_KEY)
 
 
     def LEAGUE_EXP_V4(self, pages:tuple, tier, division):
         """
-        Request data from [LEAGUE-EXP-V4] and [SUMMONER-V4] on https://developer.riotgames.com/apis#summoner-v4/GET_getBySummonerId.
+        Request summoner accounts information from [LEAGUE-EXP-V4] and [SUMMONER-V4] on
+        https://developer.riotgames.com/apis#summoner-v4/GET_getBySummonerId.
         Request users' data using API provided by RIOT company.
         Data provided are the official datas stored by RIOT company.
         Request data of users' of rank [tier] and level [division].
@@ -126,7 +118,7 @@ class Riot:
 
     def get_league_entry(self, rank_tier, division):
         '''
-        Call self.LEAGUE_EXP_V4() to request data from RIOT API.
+        Call self.LEAGUE_EXP_V4() to request summoner data from RIOT API.
         Request 100 pages from each tier-division. For example, request 100 pages for [diamond IV].
         Write returned data into summoner.csv
 
@@ -242,7 +234,7 @@ class Riot:
         '''
 
         data_dragon = self.lol_watcher.data_dragon
-        all_champions = data_dragon.champions(version="10.19.1")
+        all_champions = data_dragon.champions(version=LOL_version)
         print(all_champions)
         print(len(all_champions['data']))
         header = ['id', 'version','key','name','title','tag1','tag2','hp','hpperlevel','mp','mpperlevel','movespeed','armor',
@@ -291,8 +283,7 @@ class Riot:
         min_id = db.selectall(min_id_sql)[0][0]
 
         batch = 1000
-        # start =
-        start = 53001
+        start = 1
         # set the current max statId of table match_stat
         try:
             statId = pd.read_csv('DATA/match_stat.csv')['statId'].max()+1
@@ -444,9 +435,8 @@ class Riot:
             utils.write_csv(header_stat, match_stat_data, 'DATA/match_stat.csv')
 
 
-
 if __name__ == "__main__":
-    riot = Riot(access_key=ACCESS_KEY)
+    riot = Riot()
 
     # riot.get_champions()
     # riot.MATCH_V4()

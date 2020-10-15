@@ -9,15 +9,9 @@ import csv
 import os
 from datetime import datetime
 
-# directory where all generated and saved models at
-MODEL_PATH = os.path.join(os.path.join(os.getcwd(), 'model'))
-LABELS = ['agree', 'disagree', 'discuss', 'unrelated']
-DATA_PATH = os.path.join(os.path.join(os.getcwd(), 'data'))
-SUBMISSION_PATH = os.path.join(DATA_PATH, 'submissions')
 
 
-
-def save_pkl_model(model, file_name, path=MODEL_PATH):
+def save_pkl_model(model, file_name, path):
     '''
     save a model using python pickle
 
@@ -26,14 +20,14 @@ def save_pkl_model(model, file_name, path=MODEL_PATH):
     :param path: (String) directory of position to save the model. Default=.../model
     :return: None
     '''
-    if not os.path.exists(MODEL_PATH):
-        os.mkdir(MODEL_PATH)
+    if not os.path.exists(path):
+        os.mkdir(path)
 
     with open(os.path.join(os.path.join(path, file_name)), 'wb') as handle:
         pickle.dump(model, handle)
-    print(file_name, 'saved at: ', os.path.join(os.path.join(os.getcwd(), 'model', file_name)))
+    print(file_name, 'saved at: ', path)
 
-def load_pkl(file_name, path=MODEL_PATH):
+def load_pkl(file_name, path):
     '''
     load an existing model using pickle
 
@@ -45,15 +39,6 @@ def load_pkl(file_name, path=MODEL_PATH):
         model_pkl = pickle.load(handle)
 
     return model_pkl
-
-def read(filename):
-    rows = []
-    with open(os.path.join(DATA_PATH, filename), "r", encoding='utf-8') as table:
-        r = DictReader(table)
-
-        for line in r:
-            rows.append(line)
-    return rows
 
 def missing_values(df):
     '''
@@ -93,7 +78,7 @@ def write_csv(header, data, path):
 
 def check_balanced(df, column):
     '''
-    check if the data set is balanced using the given column as label.
+    check if the data frame is balanced using the given column as label.
     Return each label's distribution percentage to see if the dataset is balanced.
     :return:
         (Dict): dictionary has key=label_name, value=label percentage
@@ -119,7 +104,7 @@ def print_info(text=None):
 
 def populate_db(sql, data):
     '''
-    populating database
+    populating database in batches, 1000 rows at a time.
 
     :param sql:
         sql = insert ignore into all_league_entry(`col`) VALUES (%s)
@@ -252,59 +237,68 @@ def summoner_stats():
     # utils.populate_db(sql, data)
 
 def get_game_data():
+    '''
+        join match data tabel and match champions data together.
+        store data into game_data.csv
+
+    :return:
+    '''
 
     sql = '''
         select 
             -- team1_champ1_statId, team1_champ2_statId, team1_champ3_statId,team1_champ4_statId, team1_champ5_statId, 
         M.gameId,
         team1_win,
+        
 		team1_champ1_championId, team1_champ2_championId, team1_champ3_championId, team1_champ4_championId,team1_champ5_championId,
 		team1_ban1, team1_ban2, team1_ban3,team1_ban4, team1_ban5,
 		team1_firstBlood, team1_firstTower, team1_firstInhibitor, team1_firstBaron, team1_firstDragon,team1_firstRiftHerald,
+		team1_towerKills, team1_inhibitorKills, team1_baronKills, team1_dragonKills,
+		
 		team2_champ1_championId, team2_champ2_championId, team2_champ3_championId, team2_champ4_championId,team2_champ5_championId,
 		team2_ban1, team2_ban2, team2_ban3,team2_ban4, team2_ban5,
 		team2_firstBlood, team2_firstTower, team2_firstInhibitor,team2_firstBaron, team2_firstDragon, team2_firstRiftHerald,
+		team2_towerKills, team2_inhibitorKills, team2_baronKills, team2_dragonKills,
         
-        S1.spell1Id, S1.spell2Id, S1.item0, S1.item1, S1.item2, S1.item3, S1.item4, S1.item5, S1.item6, S1.kills, S1.deaths, S1.assists, S1.largestKillingSpree, 
-        S1.largestMultiKill, S1.doubleKills, S1.tripleKills, S1.quadraKills, S1.killingSprees, S1.pentaKills, S1.totalDamageDealt, S1.magicDamageDealt, 
-        S1.physicalDamageDealt, S1.trueDamageDealt, S1.goldEarned, S1.turretKills, S1.inhibitorKills, S1.totalMinionsKilled, S1.champLevel, S1.wardsPlaced,
-        
-        S2.spell1Id, S2.spell2Id, S2.item0, S2.item1, S2.item2, S2.item3, S2.item4, S2.item5, S2.item6, S2.kills, S2.deaths, S2.assists, S2.largestKillingSpree, 
-        S2.largestMultiKill, S2.doubleKills, S2.tripleKills, S2.quadraKills, S2.killingSprees, S2.pentaKills, S2.totalDamageDealt, S2.magicDamageDealt, 
-        S2.physicalDamageDealt, S2.trueDamageDealt, S2.goldEarned, S2.turretKills, S2.inhibitorKills, S2.totalMinionsKilled, S2.champLevel, S2.wardsPlaced,
-        
-        S3.spell1Id, S3.spell2Id, S3.item0, S3.item1, S3.item2, S3.item3, S3.item4, S3.item5, S3.item6, S3.kills, S3.deaths, S3.assists, S3.largestKillingSpree, 
-        S3.largestMultiKill, S3.doubleKills, S3.tripleKills, S3.quadraKills, S3.killingSprees, S3.pentaKills, S3.totalDamageDealt, S3.magicDamageDealt, 
-        S3.physicalDamageDealt, S3.trueDamageDealt, S3.goldEarned, S3.turretKills, S3.inhibitorKills, S3.totalMinionsKilled, S3.champLevel, S3.wardsPlaced,
-        
-        S4.spell1Id, S4.spell2Id, S4.item0, S4.item1, S4.item2, S4.item3, S4.item4, S4.item5, S4.item6, S4.kills, S4.deaths, S4.assists, S4.largestKillingSpree, 
-        S4.largestMultiKill, S4.doubleKills, S4.tripleKills, S4.quadraKills, S4.killingSprees, S4.pentaKills, S4.totalDamageDealt, S4.magicDamageDealt, 
-        S4.physicalDamageDealt, S4.trueDamageDealt, S4.goldEarned, S4.turretKills, S4.inhibitorKills, S4.totalMinionsKilled, S4.champLevel, S4.wardsPlaced,
-        
-        S5.spell1Id, S5.spell2Id, S5.item0, S5.item1, S5.item2, S5.item3, S5.item4, S5.item5, S5.item6, S5.kills, S5.deaths, S5.assists, S5.largestKillingSpree, 
-        S5.largestMultiKill, S5.doubleKills, S5.tripleKills, S5.quadraKills, S5.killingSprees, S5.pentaKills, S5.totalDamageDealt, S5.magicDamageDealt, 
-        S5.physicalDamageDealt, S5.trueDamageDealt, S5.goldEarned, S5.turretKills, S5.inhibitorKills, S5.totalMinionsKilled, S5.champLevel, S5.wardsPlaced,
-
-		S6.spell1Id, S6.spell2Id, S6.item0, S6.item1, S6.item2, S6.item3, S6.item4, S6.item5, S6.item6, S6.kills, S6.deaths, S6.assists, S6.largestKillingSpree, 
-        S6.largestMultiKill, S6.doubleKills, S6.tripleKills, S6.quadraKills, S6.killingSprees, S6.pentaKills, S6.totalDamageDealt, S6.magicDamageDealt, 
-        S6.physicalDamageDealt, S6.trueDamageDealt, S6.goldEarned, S6.turretKills, S6.inhibitorKills, S6.totalMinionsKilled, S6.champLevel, S6.wardsPlaced,
-
-		S7.spell1Id, S7.spell2Id, S7.item0, S7.item1, S7.item2, S7.item3, S7.item4, S7.item5, S7.item6, S7.kills, S7.deaths, S7.assists, S7.largestKillingSpree, 
-        S7.largestMultiKill, S7.doubleKills, S7.tripleKills, S7.quadraKills, S7.killingSprees, S7.pentaKills, S7.totalDamageDealt, S7.magicDamageDealt, 
-        S7.physicalDamageDealt, S7.trueDamageDealt, S7.goldEarned, S7.turretKills, S7.inhibitorKills, S7.totalMinionsKilled, S7.champLevel, S7.wardsPlaced,
-
-		S8.spell1Id, S8.spell2Id, S8.item0, S8.item1, S8.item2, S8.item3, S8.item4, S8.item5, S8.item6, S8.kills, S8.deaths, S8.assists, S8.largestKillingSpree, 
-        S8.largestMultiKill, S8.doubleKills, S8.tripleKills, S8.quadraKills, S8.killingSprees, S8.pentaKills, S8.totalDamageDealt, S8.magicDamageDealt, 
-        S8.physicalDamageDealt, S8.trueDamageDealt, S8.goldEarned, S8.turretKills, S8.inhibitorKills, S8.totalMinionsKilled, S8.champLevel, S8.wardsPlaced,
-		
-        S9.spell1Id, S9.spell2Id, S9.item0, S9.item1, S9.item2, S9.item3, S9.item4, S9.item5, S9.item6, S9.kills, S9.deaths, S9.assists, S9.largestKillingSpree, 
-        S9.largestMultiKill, S9.doubleKills, S9.tripleKills, S9.quadraKills, S9.killingSprees, S9.pentaKills, S9.totalDamageDealt, S9.magicDamageDealt, 
-        S9.physicalDamageDealt, S9.trueDamageDealt, S9.goldEarned, S9.turretKills, S9.inhibitorKills, S9.totalMinionsKilled, S9.champLevel, S9.wardsPlaced,
-
-		S10.spell1Id, S10.spell2Id, S10.item0, S10.item1, S10.item2, S10.item3, S10.item4, S10.item5, S10.item6, S10.kills, S10.deaths, S10.assists, 
-        S10.largestKillingSpree, S10.largestMultiKill, S10.doubleKills, S10.tripleKills, S10.quadraKills, S10.killingSprees, S10.pentaKills, S10.totalDamageDealt, 
-        S10.magicDamageDealt, S10.physicalDamageDealt, S10.trueDamageDealt, S10.goldEarned, S10.turretKills, S10.inhibitorKills, S10.totalMinionsKilled, 
-        S10.champLevel, S10.wardsPlaced            
+        S1.item0, S1.item1, S1.item2, S1.item3, S1.item4, S1.item5, S1.item6,
+        S1.kills, S1.deaths, S1.assists,
+        S1.doubleKills, S1.tripleKills, S1.quadraKills, S1.pentaKills, S1.totalMinionsKilled, S1.champLevel,
+    
+        S2.item0, S2.item1, S2.item2, S2.item3, S2.item4, S2.item5, S2.item6,
+        S2.kills, S2.deaths, S2.assists,
+        S2.doubleKills, S2.tripleKills, S2.quadraKills, S2.pentaKills, S2.totalMinionsKilled, S2.champLevel,
+    
+        S3.item0, S3.item1, S3.item2, S3.item3, S3.item4, S3.item5, S3.item6,
+        S3.kills, S3.deaths, S3.assists,
+        S3.doubleKills, S3.tripleKills, S3.quadraKills, S3.pentaKills, S3.totalMinionsKilled, S3.champLevel,
+    
+        S4.item0, S4.item1, S4.item2, S4.item3, S4.item4, S4.item5, S4.item6,
+        S4.kills, S4.deaths, S4.assists,
+        S4.doubleKills, S4.tripleKills, S4.quadraKills, S4.pentaKills, S4.totalMinionsKilled, S4.champLevel,
+    
+        S5.item0, S5.item1, S5.item2, S5.item3, S5.item4, S5.item5, S5.item6,
+        S5.kills, S5.deaths, S5.assists,
+        S5.doubleKills, S5.tripleKills, S5.quadraKills, S5.pentaKills, S5.totalMinionsKilled, S5.champLevel,
+    
+        S6.item0, S6.item1, S6.item2, S6.item3, S6.item4, S6.item5, S6.item6,
+        S6.kills, S6.deaths, S6.assists,
+         S6.doubleKills, S6.tripleKills, S6.quadraKills, S6.pentaKills, S6.totalMinionsKilled, S6.champLevel,
+    
+        S7.item0, S7.item1, S7.item2, S7.item3, S7.item4, S7.item5, S7.item6,
+        S7.kills, S7.deaths, S7.assists,
+        S7.doubleKills, S7.tripleKills, S7.quadraKills, S7.pentaKills, S7.totalMinionsKilled, S7.champLevel,
+    
+         S8.item0, S8.item1, S8.item2, S8.item3, S8.item4, S8.item5, S8.item6,
+        S8.kills, S8.deaths, S8.assists,
+         S8.doubleKills, S8.tripleKills, S8.quadraKills, S8.pentaKills, S8.totalMinionsKilled, S8.champLevel,
+    
+        S9.item0, S9.item1, S9.item2, S9.item3, S9.item4, S9.item5, S9.item6,
+        S9.kills, S9.deaths, S9.assists,
+         S9.doubleKills, S9.tripleKills, S9.quadraKills, S9.pentaKills, S9.totalMinionsKilled, S9.champLevel,
+    
+        S10.item0, S10.item1, S10.item2, S10.item3, S10.item4, S10.item5, S10.item6,
+        S10.kills, S10.deaths, S10.assists,
+        S10.doubleKills, S10.tripleKills, S10.quadraKills, S10.pentaKills, S10.totalMinionsKilled, S10.champLevel    
     from `match` M
     left join champ_game_stat S1 on team1_champ1_statId = S1.statId
     left join champ_game_stat S2 on team1_champ2_statId = S2.statId
@@ -320,7 +314,7 @@ def get_game_data():
     db = MySqLHelper()
     result = db.selectall(sql)
     # print(result)
-    with open('../DATA/game_data.csv', 'a', newline='') as csvfile:
+    with open('../DATA/game_data.csv', 'w', newline='') as csvfile:
         writer = csv.writer(csvfile, delimiter=',',quotechar='|', quoting=csv.QUOTE_MINIMAL)
         for item in tqdm(result, desc="Writing to csv."):
             writer.writerow(item)

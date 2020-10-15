@@ -16,15 +16,15 @@ class DataPreprocess():
         # 'team1_dominionVictoryScore',
         'team1_champ1_championId', 'team1_champ2_championId', 'team1_champ3_championId', 'team1_champ4_championId','team1_champ5_championId',
         'team1_ban1', 'team1_ban2', 'team1_ban3','team1_ban4', 'team1_ban5',
-        'team1_champ1_statId', 'team1_champ2_statId', 'team1_champ3_statId','team1_champ4_statId', 'team1_champ5_statId',
-        'team1_firstBlood', 'team1_firstTower', 'team1_firstInhibitor', 'team1_firstBaron', 'team1_firstDragon','team1_firstRiftHerald',
+        # 'team1_champ1_statId', 'team1_champ2_statId', 'team1_champ3_statId','team1_champ4_statId', 'team1_champ5_statId',
+        # 'team1_firstBlood', 'team1_firstTower', 'team1_firstInhibitor', 'team1_firstBaron', 'team1_firstDragon','team1_firstRiftHerald',
         # 'team2_win',
         # 'team2_towerKills', 'team2_inhibitorKills', 'team2_baronKills','team2_dragonKills', 'team2_vilemawKills', 'team2_riftHeraldKills',
         # 'team2_dominionVictoryScore',
         'team2_champ1_championId', 'team2_champ2_championId', 'team2_champ3_championId', 'team2_champ4_championId','team2_champ5_championId',
         'team2_ban1', 'team2_ban2', 'team2_ban3','team2_ban4', 'team2_ban5',
-        'team2_champ1_statId', 'team2_champ2_statId', 'team2_champ3_statId','team2_champ4_statId', 'team2_champ5_statId',
-        'team2_firstBlood', 'team2_firstTower', 'team2_firstInhibitor','team2_firstBaron', 'team2_firstDragon', 'team2_firstRiftHerald'
+        # 'team2_champ1_statId', 'team2_champ2_statId', 'team2_champ3_statId','team2_champ4_statId', 'team2_champ5_statId',
+        # 'team2_firstBlood', 'team2_firstTower', 'team2_firstInhibitor','team2_firstBaron', 'team2_firstDragon', 'team2_firstRiftHerald'
     ]
     match_stat_cols = [
         'statId',
@@ -61,12 +61,12 @@ class DataPreprocess():
         self.match_stat_path = 'DATA/match_stat.csv'
         self.game_data_path = 'DATA/game_data.csv'
         self.__train, self.__test = self.__reader()
+        self.__baseline_train, self.__baseline_test = self.__baseline_data()
 
     def __reader(self):
 
         game_data = pd.read_csv(self.game_data_path, header=None).astype(int)
         game_data[game_data < 0] = 0
-        # print(game_data.head())
 
         # use target labels to uniformly split data set
         train, test = train_test_split(game_data, train_size=0.8, random_state=0,stratify=game_data[1])
@@ -79,11 +79,28 @@ class DataPreprocess():
 
         return np.array(train), np.array(test)
 
-    def get_baseline_train(self):
+    def __baseline_data(self):
+
+        data = pd.read_csv(self.matches_data_path).astype(int)
+        data[data < 0] = 0
+        data = data[self.match_cols]
+
+        # use target labels to uniformly split data set
+        train, test = train_test_split(data, train_size=0.8, random_state=0, stratify=data['team1_win'])
+
+        return np.array(train), np.array(test)
+
+    def get_train(self):
         return self.__train
 
-    def get_baseline_test(self):
+    def get_test(self):
         return self.__test
+
+    def get_baseline_train(self):
+        return self.__baseline_train
+
+    def get_baseline_test(self):
+        return self.__baseline_test
 
 if __name__ == '__main__':
     DataPreprocess()
