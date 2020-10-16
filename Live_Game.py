@@ -9,6 +9,7 @@ import requests
 import urllib3
 import pandas as pd
 import numpy as np
+from OPGG_crawler import OPGG
 
 class Live_Game():
 
@@ -168,8 +169,8 @@ class Live_Game():
         # try to request RIOT API for active game data,data contains champion chosen and banned
         try:
             team_info = self.game_spectator()
-            # team1_champs = team_info['team1_champs']
-            # team2_champs = team_info['team2_champs']
+            team1_champs = team_info['team1_champs']
+            team2_champs = team_info['team2_champs']
             team1_ban = team_info['team1_ban']
             team2_ban = team_info['team2_ban']
             team1_spells = team_info['team1_spells']
@@ -191,20 +192,20 @@ class Live_Game():
                 raise Exception
         except:
             print("No active game found for user.")
-            return []
+            return [], []
 
 
         "-----------------------------------get active game data----------------------------------------"
 
-        team1_champs, team2_champs = self.__get_champs(content)
+        # team1_champs, team2_champs = self.__get_champs(content)
 
         # get champions chosen and banned
         for i in range(len(team1_champs)):
             team1_stat['champ'+str(i+1)+'_championId'] = team1_champs[i]
             team2_stat['champ' + str(i + 1) + '_championId'] = team2_champs[i]
-        # for i in range(len(team1_ban)):
-        #     team1_stat['ban'+str(i+1)] = team1_ban[i]
-        #     team2_stat['ban' + str(i + 1)] = team2_ban[i]
+        for i in range(len(team1_ban)):
+            team1_stat['ban'+str(i+1)] = team1_ban[i]
+            team2_stat['ban' + str(i + 1)] = team2_ban[i]
 
         "get team game map resources"
         team1_res, team2_res = self.__get_team_resources(content, team1_champs, team2_champs)
@@ -280,9 +281,12 @@ class Live_Game():
             for key, value in v.items():
                 team_data += value
 
+        start_game_data = list(team1_stat.values())[:10] + list(team2_stat.values())[:10]
+
         # print(np.array(team_data))
         # print(len(np.array(team_data)))
-        return np.array(team_data)
+
+        return np.array([team_data]), np.array([start_game_data])
 
     def __team_players(self, players_json, team1, team2):
         '''
@@ -361,6 +365,7 @@ class Live_Game():
                         team2_res['firstTower'] = 1
                     else:
                         killer_name = event['KillerName'].split('_')[1][:4]
+                        print(event['KillerName'])
                         # T100 means team 100
                         if killer_name == 'T100':
                             team1_res['firstTower'] = 1
@@ -373,6 +378,7 @@ class Live_Game():
                 elif event['KillerName'] in team2_players:
                     team2_res['towerKills'] += 1
                 else:
+                    print(event['KillerName'])
                     killer_name = event['KillerName'].split('_')[1][:4]
                     # T100 means team 100
                     if killer_name == 'T100':
@@ -401,6 +407,7 @@ class Live_Game():
                         team2_res['firstInhibitor'] = 1
                     else:
                         killer_name = event['KillerName'].split('_')[1][:4]
+                        print(event['KillerName'])
                         # T100 means team 100
                         if killer_name == 'T100':
                             team1_res['firstTower'] = 1
@@ -414,6 +421,7 @@ class Live_Game():
                     team2_res['inhibitorKills'] += 1
                 else:
                     killer_name = event['KillerName'].split('_')[1][:4]
+                    print(event['KillerName'])
                     # T100 means team 100
                     if killer_name == 'T100':
                         team1_res['inhibitorKills'] += 1
@@ -489,6 +497,21 @@ class Live_Game():
 
 
         return
+
+    def get_start_game_data(self, nparray):
+
+        data = pd.DataFrame(nparray)
+        champ_ids = data[[0,1,2,3,4,10,11,12,13,14]].to_numpy()
+
+        # get winning rates
+        id_wr = OPGG().champion_WR()
+
+        win_rates = []
+        for item in champ_ids:
+            win_rates.append([id_wr[i] for i in item])
+        win_rates = pd.DataFrame(np.array(win_rates))
+        data = pd.concat([data, win_rates], axis=1)
+        return data.to_numpy()
 
 if __name__ == '__main__':
     data = Live_Game('jie mo').live_game()

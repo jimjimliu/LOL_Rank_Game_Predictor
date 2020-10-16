@@ -5,6 +5,7 @@ from UTIL import utils
 from sklearn.model_selection import train_test_split
 from copy import deepcopy
 from tqdm import tqdm
+from OPGG_crawler import OPGG
 
 
 class DataPreprocess():
@@ -84,6 +85,25 @@ class DataPreprocess():
         data = pd.read_csv(self.matches_data_path).astype(int)
         data[data < 0] = 0
         data = data[self.match_cols]
+
+        cols = ['team1_champ1_championId', 'team1_champ2_championId','team1_champ3_championId', 'team1_champ4_championId','team1_champ5_championId',
+                'team2_champ1_championId','team2_champ2_championId', 'team2_champ3_championId','team2_champ4_championId', 'team2_champ5_championId']
+        # extract 10 champion ids and store in champ_ids
+        champ_ids = data[cols].to_numpy()
+
+        # get winning rates
+        id_wr = OPGG().champion_WR()
+
+        # store champions winning rates
+        # win rates: [[winrate of champ1, winrate of champ2, ...], ...]
+        win_rates = []
+        for item in champ_ids:
+            arr = [id_wr[i] for i in item]
+            win_rates.append(arr)
+        win_rates = pd.DataFrame(np.array(win_rates))
+
+        # merge two df horizontally
+        data = pd.concat([data,win_rates],axis=1)
 
         # use target labels to uniformly split data set
         train, test = train_test_split(data, train_size=0.8, random_state=0, stratify=data['team1_win'])

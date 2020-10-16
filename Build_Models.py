@@ -21,6 +21,7 @@ import gzip
 import sys
 from six.moves import cPickle
 from keras import initializers
+from sklearn.naive_bayes import GaussianNB
 
 class Models:
 
@@ -43,20 +44,20 @@ class Models:
         "training data"
         train_X = train[:, 1:]
         train_y = train[:, 0]
-        train_X = ss.fit_transform(train_X)
+        # train_X = ss.fit_transform(train_X)
         train_y = np_utils.to_categorical(train_y, 2)
         "test data"
         test_X = test[:, 1:]
         test_y = test[:, 0]
         y_true = test_y
-        test_X = ss.fit_transform(test_X)
+        # test_X = ss.fit_transform(test_X)
         test_y = np_utils.to_categorical(test_y, 2)
 
         utils.print_info("Building baseline model")
         "neural network"
         init = initializers.glorot_uniform(seed=1)
         model = Sequential()
-        model.add(Dense(800, input_dim=20, kernel_initializer=init, activation='relu'))
+        model.add(Dense(800, input_dim=30, kernel_initializer=init, activation='relu'))
         model.add(Dropout(0.2))
         model.add(Dense(units=400, kernel_initializer=init, activation='relu'))
         model.add(Dropout(0.2))
@@ -78,8 +79,6 @@ class Models:
         # save neural network
         model.save(os.path.join(os.getcwd(), 'MODELS', 'FNN_baseline.h5'))
 
-
-
     def build_FNN(self):
         utils.print_info("Extracting Data.")
         ds = DataPreprocess()
@@ -91,14 +90,14 @@ class Models:
         train_X = train_set[:, 2:]
         train_y = train_set[:, 1]
         y_train = train_y
-        train_X  = ss.fit_transform(train_X)
+        # train_X  = ss.fit_transform(train_X)
         train_y = np_utils.to_categorical(train_y, 2)
 
         # testing data
         test_X = test_set[:, 2:]
         test_y = test_set[:, 1]
         y_test = test_y
-        test_X = ss.fit_transform(test_X)
+        # test_X = ss.fit_transform(test_X)
         test_y = np_utils.to_categorical(test_y, 2)
 
         # print(len(train_X[0]))
@@ -107,15 +106,15 @@ class Models:
 
         utils.print_info("Building model.")
 
-        "logistic regression"
-        clf = LogisticRegression(random_state=0)
-        clf.fit(train_X, y_train)
-        # predict the probability of each class
-        y_pred_prob = clf.predict_proba(test_X)
-        # predict class
-        y_pred = clf.predict(test_X)
-        print(clf.score(test_X, y_test))
-        # print(confusion_matrix(y_test, y_pred))
+
+        "Naive bayes"
+        gnb = GaussianNB()
+        gnb.fit(train_X, y_train)
+        y_pred_prob = gnb.predict_proba(test_X)
+        y_pred = gnb.predict(test_X)
+        print(y_pred_prob)
+        print("Naive bayes: ", gnb.score(test_X, y_test))
+        utils.save_pkl_model(gnb, 'NB', 'MODELS')
 
 
         "neural network"
@@ -139,21 +138,97 @@ class Models:
         percentage_pred = model.predict(test_X)
 
         # get the binary prediction of labels in integer format
-        # y_pred = np.argmax(model.predict(test_X), axis=-1)
-        # print(confusion_matrix(y_test, y_pred))
-
-        "combine two models"
-        y_final_pred_prob = self.combine_models(y_pred_prob, percentage_pred)
-        # print(y_final_pred_prob)
-        y_final_pred = np.argmax(y_final_pred_prob, axis=-1)
-        print(confusion_matrix(y_test, y_final_pred))
+        y_pred = np.argmax(percentage_pred, axis=-1)
+        print(confusion_matrix(y_test, y_pred))
 
         "save the model"
         utils.print_info("Saving model.")
         # save neural network
         model.save(os.path.join(os.getcwd(), 'MODELS', 'FNN.h5'))
+
+    def build_LR(self):
+
+        utils.print_info("Extracting Data.")
+        ds = DataPreprocess()
+        train_set = ds.get_train()
+        test_set = ds.get_test()
+
+        ss = StandardScaler()
+        # training data
+        train_X = train_set[:, 2:]
+        train_y = train_set[:, 1]
+        y_train = train_y
+        # train_X  = ss.fit_transform(train_X)
+        train_y = np_utils.to_categorical(train_y, 2)
+
+        # testing data
+        test_X = test_set[:, 2:]
+        test_y = test_set[:, 1]
+        y_test = test_y
+        # test_X = ss.fit_transform(test_X)
+        test_y = np_utils.to_categorical(test_y, 2)
+
+        # print(len(train_X[0]))
+        # exit()
+        # print(len(train_y))
+
+        utils.print_info("Building model.")
+
+        "logistic regression"
+        clf = LogisticRegression(random_state=0)
+        clf.fit(train_X, y_train)
+        # predict the probability of each class
+        y_pred_prob = clf.predict_proba(test_X)
+        # predict class
+        y_pred = clf.predict(test_X)
+        print("Logistic Regression: ", clf.score(test_X, y_test))
+        print(confusion_matrix(y_test, y_pred))
+
+        "save the model"
+        utils.print_info("Saving model.")
         # save LR
         utils.save_pkl_model(clf, 'LR', 'MODELS')
+
+    def build_GNB(self):
+
+        utils.print_info("Extracting Data.")
+        ds = DataPreprocess()
+        train_set = ds.get_train()
+        test_set = ds.get_test()
+
+        ss = StandardScaler()
+        # training data
+        train_X = train_set[:, 2:]
+        train_y = train_set[:, 1]
+        y_train = train_y
+        # train_X  = ss.fit_transform(train_X)
+        train_y = np_utils.to_categorical(train_y, 2)
+
+        # testing data
+        test_X = test_set[:, 2:]
+        test_y = test_set[:, 1]
+        y_test = test_y
+        # test_X = ss.fit_transform(test_X)
+        test_y = np_utils.to_categorical(test_y, 2)
+
+        # print(len(train_X[0]))
+        # exit()
+        # print(len(train_y))
+
+        utils.print_info("Building model.")
+
+        "Naive bayes"
+        gnb = GaussianNB()
+        gnb.fit(train_X, y_train)
+        y_pred_prob = gnb.predict_proba(test_X)
+        y_pred = gnb.predict(test_X)
+        print(y_pred_prob)
+        print("Naive bayes: ", gnb.score(test_X, y_test))
+
+        "save the model"
+        utils.print_info("Saving model.")
+        utils.save_pkl_model(gnb, 'NB', 'MODELS')
+
 
     def combine_models(self, LR_prob, NN_prob):
         '''
@@ -172,7 +247,7 @@ class Models:
 
 
 if __name__ == "__main__":
-    Models().baseline()
+    # Models().baseline()
     # Models().build_FNN()
-
-
+    # Models().build_LR()
+    Models().build_GNB()

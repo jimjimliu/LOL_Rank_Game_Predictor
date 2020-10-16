@@ -1754,6 +1754,7 @@ dict = {
 }
 
 
+
 chap = {"Aatrox":
             {
                 "version":"10.19.1",
@@ -1797,4 +1798,1939 @@ chap = {"Aatrox":
                         "attackspeed":0.651
                     }
             }
+}
+
+live_game = {
+    "gameId": 3612983235,
+    "mapId": 12,
+    "gameMode": "ARAM",
+    "gameType": "MATCHED_GAME",
+    "gameQueueConfigId": 450,
+    "participants": [
+        {
+            "teamId": 100,
+            "spell1Id": 21,
+            "spell2Id": 32,
+            "championId": 14,
+            "profileIconId": 4357,
+            "summonerName": "powerfulox",
+            "bot": false,
+            "summonerId": "w1G3c_C_efWJWywQy62z3HtQlsf8gkAvd9WmqFWk7_HnKLQ",
+            "gameCustomizationObjects": [],
+            "perks": {
+                "perkIds": [
+                    8437,
+                    8446,
+                    8444,
+                    8242,
+                    8410,
+                    8345,
+                    5005,
+                    5008,
+                    5003
+                ],
+                "perkStyle": 8400,
+                "perkSubStyle": 8300
+            }
+        },
+        {
+            "teamId": 100,
+            "spell1Id": 32,
+            "spell2Id": 4,
+            "championId": 202,
+            "profileIconId": 2076,
+            "summonerName": "skippydumptruck",
+            "bot": false,
+            "summonerId": "rfRiVqqBu1hOEmUQ3Pj_x-X_YotKvg0x0TrJZO8grMwCo7Q",
+            "gameCustomizationObjects": [],
+            "perks": {
+                "perkIds": [
+                    8021,
+                    9111,
+                    9103,
+                    8014,
+                    8139,
+                    8106,
+                    5005,
+                    5008,
+                    5002
+                ],
+                "perkStyle": 8000,
+                "perkSubStyle": 8100
+            }
+        },
+        {
+            "teamId": 100,
+            "spell1Id": 32,
+            "spell2Id": 4,
+            "championId": 57,
+            "profileIconId": 4597,
+            "summonerName": "Party Crash3r",
+            "bot": false,
+            "summonerId": "ThlLXDEUo4k2_H8Z1Z3YkdUrgHZgYMQuX8ZxzrUGPhbCUzA",
+            "gameCustomizationObjects": [],
+            "perks": {
+                "perkIds": [
+                    8437,
+                    8463,
+                    8444,
+                    8453,
+                    8126,
+                    8135,
+                    5008,
+                    5008,
+                    5003
+                ],
+                "perkStyle": 8400,
+                "perkSubStyle": 8100
+            }
+        },
+        {
+            "teamId": 100,
+            "spell1Id": 4,
+            "spell2Id": 13,
+            "championId": 101,
+            "profileIconId": 4673,
+            "summonerName": "ToxxicSushi",
+            "bot": false,
+            "summonerId": "-SpPmumrgXUtEtifD6gBy_XjcqBAioW-IFyOBfxkKCQZ-kA",
+            "gameCustomizationObjects": [],
+            "perks": {
+                "perkIds": [
+                    8229,
+                    8226,
+                    8210,
+                    8236,
+                    8009,
+                    8014,
+                    5008,
+                    5008,
+                    5003
+                ],
+                "perkStyle": 8200,
+                "perkSubStyle": 8000
+            }
+        },
+        {
+            "teamId": 100,
+            "spell1Id": 3,
+            "spell2Id": 4,
+            "championId": 245,
+            "profileIconId": 1642,
+            "summonerName": "BlackXDynamite",
+            "bot": false,
+            "summonerId": "6-R-lQ3RCTx6QwdDrEp84aT-1mVfO-ZlTpyUgZm5P9NAptI",
+            "gameCustomizationObjects": [],
+            "perks": {
+                "perkIds": [
+                    8128,
+                    8139,
+                    8138,
+                    8135,
+                    8446,
+                    8444,
+                    5008,
+                    5002,
+                    5001
+                ],
+                "perkStyle": 8100,
+                "perkSubStyle": 8400
+            }
+        },
+        {
+            "teamId": 200,
+            "spell1Id": 32,
+            "spell2Id": 4,
+            "championId": 41,
+            "profileIconId": 4661,
+            "summonerName": "DRX Enchovy",
+            "bot": false,
+            "summonerId": "S_OJc66sGKf1ejKM34c5oW-CNG4hZ-l_IEilA3TdAgKlCWs",
+            "gameCustomizationObjects": [],
+            "perks": {
+                "perkIds": [
+                    8010,
+                    8009,
+                    9104,
+                    8299,
+                    8275,
+                    8237,
+                    5007,
+                    5003,
+                    5003
+                ],
+                "perkStyle": 8000,
+                "perkSubStyle": 8200
+            }
+        },
+        {
+            "teamId": 200,
+            "spell1Id": 4,
+            "spell2Id": 13,
+            "championId": 34,
+            "profileIconId": 21,
+            "summonerName": "Carsnash",
+            "bot": false,
+            "summonerId": "xsz7U9h99SQGaOsutRlWXZ2VLHm3ZIxVaAahZkUfAZLNtbg",
+            "gameCustomizationObjects": [],
+            "perks": {
+                "perkIds": [
+                    8229,
+                    8226,
+                    8210,
+                    8236,
+                    8138,
+                    8105,
+                    5008,
+                    5008,
+                    5001
+                ],
+                "perkStyle": 8200,
+                "perkSubStyle": 8100
+            }
+        },
+        {
+            "teamId": 200,
+            "spell1Id": 4,
+            "spell2Id": 32,
+            "championId": 157,
+            "profileIconId": 4749,
+            "summonerName": "Empurress",
+            "bot": false,
+            "summonerId": "UfBAvMyqcj5TkfFKLq81YuzWUtn36MAx-XMJaGMg2wx9srI",
+            "gameCustomizationObjects": [],
+            "perks": {
+                "perkIds": [
+                    8128,
+                    8126,
+                    8138,
+                    8135,
+                    9111,
+                    8017,
+                    5005,
+                    5008,
+                    5002
+                ],
+                "perkStyle": 8100,
+                "perkSubStyle": 8000
+            }
+        },
+        {
+            "teamId": 200,
+            "spell1Id": 4,
+            "spell2Id": 21,
+            "championId": 161,
+            "profileIconId": 3838,
+            "summonerName": "ShadoxNinja",
+            "bot": false,
+            "summonerId": "AxFWomyWFlW_RLzcAiooOCZqUVXx6w0oWlS-bvu_3s0wibE",
+            "gameCustomizationObjects": [],
+            "perks": {
+                "perkIds": [
+                    8128,
+                    8126,
+                    8138,
+                    8106,
+                    8009,
+                    8014,
+                    5008,
+                    5008,
+                    5002
+                ],
+                "perkStyle": 8100,
+                "perkSubStyle": 8000
+            }
+        },
+        {
+            "teamId": 200,
+            "spell1Id": 7,
+            "spell2Id": 4,
+            "championId": 18,
+            "profileIconId": 4665,
+            "summonerName": "Six Cosmo",
+            "bot": false,
+            "summonerId": "X2PaKtrcRUZa27RWSjM3ahkTp979I-u51Bh4x1FUng_O-Mk",
+            "gameCustomizationObjects": [],
+            "perks": {
+                "perkIds": [
+                    8008,
+                    9111,
+                    9104,
+                    8014,
+                    8139,
+                    8135,
+                    5005,
+                    5008,
+                    5003
+                ],
+                "perkStyle": 8000,
+                "perkSubStyle": 8100
+            }
+        }
+    ],
+    "observers": {
+        "encryptionKey": "KLFzZ5yAmI3LxaiABdAz5s1eE/MlosBx"
+    },
+    "platformId": "NA1",
+    "bannedChampions": [],
+    "gameStartTime": 1602447180806,
+    "gameLength": 216
+}
+
+game_data = {
+	"activePlayer": {
+		"abilities": {
+			"E": {
+				"abilityLevel": 0,
+				"displayName": "Hawkshot",
+				"id": "AsheSpiritOfTheHawk",
+				"rawDescription": "GeneratedTip_Spell_AsheSpiritOfTheHawk_Description",
+				"rawDisplayName": "GeneratedTip_Spell_AsheSpiritOfTheHawk_DisplayName"
+			},
+			"Passive": {
+				"displayName": "Frost Shot",
+				"id": "AshePassive",
+				"rawDescription": "GeneratedTip_Passive_AshePassive_Description",
+				"rawDisplayName": "GeneratedTip_Passive_AshePassive_DisplayName"
+			},
+			"Q": {
+				"abilityLevel": 1,
+				"displayName": "Ranger's Focus",
+				"id": "AsheQ",
+				"rawDescription": "GeneratedTip_Spell_AsheQ_Description",
+				"rawDisplayName": "GeneratedTip_Spell_AsheQ_DisplayName"
+			},
+			"R": {
+				"abilityLevel": 0,
+				"displayName": "Enchanted Crystal Arrow",
+				"id": "EnchantedCrystalArrow",
+				"rawDescription": "GeneratedTip_Spell_EnchantedCrystalArrow_Description",
+				"rawDisplayName": "GeneratedTip_Spell_EnchantedCrystalArrow_DisplayName"
+			},
+			"W": {
+				"abilityLevel": 3,
+				"displayName": "Volley",
+				"id": "Volley",
+				"rawDescription": "GeneratedTip_Spell_Volley_Description",
+				"rawDisplayName": "GeneratedTip_Spell_Volley_DisplayName"
+			}
+		},
+		"championStats": {
+			"abilityPower": 0.0,
+			"armor": 36.50600051879883,
+			"armorPenetrationFlat": 0.0,
+			"armorPenetrationPercent": 1.0,
+			"attackDamage": 121.54640197753906,
+			"attackRange": 600.0,
+			"attackSpeed": 0.7915063500404358,
+			"bonusArmorPenetrationPercent": 1.0,
+			"bonusMagicPenetrationPercent": 1.0,
+			"cooldownReduction": 0.0,
+			"critChance": 0.0,
+			"critDamage": 100.0,
+			"currentHealth": 951.47705078125,
+			"healthRegenRate": 1.0399000644683838,
+			"lifeSteal": 0.029999999329447748,
+			"magicLethality": 0.0,
+			"magicPenetrationFlat": 0.0,
+			"magicPenetrationPercent": 1.0,
+			"magicResist": 31.545000076293947,
+			"maxHealth": 951.47705078125,
+			"moveSpeed": 325.0,
+			"physicalLethality": 0.0,
+			"resourceMax": 453.8800048828125,
+			"resourceRegenRate": 1.6416000127792359,
+			"resourceType": "MANA",
+			"resourceValue": 453.8800048828125,
+			"spellVamp": 0.0,
+			"tenacity": 0.0
+		},
+		"currentGold": 591.5318603515625,
+		"fullRunes": {
+			"generalRunes": [
+				{
+					"displayName": "Arcane Comet",
+					"id": 8229,
+					"rawDescription": "perk_tooltip_ArcaneComet",
+					"rawDisplayName": "perk_displayname_ArcaneComet"
+				},
+				{
+					"displayName": "Manaflow Band",
+					"id": 8226,
+					"rawDescription": "perk_tooltip_8226",
+					"rawDisplayName": "perk_displayname_8226"
+				},
+				{
+					"displayName": "Transcendence",
+					"id": 8210,
+					"rawDescription": "perk_tooltip_Transcendence",
+					"rawDisplayName": "perk_displayname_Transcendence"
+				},
+				{
+					"displayName": "Waterwalking",
+					"id": 8232,
+					"rawDescription": "perk_tooltip_Waterwalking",
+					"rawDisplayName": "perk_displayname_Waterwalking"
+				},
+				{
+					"displayName": "Minion Dematerializer",
+					"id": 8316,
+					"rawDescription": "perk_tooltip_MinionDematerializer",
+					"rawDisplayName": "perk_displayname_MinionDematerializer"
+				},
+				{
+					"displayName": "Time Warp Tonic",
+					"id": 8352,
+					"rawDescription": "perk_tooltip_TimeWarpTonic",
+					"rawDisplayName": "perk_displayname_TimeWarpTonic"
+				}
+			],
+			"keystone": {
+				"displayName": "Arcane Comet",
+				"id": 8229,
+				"rawDescription": "perk_tooltip_ArcaneComet",
+				"rawDisplayName": "perk_displayname_ArcaneComet"
+			},
+			"primaryRuneTree": {
+				"displayName": "Sorcery",
+				"id": 8200,
+				"rawDescription": "perkstyle_tooltip_7202",
+				"rawDisplayName": "perkstyle_displayname_7202"
+			},
+			"secondaryRuneTree": {
+				"displayName": "Inspiration",
+				"id": 8300,
+				"rawDescription": "perkstyle_tooltip_7203",
+				"rawDisplayName": "perkstyle_displayname_7203"
+			},
+			"statRunes": [
+				{
+					"id": 5005,
+					"rawDescription": "perk_tooltip_StatModAttackSpeed"
+				},
+				{
+					"id": 5008,
+					"rawDescription": "perk_tooltip_StatModAdaptive"
+				},
+				{
+					"id": 5001,
+					"rawDescription": "perk_tooltip_StatModHealthScaling"
+				}
+			]
+		},
+		"level": 5,
+		"summonerName": "Jie Mo"
+	},
+	"allPlayers": [
+		{
+			"championName": "Ashe",
+			"isBot": false,
+			"isDead": false,
+			"items": [
+				{
+					"canUse": true,
+					"consumable": true,
+					"count": 3,
+					"displayName": "Minion Dematerializer",
+					"itemID": 2403,
+					"price": 0,
+					"rawDescription": "game_item_description_2403",
+					"rawDisplayName": "game_item_displayname_2403",
+					"slot": 0
+				},
+				{
+					"canUse": false,
+					"consumable": false,
+					"count": 1,
+					"displayName": "Doran's Blade",
+					"itemID": 1055,
+					"price": 450,
+					"rawDescription": "game_item_description_1055",
+					"rawDisplayName": "game_item_displayname_1055",
+					"slot": 1
+				},
+				{
+					"canUse": false,
+					"consumable": false,
+					"count": 1,
+					"displayName": "B. F. Sword",
+					"itemID": 1038,
+					"price": 1300,
+					"rawDescription": "game_item_description_1038",
+					"rawDisplayName": "game_item_displayname_1038",
+					"slot": 3
+				},
+				{
+					"canUse": true,
+					"consumable": false,
+					"count": 1,
+					"displayName": "Warding Totem (Trinket)",
+					"itemID": 3340,
+					"price": 0,
+					"rawDescription": "game_item_description_3340",
+					"rawDisplayName": "game_item_displayname_3340",
+					"slot": 6
+				}
+			],
+			"level": 5,
+			"position": "",
+			"rawChampionName": "game_character_displayname_Ashe",
+			"rawSkinName": "game_character_skin_displayname_Ashe_9",
+			"respawnTimer": 0.0,
+			"runes": {
+				"keystone": {
+					"displayName": "Arcane Comet",
+					"id": 8229,
+					"rawDescription": "perk_tooltip_ArcaneComet",
+					"rawDisplayName": "perk_displayname_ArcaneComet"
+				},
+				"primaryRuneTree": {
+					"displayName": "Sorcery",
+					"id": 8200,
+					"rawDescription": "perkstyle_tooltip_7202",
+					"rawDisplayName": "perkstyle_displayname_7202"
+				},
+				"secondaryRuneTree": {
+					"displayName": "Inspiration",
+					"id": 8300,
+					"rawDescription": "perkstyle_tooltip_7203",
+					"rawDisplayName": "perkstyle_displayname_7203"
+				}
+			},
+			"scores": {
+				"assists": 0,
+				"creepScore": 0,
+				"deaths": 1,
+				"kills": 2,
+				"wardScore": 0.0
+			},
+			"skinID": 9,
+			"skinName": "Championship Ashe",
+			"summonerName": "Jie Mo",
+			"summonerSpells": {
+				"summonerSpellOne": {
+					"displayName": "Flash",
+					"rawDescription": "GeneratedTip_SummonerSpell_SummonerFlash_Description",
+					"rawDisplayName": "GeneratedTip_SummonerSpell_SummonerFlash_DisplayName"
+				},
+				"summonerSpellTwo": {
+					"displayName": "Ignite",
+					"rawDescription": "GeneratedTip_SummonerSpell_SummonerDot_Description",
+					"rawDisplayName": "GeneratedTip_SummonerSpell_SummonerDot_DisplayName"
+				}
+			},
+			"team": "ORDER"
+		},
+		{
+			"championName": "Garen",
+			"isBot": true,
+			"isDead": false,
+			"items": [
+				{
+					"canUse": false,
+					"consumable": false,
+					"count": 1,
+					"displayName": "Doran's Shield",
+					"itemID": 1054,
+					"price": 450,
+					"rawDescription": "game_item_description_1054",
+					"rawDisplayName": "game_item_displayname_1054",
+					"slot": 0
+				},
+				{
+					"canUse": false,
+					"consumable": false,
+					"count": 1,
+					"displayName": "Boots of Speed",
+					"itemID": 1001,
+					"price": 300,
+					"rawDescription": "game_item_description_1001",
+					"rawDisplayName": "game_item_displayname_1001",
+					"slot": 1
+				},
+				{
+					"canUse": false,
+					"consumable": false,
+					"count": 1,
+					"displayName": "Ruby Crystal",
+					"itemID": 1028,
+					"price": 400,
+					"rawDescription": "game_item_description_1028",
+					"rawDisplayName": "game_item_displayname_1028",
+					"slot": 2
+				},
+				{
+					"canUse": false,
+					"consumable": false,
+					"count": 1,
+					"displayName": "Long Sword",
+					"itemID": 1036,
+					"price": 350,
+					"rawDescription": "game_item_description_1036",
+					"rawDisplayName": "game_item_displayname_1036",
+					"slot": 3
+				},
+				{
+					"canUse": true,
+					"consumable": true,
+					"count": 4,
+					"displayName": "Health Potion",
+					"itemID": 2003,
+					"price": 50,
+					"rawDescription": "game_item_description_2003",
+					"rawDisplayName": "game_item_displayname_2003",
+					"slot": 4
+				},
+				{
+					"canUse": true,
+					"consumable": false,
+					"count": 1,
+					"displayName": "Warding Totem (Trinket)",
+					"itemID": 3340,
+					"price": 0,
+					"rawDescription": "game_item_description_3340",
+					"rawDisplayName": "game_item_displayname_3340",
+					"slot": 6
+				}
+			],
+			"level": 7,
+			"position": "",
+			"rawChampionName": "game_character_displayname_Garen",
+			"respawnTimer": 0.0,
+			"runes": {
+				"keystone": {
+					"displayName": "Grasp of the Undying",
+					"id": 8437,
+					"rawDescription": "perk_tooltip_GraspOfTheUndying",
+					"rawDisplayName": "perk_displayname_GraspOfTheUndying"
+				},
+				"primaryRuneTree": {
+					"displayName": "Resolve",
+					"id": 8400,
+					"rawDescription": "perkstyle_tooltip_7204",
+					"rawDisplayName": "perkstyle_displayname_7204"
+				},
+				"secondaryRuneTree": {
+					"displayName": "Sorcery",
+					"id": 8200,
+					"rawDescription": "perkstyle_tooltip_7202",
+					"rawDisplayName": "perkstyle_displayname_7202"
+				}
+			},
+			"scores": {
+				"assists": 1,
+				"creepScore": 10,
+				"deaths": 0,
+				"kills": 0,
+				"wardScore": 0.0
+			},
+			"skinID": 0,
+			"summonerName": "Garen Bot",
+			"summonerSpells": {
+				"summonerSpellOne": {
+					"displayName": "Ghost",
+					"rawDescription": "GeneratedTip_SummonerSpell_SummonerHaste_Description",
+					"rawDisplayName": "GeneratedTip_SummonerSpell_SummonerHaste_DisplayName"
+				},
+				"summonerSpellTwo": {
+					"displayName": "Exhaust",
+					"rawDescription": "GeneratedTip_SummonerSpell_SummonerExhaust_Description",
+					"rawDisplayName": "GeneratedTip_SummonerSpell_SummonerExhaust_DisplayName"
+				}
+			},
+			"team": "ORDER"
+		},
+		{
+			"championName": "Lux",
+			"isBot": true,
+			"isDead": false,
+			"items": [
+				{
+					"canUse": false,
+					"consumable": false,
+					"count": 1,
+					"displayName": "Doran's Ring",
+					"itemID": 1056,
+					"price": 400,
+					"rawDescription": "game_item_description_1056",
+					"rawDisplayName": "game_item_displayname_1056",
+					"slot": 0
+				},
+				{
+					"canUse": false,
+					"consumable": false,
+					"count": 1,
+					"displayName": "Boots of Speed",
+					"itemID": 1001,
+					"price": 300,
+					"rawDescription": "game_item_description_1001",
+					"rawDisplayName": "game_item_displayname_1001",
+					"slot": 1
+				},
+				{
+					"canUse": false,
+					"consumable": false,
+					"count": 1,
+					"displayName": "Amplifying Tome",
+					"itemID": 1052,
+					"price": 435,
+					"rawDescription": "game_item_description_1052",
+					"rawDisplayName": "game_item_displayname_1052",
+					"slot": 2
+				},
+				{
+					"canUse": true,
+					"consumable": false,
+					"count": 1,
+					"displayName": "Warding Totem (Trinket)",
+					"itemID": 3340,
+					"price": 0,
+					"rawDescription": "game_item_description_3340",
+					"rawDisplayName": "game_item_displayname_3340",
+					"slot": 6
+				}
+			],
+			"level": 8,
+			"position": "",
+			"rawChampionName": "game_character_displayname_Lux",
+			"respawnTimer": 0.0,
+			"runes": {
+				"keystone": {
+					"displayName": "Arcane Comet",
+					"id": 8229,
+					"rawDescription": "perk_tooltip_ArcaneComet",
+					"rawDisplayName": "perk_displayname_ArcaneComet"
+				},
+				"primaryRuneTree": {
+					"displayName": "Sorcery",
+					"id": 8200,
+					"rawDescription": "perkstyle_tooltip_7202",
+					"rawDisplayName": "perkstyle_displayname_7202"
+				},
+				"secondaryRuneTree": {
+					"displayName": "Domination",
+					"id": 8100,
+					"rawDescription": "perkstyle_tooltip_7200",
+					"rawDisplayName": "perkstyle_displayname_7200"
+				}
+			},
+			"scores": {
+				"assists": 0,
+				"creepScore": 40,
+				"deaths": 0,
+				"kills": 1,
+				"wardScore": 0.0
+			},
+			"skinID": 0,
+			"summonerName": "Lux Bot",
+			"summonerSpells": {
+				"summonerSpellOne": {
+					"displayName": "Heal",
+					"rawDescription": "GeneratedTip_SummonerSpell_SummonerHeal_Description",
+					"rawDisplayName": "GeneratedTip_SummonerSpell_SummonerHeal_DisplayName"
+				},
+				"summonerSpellTwo": {
+					"displayName": "Exhaust",
+					"rawDescription": "GeneratedTip_SummonerSpell_SummonerExhaust_Description",
+					"rawDisplayName": "GeneratedTip_SummonerSpell_SummonerExhaust_DisplayName"
+				}
+			},
+			"team": "ORDER"
+		},
+		{
+			"championName": "Wukong",
+			"isBot": true,
+			"isDead": false,
+			"items": [
+				{
+					"canUse": false,
+					"consumable": false,
+					"count": 1,
+					"displayName": "Doran's Shield",
+					"itemID": 1054,
+					"price": 450,
+					"rawDescription": "game_item_description_1054",
+					"rawDisplayName": "game_item_displayname_1054",
+					"slot": 0
+				},
+				{
+					"canUse": false,
+					"consumable": false,
+					"count": 1,
+					"displayName": "Rejuvenation Bead",
+					"itemID": 1006,
+					"price": 150,
+					"rawDescription": "game_item_description_1006",
+					"rawDisplayName": "game_item_displayname_1006",
+					"slot": 1
+				},
+				{
+					"canUse": false,
+					"consumable": false,
+					"count": 1,
+					"displayName": "Long Sword",
+					"itemID": 1036,
+					"price": 350,
+					"rawDescription": "game_item_description_1036",
+					"rawDisplayName": "game_item_displayname_1036",
+					"slot": 2
+				},
+				{
+					"canUse": false,
+					"consumable": false,
+					"count": 1,
+					"displayName": "Long Sword",
+					"itemID": 1036,
+					"price": 350,
+					"rawDescription": "game_item_description_1036",
+					"rawDisplayName": "game_item_displayname_1036",
+					"slot": 3
+				},
+				{
+					"canUse": true,
+					"consumable": false,
+					"count": 1,
+					"displayName": "Warding Totem (Trinket)",
+					"itemID": 3340,
+					"price": 0,
+					"rawDescription": "game_item_description_3340",
+					"rawDisplayName": "game_item_displayname_3340",
+					"slot": 6
+				}
+			],
+			"level": 7,
+			"position": "",
+			"rawChampionName": "game_character_displayname_MonkeyKing",
+			"respawnTimer": 0.0,
+			"runes": {
+				"keystone": {
+					"displayName": "Grasp of the Undying",
+					"id": 8437,
+					"rawDescription": "perk_tooltip_GraspOfTheUndying",
+					"rawDisplayName": "perk_displayname_GraspOfTheUndying"
+				},
+				"primaryRuneTree": {
+					"displayName": "Resolve",
+					"id": 8400,
+					"rawDescription": "perkstyle_tooltip_7204",
+					"rawDisplayName": "perkstyle_displayname_7204"
+				},
+				"secondaryRuneTree": {
+					"displayName": "Sorcery",
+					"id": 8200,
+					"rawDescription": "perkstyle_tooltip_7202",
+					"rawDisplayName": "perkstyle_displayname_7202"
+				}
+			},
+			"scores": {
+				"assists": 0,
+				"creepScore": 40,
+				"deaths": 0,
+				"kills": 0,
+				"wardScore": 0.0
+			},
+			"skinID": 0,
+			"summonerName": "Wukong Bot",
+			"summonerSpells": {
+				"summonerSpellOne": {
+					"displayName": "Ghost",
+					"rawDescription": "GeneratedTip_SummonerSpell_SummonerHaste_Description",
+					"rawDisplayName": "GeneratedTip_SummonerSpell_SummonerHaste_DisplayName"
+				},
+				"summonerSpellTwo": {
+					"displayName": "Ignite",
+					"rawDescription": "GeneratedTip_SummonerSpell_SummonerDot_Description",
+					"rawDisplayName": "GeneratedTip_SummonerSpell_SummonerDot_DisplayName"
+				}
+			},
+			"team": "ORDER"
+		},
+		{
+			"championName": "Shen",
+			"isBot": true,
+			"isDead": false,
+			"items": [
+				{
+					"canUse": false,
+					"consumable": false,
+					"count": 1,
+					"displayName": "Doran's Shield",
+					"itemID": 1054,
+					"price": 450,
+					"rawDescription": "game_item_description_1054",
+					"rawDisplayName": "game_item_displayname_1054",
+					"slot": 0
+				},
+				{
+					"canUse": false,
+					"consumable": false,
+					"count": 1,
+					"displayName": "Boots of Speed",
+					"itemID": 1001,
+					"price": 300,
+					"rawDescription": "game_item_description_1001",
+					"rawDisplayName": "game_item_displayname_1001",
+					"slot": 1
+				},
+				{
+					"canUse": false,
+					"consumable": false,
+					"count": 1,
+					"displayName": "Bami's Cinder",
+					"itemID": 3751,
+					"price": 500,
+					"rawDescription": "game_item_description_3751",
+					"rawDisplayName": "game_item_displayname_3751",
+					"slot": 2
+				},
+				{
+					"canUse": true,
+					"consumable": true,
+					"count": 4,
+					"displayName": "Health Potion",
+					"itemID": 2003,
+					"price": 50,
+					"rawDescription": "game_item_description_2003",
+					"rawDisplayName": "game_item_displayname_2003",
+					"slot": 3
+				},
+				{
+					"canUse": true,
+					"consumable": false,
+					"count": 1,
+					"displayName": "Warding Totem (Trinket)",
+					"itemID": 3340,
+					"price": 0,
+					"rawDescription": "game_item_description_3340",
+					"rawDisplayName": "game_item_displayname_3340",
+					"slot": 6
+				}
+			],
+			"level": 6,
+			"position": "",
+			"rawChampionName": "game_character_displayname_Shen",
+			"respawnTimer": 0.0,
+			"runes": {
+				"keystone": {
+					"displayName": "Grasp of the Undying",
+					"id": 8437,
+					"rawDescription": "perk_tooltip_GraspOfTheUndying",
+					"rawDisplayName": "perk_displayname_GraspOfTheUndying"
+				},
+				"primaryRuneTree": {
+					"displayName": "Resolve",
+					"id": 8400,
+					"rawDescription": "perkstyle_tooltip_7204",
+					"rawDisplayName": "perkstyle_displayname_7204"
+				},
+				"secondaryRuneTree": {
+					"displayName": "Sorcery",
+					"id": 8200,
+					"rawDescription": "perkstyle_tooltip_7202",
+					"rawDisplayName": "perkstyle_displayname_7202"
+				}
+			},
+			"scores": {
+				"assists": 0,
+				"creepScore": 20,
+				"deaths": 1,
+				"kills": 0,
+				"wardScore": 0.0
+			},
+			"skinID": 0,
+			"summonerName": "Shen Bot",
+			"summonerSpells": {
+				"summonerSpellOne": {
+					"displayName": "Heal",
+					"rawDescription": "GeneratedTip_SummonerSpell_SummonerHeal_Description",
+					"rawDisplayName": "GeneratedTip_SummonerSpell_SummonerHeal_DisplayName"
+				},
+				"summonerSpellTwo": {
+					"displayName": "Ghost",
+					"rawDescription": "GeneratedTip_SummonerSpell_SummonerHaste_Description",
+					"rawDisplayName": "GeneratedTip_SummonerSpell_SummonerHaste_DisplayName"
+				}
+			},
+			"team": "CHAOS"
+		},
+		{
+			"championName": "Cassiopeia",
+			"isBot": true,
+			"isDead": false,
+			"items": [
+				{
+					"canUse": false,
+					"consumable": false,
+					"count": 1,
+					"displayName": "Doran's Ring",
+					"itemID": 1056,
+					"price": 400,
+					"rawDescription": "game_item_description_1056",
+					"rawDisplayName": "game_item_displayname_1056",
+					"slot": 0
+				},
+				{
+					"canUse": false,
+					"consumable": false,
+					"count": 1,
+					"displayName": "Tear of the Goddess",
+					"itemID": 3070,
+					"price": 375,
+					"rawDescription": "game_item_description_3070",
+					"rawDisplayName": "game_item_displayname_3070",
+					"slot": 1
+				},
+				{
+					"canUse": true,
+					"consumable": false,
+					"count": 1,
+					"displayName": "Warding Totem (Trinket)",
+					"itemID": 3340,
+					"price": 0,
+					"rawDescription": "game_item_description_3340",
+					"rawDisplayName": "game_item_displayname_3340",
+					"slot": 6
+				}
+			],
+			"level": 7,
+			"position": "",
+			"rawChampionName": "game_character_displayname_Cassiopeia",
+			"respawnTimer": 0.0,
+			"runes": {
+				"keystone": {
+					"displayName": "Arcane Comet",
+					"id": 8229,
+					"rawDescription": "perk_tooltip_ArcaneComet",
+					"rawDisplayName": "perk_displayname_ArcaneComet"
+				},
+				"primaryRuneTree": {
+					"displayName": "Sorcery",
+					"id": 8200,
+					"rawDescription": "perkstyle_tooltip_7202",
+					"rawDisplayName": "perkstyle_displayname_7202"
+				},
+				"secondaryRuneTree": {
+					"displayName": "Domination",
+					"id": 8100,
+					"rawDescription": "perkstyle_tooltip_7200",
+					"rawDisplayName": "perkstyle_displayname_7200"
+				}
+			},
+			"scores": {
+				"assists": 0,
+				"creepScore": 20,
+				"deaths": 1,
+				"kills": 0,
+				"wardScore": 0.0
+			},
+			"skinID": 0,
+			"summonerName": "Cassiopeia Bot",
+			"summonerSpells": {
+				"summonerSpellOne": {
+					"displayName": "Ignite",
+					"rawDescription": "GeneratedTip_SummonerSpell_SummonerDot_Description",
+					"rawDisplayName": "GeneratedTip_SummonerSpell_SummonerDot_DisplayName"
+				},
+				"summonerSpellTwo": {
+					"displayName": "Exhaust",
+					"rawDescription": "GeneratedTip_SummonerSpell_SummonerExhaust_Description",
+					"rawDisplayName": "GeneratedTip_SummonerSpell_SummonerExhaust_DisplayName"
+				}
+			},
+			"team": "CHAOS"
+		},
+		{
+			"championName": "Garen",
+			"isBot": true,
+			"isDead": false,
+			"items": [
+				{
+					"canUse": false,
+					"consumable": false,
+					"count": 1,
+					"displayName": "Doran's Shield",
+					"itemID": 1054,
+					"price": 450,
+					"rawDescription": "game_item_description_1054",
+					"rawDisplayName": "game_item_displayname_1054",
+					"slot": 0
+				},
+				{
+					"canUse": false,
+					"consumable": false,
+					"count": 1,
+					"displayName": "Boots of Speed",
+					"itemID": 1001,
+					"price": 300,
+					"rawDescription": "game_item_description_1001",
+					"rawDisplayName": "game_item_displayname_1001",
+					"slot": 1
+				},
+				{
+					"canUse": false,
+					"consumable": false,
+					"count": 1,
+					"displayName": "Ruby Crystal",
+					"itemID": 1028,
+					"price": 400,
+					"rawDescription": "game_item_description_1028",
+					"rawDisplayName": "game_item_displayname_1028",
+					"slot": 2
+				},
+				{
+					"canUse": false,
+					"consumable": false,
+					"count": 1,
+					"displayName": "Long Sword",
+					"itemID": 1036,
+					"price": 350,
+					"rawDescription": "game_item_description_1036",
+					"rawDisplayName": "game_item_displayname_1036",
+					"slot": 3
+				},
+				{
+					"canUse": true,
+					"consumable": true,
+					"count": 4,
+					"displayName": "Health Potion",
+					"itemID": 2003,
+					"price": 50,
+					"rawDescription": "game_item_description_2003",
+					"rawDisplayName": "game_item_displayname_2003",
+					"slot": 4
+				},
+				{
+					"canUse": true,
+					"consumable": false,
+					"count": 1,
+					"displayName": "Warding Totem (Trinket)",
+					"itemID": 3340,
+					"price": 0,
+					"rawDescription": "game_item_description_3340",
+					"rawDisplayName": "game_item_displayname_3340",
+					"slot": 6
+				}
+			],
+			"level": 8,
+			"position": "",
+			"rawChampionName": "game_character_displayname_Garen",
+			"respawnTimer": 0.0,
+			"runes": {
+				"keystone": {
+					"displayName": "Grasp of the Undying",
+					"id": 8437,
+					"rawDescription": "perk_tooltip_GraspOfTheUndying",
+					"rawDisplayName": "perk_displayname_GraspOfTheUndying"
+				},
+				"primaryRuneTree": {
+					"displayName": "Resolve",
+					"id": 8400,
+					"rawDescription": "perkstyle_tooltip_7204",
+					"rawDisplayName": "perkstyle_displayname_7204"
+				},
+				"secondaryRuneTree": {
+					"displayName": "Sorcery",
+					"id": 8200,
+					"rawDescription": "perkstyle_tooltip_7202",
+					"rawDisplayName": "perkstyle_displayname_7202"
+				}
+			},
+			"scores": {
+				"assists": 1,
+				"creepScore": 10,
+				"deaths": 0,
+				"kills": 0,
+				"wardScore": 0.0
+			},
+			"skinID": 0,
+			"summonerName": "Garen Bot",
+			"summonerSpells": {
+				"summonerSpellOne": {
+					"displayName": "Ghost",
+					"rawDescription": "GeneratedTip_SummonerSpell_SummonerHaste_Description",
+					"rawDisplayName": "GeneratedTip_SummonerSpell_SummonerHaste_DisplayName"
+				},
+				"summonerSpellTwo": {
+					"displayName": "Exhaust",
+					"rawDescription": "GeneratedTip_SummonerSpell_SummonerExhaust_Description",
+					"rawDisplayName": "GeneratedTip_SummonerSpell_SummonerExhaust_DisplayName"
+				}
+			},
+			"team": "CHAOS"
+		},
+		{
+			"championName": "Udyr",
+			"isBot": true,
+			"isDead": false,
+			"items": [
+				{
+					"canUse": false,
+					"consumable": false,
+					"count": 1,
+					"displayName": "Doran's Shield",
+					"itemID": 1054,
+					"price": 450,
+					"rawDescription": "game_item_description_1054",
+					"rawDisplayName": "game_item_displayname_1054",
+					"slot": 0
+				},
+				{
+					"canUse": true,
+					"consumable": false,
+					"count": 1,
+					"displayName": "Warding Totem (Trinket)",
+					"itemID": 3340,
+					"price": 0,
+					"rawDescription": "game_item_description_3340",
+					"rawDisplayName": "game_item_displayname_3340",
+					"slot": 6
+				}
+			],
+			"level": 6,
+			"position": "",
+			"rawChampionName": "game_character_displayname_Udyr",
+			"respawnTimer": 0.0,
+			"runes": {
+				"keystone": {
+					"displayName": "Grasp of the Undying",
+					"id": 8437,
+					"rawDescription": "perk_tooltip_GraspOfTheUndying",
+					"rawDisplayName": "perk_displayname_GraspOfTheUndying"
+				},
+				"primaryRuneTree": {
+					"displayName": "Resolve",
+					"id": 8400,
+					"rawDescription": "perkstyle_tooltip_7204",
+					"rawDisplayName": "perkstyle_displayname_7204"
+				},
+				"secondaryRuneTree": {
+					"displayName": "Sorcery",
+					"id": 8200,
+					"rawDescription": "perkstyle_tooltip_7202",
+					"rawDisplayName": "perkstyle_displayname_7202"
+				}
+			},
+			"scores": {
+				"assists": 0,
+				"creepScore": 20,
+				"deaths": 1,
+				"kills": 0,
+				"wardScore": 0.0
+			},
+			"skinID": 0,
+			"summonerName": "Udyr Bot",
+			"summonerSpells": {
+				"summonerSpellOne": {
+					"displayName": "Exhaust",
+					"rawDescription": "GeneratedTip_SummonerSpell_SummonerExhaust_Description",
+					"rawDisplayName": "GeneratedTip_SummonerSpell_SummonerExhaust_DisplayName"
+				},
+				"summonerSpellTwo": {
+					"displayName": "Ghost",
+					"rawDescription": "GeneratedTip_SummonerSpell_SummonerHaste_Description",
+					"rawDisplayName": "GeneratedTip_SummonerSpell_SummonerHaste_DisplayName"
+				}
+			},
+			"team": "CHAOS"
+		}
+	],
+	"events": {
+		"Events": [
+			{
+				"EventID": 0,
+				"EventName": "GameStart",
+				"EventTime": 0.01578008010983467
+			},
+			{
+				"EventID": 1,
+				"EventName": "MinionsSpawning",
+				"EventTime": 65.03929138183594
+			},
+			{
+				"Assisters": [
+					"Garen Bot"
+				],
+				"EventID": 2,
+				"EventName": "ChampionKill",
+				"EventTime": 202.1238555908203,
+				"KillerName": "Jie Mo",
+				"VictimName": "Udyr Bot"
+			},
+			{
+				"EventID": 3,
+				"EventName": "FirstBlood",
+				"EventTime": 202.1238555908203,
+				"Recipient": "Jie Mo"
+			},
+			{
+				"Assisters": [],
+				"EventID": 4,
+				"EventName": "ChampionKill",
+				"EventTime": 331.2433166503906,
+				"KillerName": "Minion_T200L0S06N0036",
+				"VictimName": "Jie Mo"
+			},
+			{
+				"Assisters": [],
+				"EventID": 5,
+				"EventName": "ChampionKill",
+				"EventTime": 547.48828125,
+				"KillerName": "Jie Mo",
+				"VictimName": "Shen Bot"
+			},
+			{
+				"Assisters": [],
+				"EventID": 6,
+				"EventName": "ChampionKill",
+				"EventTime": 571.3712158203125,
+				"KillerName": "Lux Bot",
+				"VictimName": "Cassiopeia Bot"
+			}
+		]
+	},
+	"gameData": {
+		"gameMode": "CLASSIC",
+		"gameTime": 597.7572021484375,
+		"mapName": "Map11",
+		"mapNumber": 11,
+		"mapTerrain": "Default"
+	}
+}
+
+stat = {
+"events": {
+		"Events": [
+			{
+				"EventID": 0,
+				"EventName": "GameStart",
+				"EventTime": 0.020999042317271234
+			},
+			{
+				"EventID": 1,
+				"EventName": "MinionsSpawning",
+				"EventTime": 65.01461791992188
+			},
+			{
+				"Assisters": [
+					"Dr. Mundo Bot"
+				],
+				"EventID": 2,
+				"EventName": "ChampionKill",
+				"EventTime": 187.4547119140625,
+				"KillerName": "Jie Mo",
+				"VictimName": "Tristana Bot"
+			},
+			{
+				"EventID": 3,
+				"EventName": "FirstBlood",
+				"EventTime": 187.4547119140625,
+				"Recipient": "Jie Mo"
+			},
+			{
+				"Assisters": [
+					"Dr. Mundo Bot"
+				],
+				"EventID": 4,
+				"EventName": "ChampionKill",
+				"EventTime": 191.54116821289063,
+				"KillerName": "Jie Mo",
+				"VictimName": "Nidalee Bot"
+			},
+			{
+				"EventID": 5,
+				"EventName": "Multikill",
+				"EventTime": 191.54116821289063,
+				"KillStreak": 2,
+				"KillerName": "Jie Mo"
+			},
+			{
+				"Assisters": [
+					"Dr. Mundo Bot"
+				],
+				"EventID": 6,
+				"EventName": "ChampionKill",
+				"EventTime": 333.77734375,
+				"KillerName": "Jie Mo",
+				"VictimName": "Tristana Bot"
+			},
+			{
+				"Assisters": [],
+				"EventID": 7,
+				"EventName": "ChampionKill",
+				"EventTime": 338.9407043457031,
+				"KillerName": "Jie Mo",
+				"VictimName": "Nidalee Bot"
+			},
+			{
+				"EventID": 8,
+				"EventName": "Multikill",
+				"EventTime": 338.9407043457031,
+				"KillStreak": 2,
+				"KillerName": "Jie Mo"
+			},
+			{
+				"Assisters": [],
+				"EventID": 9,
+				"EventName": "ChampionKill",
+				"EventTime": 441.81500244140627,
+				"KillerName": "Jie Mo",
+				"VictimName": "Cassiopeia Bot"
+			},
+			{
+				"Assisters": [],
+				"EventID": 10,
+				"EventName": "ChampionKill",
+				"EventTime": 505.43951416015627,
+				"KillerName": "Jie Mo",
+				"VictimName": "Shyvana Bot"
+			},
+			{
+				"Assisters": [
+					"Dr. Mundo Bot"
+				],
+				"EventID": 11,
+				"EventName": "ChampionKill",
+				"EventTime": 581.58203125,
+				"KillerName": "Jie Mo",
+				"VictimName": "Nidalee Bot"
+			},
+			{
+				"Assisters": [],
+				"EventID": 12,
+				"EventName": "ChampionKill",
+				"EventTime": 582.4017333984375,
+				"KillerName": "Jie Mo",
+				"VictimName": "Tristana Bot"
+			},
+			{
+				"EventID": 13,
+				"EventName": "Multikill",
+				"EventTime": 582.4017333984375,
+				"KillStreak": 2,
+				"KillerName": "Jie Mo"
+			},
+			{
+				"Assisters": [],
+				"DragonType": "Earth",
+				"EventID": 14,
+				"EventName": "DragonKill",
+				"EventTime": 626.2660522460938,
+				"KillerName": "Jie Mo",
+				"Stolen": "False"
+			},
+			{
+				"Assisters": [],
+				"EventID": 15,
+				"EventName": "ChampionKill",
+				"EventTime": 692.8955688476563,
+				"KillerName": "Jie Mo",
+				"VictimName": "Cassiopeia Bot"
+			},
+			{
+				"Assisters": [
+					"Tristana Bot"
+				],
+				"EventID": 16,
+				"EventName": "TurretKilled",
+				"EventTime": 694.5781860351563,
+				"KillerName": "Minion_T200L0S20N0124",
+				"TurretKilled": "Turret_T1_R_03_A"
+			},
+			{
+				"EventID": 17,
+				"EventName": "FirstBrick",
+				"EventTime": 694.5781860351563,
+				"KillerName": "Minion_T200L0S20N0124"
+			},
+			{
+				"Assisters": [],
+				"EventID": 18,
+				"EventName": "ChampionKill",
+				"EventTime": 709.3758544921875,
+				"KillerName": "Jie Mo",
+				"VictimName": "Cho'Gath Bot"
+			},
+			{
+				"Assisters": [],
+				"EventID": 19,
+				"EventName": "ChampionKill",
+				"EventTime": 738.6912841796875,
+				"KillerName": "Jie Mo",
+				"VictimName": "Nidalee Bot"
+			},
+			{
+				"Assisters": [],
+				"EventID": 20,
+				"EventName": "ChampionKill",
+				"EventTime": 766.9390869140625,
+				"KillerName": "Jie Mo",
+				"VictimName": "Shyvana Bot"
+			},
+			{
+				"Assisters": [],
+				"EventID": 21,
+				"EventName": "ChampionKill",
+				"EventTime": 820.633056640625,
+				"KillerName": "Jie Mo",
+				"VictimName": "Cho'Gath Bot"
+			},
+			{
+				"Assisters": [
+					"Nidalee Bot"
+				],
+				"EventID": 22,
+				"EventName": "ChampionKill",
+				"EventTime": 831.0128173828125,
+				"KillerName": "Tristana Bot",
+				"VictimName": "Dr. Mundo Bot"
+			},
+			{
+				"Assisters": [],
+				"EventID": 23,
+				"EventName": "ChampionKill",
+				"EventTime": 848.3796997070313,
+				"KillerName": "Jie Mo",
+				"VictimName": "Cassiopeia Bot"
+			},
+			{
+				"Assisters": [],
+				"EventID": 24,
+				"EventName": "ChampionKill",
+				"EventTime": 854.0007934570313,
+				"KillerName": "Jie Mo",
+				"VictimName": "Shyvana Bot"
+			},
+			{
+				"EventID": 25,
+				"EventName": "Multikill",
+				"EventTime": 854.0007934570313,
+				"KillStreak": 2,
+				"KillerName": "Jie Mo"
+			},
+			{
+				"Assisters": [],
+				"EventID": 26,
+				"EventName": "ChampionKill",
+				"EventTime": 896.6994018554688,
+				"KillerName": "Cho'Gath Bot",
+				"VictimName": "Sivir Bot"
+			},
+			{
+				"Assisters": [],
+				"EventID": 27,
+				"EventName": "ChampionKill",
+				"EventTime": 945.0379638671875,
+				"KillerName": "Jie Mo",
+				"VictimName": "Cassiopeia Bot"
+			},
+			{
+				"Assisters": [],
+				"EventID": 28,
+				"EventName": "ChampionKill",
+				"EventTime": 948.875732421875,
+				"KillerName": "Jie Mo",
+				"VictimName": "Shyvana Bot"
+			},
+			{
+				"EventID": 29,
+				"EventName": "Multikill",
+				"EventTime": 948.875732421875,
+				"KillStreak": 2,
+				"KillerName": "Jie Mo"
+			},
+			{
+				"Assisters": [],
+				"EventID": 30,
+				"EventName": "HeraldKill",
+				"EventTime": 992.5236206054688,
+				"KillerName": "Jie Mo",
+				"Stolen": "False"
+			},
+			{
+				"Assisters": [],
+				"EventID": 31,
+				"EventName": "ChampionKill",
+				"EventTime": 1013.5665893554688,
+				"KillerName": "Jie Mo",
+				"VictimName": "Cassiopeia Bot"
+			},
+			{
+				"Assisters": [],
+				"EventID": 32,
+				"EventName": "TurretKilled",
+				"EventTime": 1022.7311401367188,
+				"KillerName": "Minion_T100L2S31N0196",
+				"TurretKilled": "Turret_T2_L_03_A"
+			},
+			{
+				"Assisters": [],
+				"EventID": 33,
+				"EventName": "ChampionKill",
+				"EventTime": 1044.9327392578126,
+				"KillerName": "Jie Mo",
+				"VictimName": "Nidalee Bot"
+			},
+			{
+				"Assisters": [],
+				"EventID": 34,
+				"EventName": "ChampionKill",
+				"EventTime": 1048.99267578125,
+				"KillerName": "Jie Mo",
+				"VictimName": "Tristana Bot"
+			},
+			{
+				"EventID": 35,
+				"EventName": "Multikill",
+				"EventTime": 1048.99267578125,
+				"KillStreak": 2,
+				"KillerName": "Jie Mo"
+			},
+			{
+				"Assisters": [],
+				"EventID": 36,
+				"EventName": "ChampionKill",
+				"EventTime": 1049.6827392578126,
+				"KillerName": "Cho'Gath Bot",
+				"VictimName": "Sivir Bot"
+			},
+			{
+				"Assisters": [],
+				"DragonType": "Fire",
+				"EventID": 37,
+				"EventName": "DragonKill",
+				"EventTime": 1075.6241455078126,
+				"KillerName": "Jie Mo",
+				"Stolen": "False"
+			},
+			{
+				"Assisters": [
+					"Cassiopeia Bot"
+				],
+				"EventID": 38,
+				"EventName": "TurretKilled",
+				"EventTime": 1098.3465576171876,
+				"KillerName": "Minion_T200L1S34N0213",
+				"TurretKilled": "Turret_T1_C_05_A"
+			},
+			{
+				"Assisters": [],
+				"EventID": 39,
+				"EventName": "TurretKilled",
+				"EventTime": 1099.328369140625,
+				"KillerName": "Jie Mo",
+				"TurretKilled": "Turret_T2_R_03_A"
+			},
+			{
+				"Assisters": [],
+				"EventID": 40,
+				"EventName": "ChampionKill",
+				"EventTime": 1117.6368408203126,
+				"KillerName": "Jie Mo",
+				"VictimName": "Cho'Gath Bot"
+			},
+			{
+				"Assisters": [
+					"Shyvana Bot"
+				],
+				"EventID": 41,
+				"EventName": "ChampionKill",
+				"EventTime": 1144.5989990234376,
+				"KillerName": "Cassiopeia Bot",
+				"VictimName": "Jie Mo"
+			},
+			{
+				"Assisters": [],
+				"EventID": 42,
+				"EventName": "ChampionKill",
+				"EventTime": 1163.109619140625,
+				"KillerName": "Cassiopeia Bot",
+				"VictimName": "Sivir Bot"
+			},
+			{
+				"Assisters": [],
+				"EventID": 43,
+				"EventName": "ChampionKill",
+				"EventTime": 1209.7437744140626,
+				"KillerName": "Jie Mo",
+				"VictimName": "Cassiopeia Bot"
+			},
+			{
+				"Assisters": [
+					"Dr. Mundo Bot"
+				],
+				"EventID": 44,
+				"EventName": "ChampionKill",
+				"EventTime": 1214.74951171875,
+				"KillerName": "Jie Mo",
+				"VictimName": "Shyvana Bot"
+			},
+			{
+				"EventID": 45,
+				"EventName": "Multikill",
+				"EventTime": 1214.74951171875,
+				"KillStreak": 2,
+				"KillerName": "Jie Mo"
+			},
+			{
+				"Assisters": [
+					"Dr. Mundo Bot",
+					"Sivir Bot"
+				],
+				"EventID": 46,
+				"EventName": "ChampionKill",
+				"EventTime": 1221.4595947265626,
+				"KillerName": "Jie Mo",
+				"VictimName": "Nidalee Bot"
+			},
+			{
+				"EventID": 47,
+				"EventName": "Multikill",
+				"EventTime": 1221.4595947265626,
+				"KillStreak": 3,
+				"KillerName": "Jie Mo"
+			},
+			{
+				"Assisters": [],
+				"EventID": 48,
+				"EventName": "TurretKilled",
+				"EventTime": 1279.6527099609376,
+				"KillerName": "Tristana Bot",
+				"TurretKilled": "Turret_T1_R_02_A"
+			},
+			{
+				"Assisters": [],
+				"EventID": 49,
+				"EventName": "TurretKilled",
+				"EventTime": 1305.1373291015626,
+				"KillerName": "Dr. Mundo Bot",
+				"TurretKilled": "Turret_T2_C_05_A"
+			},
+			{
+				"Assisters": [],
+				"EventID": 50,
+				"EventName": "ChampionKill",
+				"EventTime": 1305.3673095703126,
+				"KillerName": "Jie Mo",
+				"VictimName": "Tristana Bot"
+			},
+			{
+				"Assisters": [
+					"Sivir Bot"
+				],
+				"EventID": 51,
+				"EventName": "ChampionKill",
+				"EventTime": 1337.4896240234376,
+				"KillerName": "Jie Mo",
+				"VictimName": "Nidalee Bot"
+			},
+			{
+				"Assisters": [],
+				"EventID": 52,
+				"EventName": "ChampionKill",
+				"EventTime": 1340.8819580078126,
+				"KillerName": "Jie Mo",
+				"VictimName": "Shyvana Bot"
+			},
+			{
+				"EventID": 53,
+				"EventName": "Multikill",
+				"EventTime": 1340.8819580078126,
+				"KillStreak": 2,
+				"KillerName": "Jie Mo"
+			},
+			{
+				"Assisters": [],
+				"EventID": 54,
+				"EventName": "ChampionKill",
+				"EventTime": 1352.122314453125,
+				"KillerName": "Jie Mo",
+				"VictimName": "Cassiopeia Bot"
+			},
+			{
+				"Assisters": [],
+				"EventID": 55,
+				"EventName": "ChampionKill",
+				"EventTime": 1361.59228515625,
+				"KillerName": "Jie Mo",
+				"VictimName": "Cho'Gath Bot"
+			},
+			{
+				"EventID": 56,
+				"EventName": "Multikill",
+				"EventTime": 1361.59228515625,
+				"KillStreak": 2,
+				"KillerName": "Jie Mo"
+			},
+			{
+				"Assisters": [],
+				"EventID": 57,
+				"EventName": "ChampionKill",
+				"EventTime": 1384.001953125,
+				"KillerName": "Jie Mo",
+				"VictimName": "Tristana Bot"
+			},
+			{
+				"Assisters": [
+					"Tristana Bot"
+				],
+				"DragonType": "Water",
+				"EventID": 58,
+				"EventName": "DragonKill",
+				"EventTime": 1390.744873046875,
+				"KillerName": "Jie Mo",
+				"Stolen": "False"
+			},
+			{
+				"Assisters": [
+					"Dr. Mundo Bot"
+				],
+				"EventID": 59,
+				"EventName": "ChampionKill",
+				"EventTime": 1436.4739990234376,
+				"KillerName": "Jie Mo",
+				"VictimName": "Nidalee Bot"
+			},
+			{
+				"Assisters": [],
+				"EventID": 60,
+				"EventName": "TurretKilled",
+				"EventTime": 1442.9156494140626,
+				"KillerName": "Minion_T100L2S45N0287",
+				"TurretKilled": "Turret_T2_L_02_A"
+			},
+			{
+				"Assisters": [],
+				"EventID": 61,
+				"EventName": "TurretKilled",
+				"EventTime": 1447.6162109375,
+				"KillerName": "Minion_T200L1S46N0290",
+				"TurretKilled": "Turret_T1_C_04_A"
+			},
+			{
+				"Assisters": [],
+				"EventID": 62,
+				"EventName": "ChampionKill",
+				"EventTime": 1513.4937744140626,
+				"KillerName": "Tristana Bot",
+				"VictimName": "Sivir Bot"
+			},
+			{
+				"Assisters": [],
+				"EventID": 63,
+				"EventName": "ChampionKill",
+				"EventTime": 1529.154052734375,
+				"KillerName": "Jie Mo",
+				"VictimName": "Cho'Gath Bot"
+			},
+			{
+				"Assisters": [],
+				"EventID": 64,
+				"EventName": "ChampionKill",
+				"EventTime": 1530.7188720703126,
+				"KillerName": "Jie Mo",
+				"VictimName": "Shyvana Bot"
+			},
+			{
+				"EventID": 65,
+				"EventName": "Multikill",
+				"EventTime": 1530.7188720703126,
+				"KillStreak": 2,
+				"KillerName": "Jie Mo"
+			},
+			{
+				"Assisters": [
+					"Dr. Mundo Bot"
+				],
+				"EventID": 66,
+				"EventName": "ChampionKill",
+				"EventTime": 1531.5704345703126,
+				"KillerName": "Jie Mo",
+				"VictimName": "Tristana Bot"
+			},
+			{
+				"EventID": 67,
+				"EventName": "Multikill",
+				"EventTime": 1531.5704345703126,
+				"KillStreak": 3,
+				"KillerName": "Jie Mo"
+			},
+			{
+				"Assisters": [],
+				"EventID": 68,
+				"EventName": "ChampionKill",
+				"EventTime": 1535.53564453125,
+				"KillerName": "Jie Mo",
+				"VictimName": "Cassiopeia Bot"
+			},
+			{
+				"EventID": 69,
+				"EventName": "Multikill",
+				"EventTime": 1535.53564453125,
+				"KillStreak": 4,
+				"KillerName": "Jie Mo"
+			},
+			{
+				"Assisters": [
+					"Cho'Gath Bot",
+					"Cassiopeia Bot"
+				],
+				"EventID": 70,
+				"EventName": "ChampionKill",
+				"EventTime": 1612.34521484375,
+				"KillerName": "Tristana Bot",
+				"VictimName": "Dr. Mundo Bot"
+			},
+			{
+				"Assisters": [],
+				"EventID": 71,
+				"EventName": "BaronKill",
+				"EventTime": 1614.8720703125,
+				"KillerName": "Jie Mo",
+				"Stolen": "False"
+			},
+			{
+				"Assisters": [],
+				"EventID": 72,
+				"EventName": "ChampionKill",
+				"EventTime": 1640.839599609375,
+				"KillerName": "Jie Mo",
+				"VictimName": "Shyvana Bot"
+			},
+			{
+				"Assisters": [
+					"Dr. Mundo Bot"
+				],
+				"EventID": 73,
+				"EventName": "ChampionKill",
+				"EventTime": 1705.2442626953126,
+				"KillerName": "Sivir Bot",
+				"VictimName": "Cho'Gath Bot"
+			},
+			{
+				"Assisters": [],
+				"EventID": 74,
+				"EventName": "ChampionKill",
+				"EventTime": 1706.06640625,
+				"KillerName": "Jie Mo",
+				"VictimName": "Cassiopeia Bot"
+			},
+			{
+				"Assisters": [],
+				"EventID": 75,
+				"EventName": "TurretKilled",
+				"EventTime": 1713.138916015625,
+				"KillerName": "Minion_T100L2S54N0345",
+				"TurretKilled": "Turret_T2_L_01_A"
+			},
+			{
+				"Assisters": [],
+				"EventID": 76,
+				"EventName": "InhibKilled",
+				"EventTime": 1719.5855712890626,
+				"InhibKilled": "Barracks_T2_L1",
+				"KillerName": "Jie Mo"
+			}
+		]
+	},
+
 }
