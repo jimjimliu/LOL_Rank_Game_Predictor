@@ -1,1 +1,1 @@
-LOL_Match_Prediction/DATA/match_stat.csv filter=lfs diff=lfs merge=lfs -text
+DATA/match_stat.csv filter=lfs diff=lfs merge=lfs -text
