@@ -364,8 +364,8 @@ class Live_Game():
                     elif event['KillerName'] in team2_players:
                         team2_res['firstTower'] = 1
                     else:
-                        killer_name = event['KillerName'].split('_')[1][:4]
                         print(event['KillerName'])
+                        killer_name = event['KillerName'].split('_')[1][:4]
                         # T100 means team 100
                         if killer_name == 'T100':
                             team1_res['firstTower'] = 1
@@ -406,8 +406,8 @@ class Live_Game():
                     elif event['KillerName'] in team2_players:
                         team2_res['firstInhibitor'] = 1
                     else:
-                        killer_name = event['KillerName'].split('_')[1][:4]
                         print(event['KillerName'])
+                        killer_name = event['KillerName'].split('_')[1][:4]
                         # T100 means team 100
                         if killer_name == 'T100':
                             team1_res['firstTower'] = 1
@@ -420,8 +420,8 @@ class Live_Game():
                 elif event['KillerName'] in team2_players:
                     team2_res['inhibitorKills'] += 1
                 else:
-                    killer_name = event['KillerName'].split('_')[1][:4]
                     print(event['KillerName'])
+                    killer_name = event['KillerName'].split('_')[1][:4]
                     # T100 means team 100
                     if killer_name == 'T100':
                         team1_res['inhibitorKills'] += 1
