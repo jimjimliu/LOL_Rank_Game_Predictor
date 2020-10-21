@@ -254,51 +254,37 @@ def get_game_data():
 		team1_ban1, team1_ban2, team1_ban3,team1_ban4, team1_ban5,
 		team1_firstBlood, team1_firstTower, team1_firstInhibitor, team1_firstBaron, team1_firstDragon,team1_firstRiftHerald,
 		team1_towerKills, team1_inhibitorKills, team1_baronKills, team1_dragonKills,
+		(S1.kills+S2.kills+S3.kills+S4.kills+S5.kills) as team1_totalKills,
+		(S1.deaths+S2.deaths+S3.deaths+S4.deaths+S5.deaths) as team1_totalDeaths,
+		(S1.goldSpent+S2.goldSpent+S3.goldSpent+S4.goldSpent+S5.goldSpent) as team1_goldSpent,
 		
 		team2_champ1_championId, team2_champ2_championId, team2_champ3_championId, team2_champ4_championId,team2_champ5_championId,
 		team2_ban1, team2_ban2, team2_ban3,team2_ban4, team2_ban5,
 		team2_firstBlood, team2_firstTower, team2_firstInhibitor,team2_firstBaron, team2_firstDragon, team2_firstRiftHerald,
 		team2_towerKills, team2_inhibitorKills, team2_baronKills, team2_dragonKills,
+		(S6.kills+S7.kills+S8.kills+S9.kills+S10.kills) as team1_totalKills,
+		(S6.deaths+S7.deaths+S8.deaths+S9.deaths+S10.deaths) as team1_totalDeaths,
+		(S6.goldSpent+S7.goldSpent+S8.goldSpent+S9.goldSpent+S10.goldSpent) as team1_goldSpent,
         
-        S1.item0, S1.item1, S1.item2, S1.item3, S1.item4, S1.item5, S1.item6,
-        S1.kills, S1.deaths, S1.assists,
-        S1.doubleKills, S1.tripleKills, S1.quadraKills, S1.pentaKills, S1.totalMinionsKilled, S1.champLevel,
-    
-        S2.item0, S2.item1, S2.item2, S2.item3, S2.item4, S2.item5, S2.item6,
-        S2.kills, S2.deaths, S2.assists,
-        S2.doubleKills, S2.tripleKills, S2.quadraKills, S2.pentaKills, S2.totalMinionsKilled, S2.champLevel,
-    
-        S3.item0, S3.item1, S3.item2, S3.item3, S3.item4, S3.item5, S3.item6,
-        S3.kills, S3.deaths, S3.assists,
-        S3.doubleKills, S3.tripleKills, S3.quadraKills, S3.pentaKills, S3.totalMinionsKilled, S3.champLevel,
-    
-        S4.item0, S4.item1, S4.item2, S4.item3, S4.item4, S4.item5, S4.item6,
-        S4.kills, S4.deaths, S4.assists,
-        S4.doubleKills, S4.tripleKills, S4.quadraKills, S4.pentaKills, S4.totalMinionsKilled, S4.champLevel,
-    
-        S5.item0, S5.item1, S5.item2, S5.item3, S5.item4, S5.item5, S5.item6,
-        S5.kills, S5.deaths, S5.assists,
-        S5.doubleKills, S5.tripleKills, S5.quadraKills, S5.pentaKills, S5.totalMinionsKilled, S5.champLevel,
-    
-        S6.item0, S6.item1, S6.item2, S6.item3, S6.item4, S6.item5, S6.item6,
-        S6.kills, S6.deaths, S6.assists,
-         S6.doubleKills, S6.tripleKills, S6.quadraKills, S6.pentaKills, S6.totalMinionsKilled, S6.champLevel,
-    
-        S7.item0, S7.item1, S7.item2, S7.item3, S7.item4, S7.item5, S7.item6,
-        S7.kills, S7.deaths, S7.assists,
-        S7.doubleKills, S7.tripleKills, S7.quadraKills, S7.pentaKills, S7.totalMinionsKilled, S7.champLevel,
-    
-         S8.item0, S8.item1, S8.item2, S8.item3, S8.item4, S8.item5, S8.item6,
-        S8.kills, S8.deaths, S8.assists,
-         S8.doubleKills, S8.tripleKills, S8.quadraKills, S8.pentaKills, S8.totalMinionsKilled, S8.champLevel,
-    
-        S9.item0, S9.item1, S9.item2, S9.item3, S9.item4, S9.item5, S9.item6,
-        S9.kills, S9.deaths, S9.assists,
-         S9.doubleKills, S9.tripleKills, S9.quadraKills, S9.pentaKills, S9.totalMinionsKilled, S9.champLevel,
-    
-        S10.item0, S10.item1, S10.item2, S10.item3, S10.item4, S10.item5, S10.item6,
-        S10.kills, S10.deaths, S10.assists,
-        S10.doubleKills, S10.tripleKills, S10.quadraKills, S10.pentaKills, S10.totalMinionsKilled, S10.champLevel    
+        S1.doubleKills, S1.tripleKills, S1.quadraKills, S1.pentaKills,S1.champLevel,
+
+        S2.doubleKills, S2.tripleKills, S2.quadraKills, S2.pentaKills,S2.champLevel,
+
+        S3.doubleKills, S3.tripleKills, S3.quadraKills, S3.pentaKills,  S3.champLevel,
+
+        S4.doubleKills, S4.tripleKills, S4.quadraKills, S4.pentaKills,  S4.champLevel,
+
+        S5.doubleKills, S5.tripleKills, S5.quadraKills, S5.pentaKills,  S5.champLevel,
+
+         S6.doubleKills, S6.tripleKills, S6.quadraKills, S6.pentaKills,  S6.champLevel,
+
+        S7.doubleKills, S7.tripleKills, S7.quadraKills, S7.pentaKills,  S7.champLevel,
+
+         S8.doubleKills, S8.tripleKills, S8.quadraKills, S8.pentaKills,  S8.champLevel,
+
+         S9.doubleKills, S9.tripleKills, S9.quadraKills, S9.pentaKills,  S9.champLevel,
+
+        S10.doubleKills, S10.tripleKills, S10.quadraKills, S10.pentaKills,  S10.champLevel    
     from `match` M
     left join champ_game_stat S1 on team1_champ1_statId = S1.statId
     left join champ_game_stat S2 on team1_champ2_statId = S2.statId
@@ -322,7 +308,7 @@ def get_game_data():
 
 
 if __name__ =="__main__":
-    summoner_stats()
+    # summoner_stats()
     # missing_values("../DATA/all_champions.csv")
     # print(datetime.fromtimestamp(1601186435041/1000))
-    # get_game_data()
+    get_game_data()

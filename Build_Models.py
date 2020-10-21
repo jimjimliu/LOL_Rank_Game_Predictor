@@ -106,9 +106,9 @@ class Models:
         "neural network"
         init = initializers.glorot_uniform(seed=1)
         model = Sequential()
-        model.add(Dense(1500, input_dim=200, kernel_initializer=init,  activation='relu'))
+        model.add(Dense(500, input_dim=96, kernel_initializer=init,  activation='relu'))
         model.add(Dropout(0.2))
-        model.add(Dense(units=800, kernel_initializer=init, activation='relu'))
+        model.add(Dense(units=200, kernel_initializer=init, activation='relu'))
         model.add(Dropout(0.2))
         model.add(Dense(units=100, kernel_initializer=init, activation='relu'))
         model.add(Dropout(0.2))
@@ -208,31 +208,17 @@ class Models:
         gnb.fit(train_X, y_train)
         y_pred_prob = gnb.predict_proba(test_X)
         y_pred = gnb.predict(test_X)
-        print(y_pred_prob)
+        # print(y_pred_prob)
         print("Naive bayes: ", gnb.score(test_X, y_test))
 
         "save the model"
         utils.print_info("Saving model.")
         utils.save_pkl_model(gnb, 'NB', 'MODELS')
 
-    def combine_models(self, LR_prob, NN_prob):
-        '''
-            combine the result prediction of two models.
-
-        :param LR_prob:
-            (np array)
-        :param NN_prob:
-            (np array)
-        :return:
-            (np array)
-        '''
-
-        return np.divide(np.add(LR_prob, NN_prob), 2)
-
 
 
 if __name__ == "__main__":
     # Models().baseline()
-    # Models().build_FNN()
+    Models().build_FNN()
     Models().build_LR()
     # Models().build_GNB()

@@ -10,6 +10,7 @@ import urllib3
 import pandas as pd
 import numpy as np
 from OPGG_crawler import OPGG
+from copy import deepcopy
 
 class Live_Game():
 
@@ -111,13 +112,13 @@ class Live_Game():
         '''get champions game stats'''
         final_stat_result = self.__get_champions_stats(content, team_info)
 
-        # for item in team1_res.items():
-        #     print(item)
-        # print()
-        # for item in team2_res.items():
-        #     print(item)
-        # for item in final_stat_result.items():
-        #     print(item)
+        for item in team1_res.items():
+            print(item)
+        print()
+        for item in team2_res.items():
+            print(item)
+        for item in final_stat_result.items():
+            print(item)
 
         '''
             formulating the final feature set.
@@ -146,16 +147,19 @@ class Live_Game():
 
         # champion data in all_champions.csv
         champions = self.__champions
+        team1_champs, team2_champs = deepcopy(team1), deepcopy(team2)
 
         playerlist = content_json['allPlayers']
 
         team1_players, team2_players = set(), set()
         for item in playerlist:
             champion_key = champions.loc[champions['name'] == item['championName']]['key'].to_numpy()[0]
-            if champion_key in team1:
+            if champion_key in team1_champs:
                 team1_players.add(item['summonerName'])
-            if champion_key in team2:
+                team1_champs.pop(team1_champs.index(champion_key))
+            if champion_key in team2_champs:
                 team2_players.add(item['summonerName'])
+                team2_champs.pop(team2_champs.index(champion_key))
 
 
         return list(team1_players), list(team2_players)
@@ -194,7 +198,10 @@ class Live_Game():
             'towerKills': 0,
             'inhibitorKills': 0,
             'baronKills': 0,
-            'dragonKills': 0
+            'dragonKills': 0,
+            'totalKills': 0,
+            'totalDeaths': 0,
+            'totalGold': 0
         }
         team2_res = {
             'champ1_championId': 0,
@@ -216,7 +223,10 @@ class Live_Game():
             'towerKills': 0,
             'inhibitorKills': 0,
             'baronKills': 0,
-            'dragonKills': 0
+            'dragonKills': 0,
+            'totalKills': 0,
+            'totalDeaths': 0,
+            'totalGold': 0
         }
 
         "-----------------------------------get active game data----------------------------------------"
@@ -232,6 +242,13 @@ class Live_Game():
         for i in range(len(team1_ban)):
             team1_res['ban' + str(i + 1)] = team1_ban[i]
             team2_res['ban' + str(i + 1)] = team2_ban[i]
+
+        # get team total kills
+        team1_res['totalKills'], team2_res['totalKills'] = self.__team_totalKills(content_json,team1_champs, team2_champs)
+        # get team total deaths
+        team1_res['totalDeaths'], team2_res['totalDeaths'] = self.__team_totalDeaths(content_json,team1_champs, team2_champs)
+        # get team total golds
+        team1_res['totalGold'], team2_res['totalGold'] = self.__team_totalGold(content_json,team1_champs, team2_champs)
 
 
         "-----------------------------------get game events----------------------------------------"
@@ -369,16 +386,17 @@ class Live_Game():
         champ_stat = {
             # 'spell1Id': 0,
             # 'spell2Id': 0,
-            'item0': 0,
-            'item1': 0,
-            'item2': 0,
-            'item3': 0,
-            'item4': 0,
-            'item5': 0,
-            'item6': 0,
-            'kills': 0,
-            'deaths': 0,
-            'assists': 0,
+            # 'item0': 0,
+            # 'item1': 0,
+            # 'item2': 0,
+            # 'item3': 0,
+            # 'item4': 0,
+            # 'item5': 0,
+            # 'item6': 0,
+            # 'kills': 0,
+            # 'deaths': 0,
+            # 'goldSpent': 0,
+            # 'assists': 0,
             # 'largestKillingSpree': 0,
             # 'largestMultiKill': 0,
             'doubleKills': 0,
@@ -393,9 +411,9 @@ class Live_Game():
             # 'goldEarned': 0,
             # 'turretKills': 0,
             # 'inhibitorKills': 0,
-            'totalMinionsKilled': 0,
+            # 'totalMinionsKilled': 0,
             'champLevel': 0,
-            # 'wards': 0
+            # 'wards': 0,
         }
 
         champions = self.__champions
@@ -408,15 +426,15 @@ class Live_Game():
             champion_key = champions.loc[champions['name'] == item['championName']]['key'].to_numpy()[0]
 
             # get items of each champion
-            for i in range(len(item['items'])):
-                champ_stat['item' + str(i)] = item['items'][i]['itemID']
+            # for i in range(len(item['items'])):
+            #     champ_stat['item' + str(i)] = item['items'][i]['itemID']
 
             # get scores
-            scores = item['scores']
-            champ_stat['kills'] = scores['kills']
-            champ_stat['deaths'] = scores['deaths']
-            champ_stat['assists'] = scores['assists']
-            champ_stat['totalMinionsKilled'] = scores['creepScore']
+            # scores = item['scores']
+            # champ_stat['kills'] = scores['kills']
+            # champ_stat['deaths'] = scores['deaths']
+            # champ_stat['assists'] = scores['assists']
+            # champ_stat['totalMinionsKilled'] = scores['creepScore']
 
             # level
             champ_stat['champLevel'] = item['level']
@@ -467,6 +485,50 @@ class Live_Game():
 
         result = team1_champs+team1_ban+team2_champs+team2_ban+win_rates
         return np.array(result)
+
+    def __team_totalKills(self, content_json, team1_champs, team2_champs):
+
+        team1_players, team2_players = self.__summoner_names(content_json, team1_champs, team2_champs)
+        team1_kills, team2_kills = 0, 0
+        all_players = content_json['allPlayers']
+        for item in all_players:
+            scores = item['scores']
+            if item['summonerName'] in team1_players:
+                team1_kills += scores['kills']
+            if item['summonerName'] in team2_players:
+                team2_kills += scores['kills']
+
+        return team1_kills, team2_kills
+
+    def __team_totalDeaths(self, content_json, team1_champs, team2_champs):
+
+        team1_players, team2_players = self.__summoner_names(content_json, team1_champs, team2_champs)
+        team1_deaths, team2_deaths = 0, 0
+        all_players = content_json['allPlayers']
+        for item in all_players:
+            scores = item['scores']
+            if item['summonerName'] in team1_players:
+                team1_deaths += scores['deaths']
+            if item['summonerName'] in team2_players:
+                team2_deaths += scores['deaths']
+
+        return team1_deaths, team2_deaths
+
+    def __team_totalGold(self, content_json, team1_champs, team2_champs):
+
+        team1_players, team2_players = self.__summoner_names(content_json, team1_champs, team2_champs)
+        team1_gold, team2_gold = 0, 0
+        all_players = content_json['allPlayers']
+        for player in all_players:
+            items = player['items']
+            if player['summonerName'] in team1_players:
+                for item in items:
+                    team1_gold += item['price']
+            if player['summonerName'] in team2_players:
+                for item in items:
+                    team2_gold += item['price']
+
+        return team1_gold, team2_gold
 
     def __get_multiple_kills(self, content, player_name):
         '''

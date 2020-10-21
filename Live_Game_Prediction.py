@@ -61,7 +61,8 @@ class GamePredict():
                 # predict every 1 minutes
                 time.sleep(60)
 
-            except:
+            except Exception as e:
+                print(e)
                 print("No Active Game Found for User {}.".format(self.player_name))
                 break
 
