@@ -29,29 +29,25 @@ class GamePredict():
 
 
         while True:
-            "get active game data"
-            game = Live_Game(self.player_name)
-            game_data, start_game_data = game.live_game()
 
-            # if there is data returned, means there is an active game on native machine
-            if len(game_data) != 0:
+            try:
+                "get active game data"
+                game = Live_Game(self.player_name)
+                game_data, game_lineup = game.live_game()
                 # print(game_data)
                 # print(len(game_data))
 
-                ss = StandardScaler()
-
-                # get game data after the game just started, contains champions and win rates
-                start_data = game.get_start_game_data(start_game_data)
+                # ss = StandardScaler()
                 # start_data = ss.fit_transform(start_data)
                 # game_data = ss.fit_transform(game_data)
 
                 NN_prob = NN_clf.predict(game_data)
                 LR_prob = LR_clf.predict_proba(game_data)
-                # BL_prob = BL_clf.predict(start_data)
+                # BL_prob = BL_clf.predict(game_lineup)
                 # GNB_prob = GNB_clf.predict_proba(game_data)
 
-                # print("Neural network: ", NN_prob)
-                # print("Logistic regression: ", LR_prob)
+                print("Neural network: ", NN_prob)
+                print("Logistic regression: ", LR_prob)
                 # print("baseline model: ", BL_prob)
                 # print("Naive bayes: ", GNB_prob)
 
@@ -62,13 +58,12 @@ class GamePredict():
                 blue_win_rate = round(final_pred[0][1], 4)
                 print("Blue team win rate: {}%".format(blue_win_rate*100))
                 print("Red team win rate: {}%".format(red_win_rate*100))
-                # predict every 5 minutes
-                time.sleep(300)
+                # predict every 1 minutes
+                time.sleep(60)
 
-            else:
+            except:
                 print("No Active Game Found for User {}.".format(self.player_name))
                 break
-
 
         return
 
