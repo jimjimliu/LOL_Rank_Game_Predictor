@@ -153,8 +153,8 @@ class Riot:
 
     def MATCH_V4(self):
         '''
-        select accounts from DB, 1000 summoners at a time.
-        Request 100 matchlist from each account.
+        Using accounts information stored in all_league_entry, request the most recent 20 ranked games for each summoner.
+        There are roughly 7220 summoners stored in all_league_entry.
         Store all the matchlist into match_list.csv.
 
         :return:

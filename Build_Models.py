@@ -44,25 +44,23 @@ class Models:
         "training data"
         train_X = train[:, 1:]
         train_y = train[:, 0]
-        # train_X = ss.fit_transform(train_X)
+        train_X = ss.fit_transform(train_X)
         train_y = np_utils.to_categorical(train_y, 2)
         "test data"
         test_X = test[:, 1:]
         test_y = test[:, 0]
         y_true = test_y
-        # test_X = ss.fit_transform(test_X)
+        test_X = ss.fit_transform(test_X)
         test_y = np_utils.to_categorical(test_y, 2)
 
         utils.print_info("Building baseline model")
         "neural network"
         init = initializers.glorot_uniform(seed=1)
         model = Sequential()
-        model.add(Dense(800, input_dim=30, kernel_initializer=init, activation='relu'))
-        model.add(Dropout(0.2))
-        model.add(Dense(units=400, kernel_initializer=init, activation='relu'))
-        model.add(Dropout(0.2))
-        model.add(Dense(units=100, kernel_initializer=init, activation='relu'))
-        model.add(Dropout(0.2))
+        model.add(Dense(60, input_dim=30, kernel_initializer=init, activation='relu'))
+        model.add(Dropout(0.1))
+        model.add(Dense(units=20, kernel_initializer=init, activation='relu'))
+        model.add(Dropout(0.1))
         model.add(Dense(units=2, kernel_initializer=init, activation='softmax'))
         model.compile(loss='categorical_crossentropy', optimizer=RMSprop(), metrics=['accuracy'])
         model.summary()
@@ -105,18 +103,6 @@ class Models:
         # print(len(train_y))
 
         utils.print_info("Building model.")
-
-
-        "Naive bayes"
-        gnb = GaussianNB()
-        gnb.fit(train_X, y_train)
-        y_pred_prob = gnb.predict_proba(test_X)
-        y_pred = gnb.predict(test_X)
-        print(y_pred_prob)
-        print("Naive bayes: ", gnb.score(test_X, y_test))
-        utils.save_pkl_model(gnb, 'NB', 'MODELS')
-
-
         "neural network"
         init = initializers.glorot_uniform(seed=1)
         model = Sequential()
@@ -229,7 +215,6 @@ class Models:
         utils.print_info("Saving model.")
         utils.save_pkl_model(gnb, 'NB', 'MODELS')
 
-
     def combine_models(self, LR_prob, NN_prob):
         '''
             combine the result prediction of two models.
@@ -249,5 +234,5 @@ class Models:
 if __name__ == "__main__":
     # Models().baseline()
     # Models().build_FNN()
-    # Models().build_LR()
-    Models().build_GNB()
+    Models().build_LR()
+    # Models().build_GNB()

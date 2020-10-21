@@ -322,7 +322,7 @@ def get_game_data():
 
 
 if __name__ =="__main__":
-    # summoner_stats()
+    summoner_stats()
     # missing_values("../DATA/all_champions.csv")
     # print(datetime.fromtimestamp(1601186435041/1000))
-    get_game_data()
+    # get_game_data()

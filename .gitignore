@@ -141,7 +141,7 @@ cython_debug/
 glove.6B.50d.txt
 
 Config/db_config.py
-Config/riot_config.py
+#Config/riot_config.py
 
 
 

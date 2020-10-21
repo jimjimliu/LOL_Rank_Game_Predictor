@@ -71,6 +71,8 @@ class DataPreprocess():
 
         # use target labels to uniformly split data set
         train, test = train_test_split(game_data, train_size=0.8, random_state=0,stratify=game_data[1])
+        print(len(train), len(test))
+        exit()
 
         # print(matches)
         # utils.missing_values(game_data)
@@ -123,4 +125,4 @@ class DataPreprocess():
         return self.__baseline_test
 
 if __name__ == '__main__':
-    DataPreprocess()
+    ds = DataPreprocess()
