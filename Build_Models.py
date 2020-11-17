@@ -22,6 +22,10 @@ import sys
 from six.moves import cPickle
 from keras import initializers
 from sklearn.naive_bayes import GaussianNB
+from sklearn.metrics import roc_curve, auc
+import tensorflow as tf
+import matplotlib.pyplot as plt
+from sklearn.metrics import f1_score
 
 class Models:
 
@@ -73,6 +77,7 @@ class Models:
         y_pred = np.argmax(y_prob, axis=-1)
         print(y_prob)
         print(confusion_matrix(y_true, y_pred))
+
 
         # save neural network
         model.save(os.path.join(os.getcwd(), 'MODELS', 'FNN_baseline.h5'))
@@ -126,6 +131,7 @@ class Models:
         # get the binary prediction of labels in integer format
         y_pred = np.argmax(percentage_pred, axis=-1)
         print(confusion_matrix(y_test, y_pred))
+
 
         "save the model"
         utils.print_info("Saving model.")
@@ -220,5 +226,5 @@ class Models:
 if __name__ == "__main__":
     # Models().baseline()
     Models().build_FNN()
-    Models().build_LR()
+    # Models().build_LR()
     # Models().build_GNB()

@@ -91,7 +91,7 @@ class Live_Game():
         '''
 
         try:
-            '''request for game information'''
+            '''request for game information of a summoner using encypted ID from RIOT API'''
             team_info = self.game_spectator()
             '''
             try to request local native API for active game data, can only return data when there is a game in local machine

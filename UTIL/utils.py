@@ -262,9 +262,9 @@ def get_game_data():
 		team2_ban1, team2_ban2, team2_ban3,team2_ban4, team2_ban5,
 		team2_firstBlood, team2_firstTower, team2_firstInhibitor,team2_firstBaron, team2_firstDragon, team2_firstRiftHerald,
 		team2_towerKills, team2_inhibitorKills, team2_baronKills, team2_dragonKills,
-		(S6.kills+S7.kills+S8.kills+S9.kills+S10.kills) as team1_totalKills,
-		(S6.deaths+S7.deaths+S8.deaths+S9.deaths+S10.deaths) as team1_totalDeaths,
-		(S6.goldSpent+S7.goldSpent+S8.goldSpent+S9.goldSpent+S10.goldSpent) as team1_goldSpent,
+		(S6.kills+S7.kills+S8.kills+S9.kills+S10.kills) as team2_totalKills,
+		(S6.deaths+S7.deaths+S8.deaths+S9.deaths+S10.deaths) as team2_totalDeaths,
+		(S6.goldSpent+S7.goldSpent+S8.goldSpent+S9.goldSpent+S10.goldSpent) as team2_goldSpent,
         
         S1.doubleKills, S1.tripleKills, S1.quadraKills, S1.pentaKills,S1.champLevel,
 

@@ -6,6 +6,8 @@ from sklearn.model_selection import train_test_split
 from copy import deepcopy
 from tqdm import tqdm
 from OPGG_crawler import OPGG
+import seaborn as sns
+import matplotlib.pyplot as plt
 
 
 class DataPreprocess():
