@@ -57,6 +57,8 @@ The system is a fully functioning AI agent to make a prediction of any active ra
 
 ### Sample Output
 
+> Once there is an active game on your local machine, you can start running the system. The system continuously makes predictions every 60 seconds while the game is in progress. For example, after a couple minutes after the game started, blue team got the first blood, and the winning probability of blue team increased to 55.97% from 48.94%. At the end, the blue team's winning probability was 24%, and indeed, the red team won.
+
 ```python
 users@MacBook-Pro LOL_Match_Prediction % python3 Live_Game_Prediction.py
 Blue team win rate: 48.94%

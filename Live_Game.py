@@ -112,13 +112,13 @@ class Live_Game():
         '''get champions game stats'''
         final_stat_result = self.__get_champions_stats(content, team_info)
 
-        for item in team1_res.items():
-            print(item)
-        print()
-        for item in team2_res.items():
-            print(item)
-        for item in final_stat_result.items():
-            print(item)
+        # for item in team1_res.items():
+        #     print(item)
+        # print()
+        # for item in team2_res.items():
+        #     print(item)
+        # for item in final_stat_result.items():
+        #     print(item)
 
         '''
             formulating the final feature set.
