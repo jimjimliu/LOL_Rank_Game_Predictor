@@ -226,5 +226,5 @@ class Models:
 if __name__ == "__main__":
     # Models().baseline()
     Models().build_FNN()
-    # Models().build_LR()
+    Models().build_LR()
     # Models().build_GNB()
