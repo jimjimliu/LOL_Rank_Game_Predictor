@@ -1,5 +1,5 @@
 <p align="center">
-<img src="https://github.com/jimjimliu/LOL_Match_Prediction/blob/master/img/Waterloo_Engineering_Logo_horiz_rgb.png" alt="fnc" width="70%"/>
+<img src="https://github.com/jimjimliu/LOL_Match_Prediction/blob/master/img/waterloo_engineering_logo_horiz_rgb.png" alt="fnc" width="70%"/>
 </p>
 <p align="center">
 <img src="https://github.com/jimjimliu/LOL_Match_Prediction/blob/master/img/lol.png" alt="fnc" width="70%"/>
