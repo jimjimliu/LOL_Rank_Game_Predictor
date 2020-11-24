@@ -19,9 +19,13 @@ The system is a fully functioning AI agent to make a prediction of any active ra
 
 ### Abstract
 
+###### Training Data
+
 > To build such a system, we've collected 235,487 player accounts  of all rank divisions. 7,220  accounts  were  randomly  selected.  Roughly  250 accounts were selected for each rank(i.e.  DiamondII) so that the data are evenly distributed along 24 ranks. 20 most recent ranked games are collected from each player’s account. The final data set contains 119,184 game instances. All the data were extracted from the APIs provided by RIOT company at https://developer.riotgames.com/apis. 
->
-> By using neural network and logistic regression, we reached a testing accuracy over 96%.  
+
+###### Models
+
+> By using neural network and logistic regression, we reached a testing accuracy over 96%. 
 
 ### To Run
 
