@@ -54,6 +54,7 @@ class GamePredict():
                 final_pred = np.divide(np.add(NN_prob, LR_prob), 2)
                 # print(final_pred)
 
+                print(time.strftime("%Y-%m-%d %H:%M:%S", time.localtime()) )
                 red_win_rate = round(final_pred[0][0], 4)
                 blue_win_rate = round(final_pred[0][1], 4)
                 print("Blue team win rate: {}%".format(blue_win_rate*100))
